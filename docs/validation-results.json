@@ -1,0 +1,75 @@
+{
+  "date": "2026-11-03",
+  "environment": {
+    "xcode": "27.0 (27A266a)",
+    "simulator": "iPhone 18 Pro, iOS 27.0, zh-Hans",
+    "deviceID": "017E6ED3-2980-43B9-B1E0-3033D432C0FE"
+  },
+  "tests": {
+    "LianAiCore": 38,
+    "hostedIntegration": 14,
+    "UITests": 20,
+    "newTotal": 72,
+    "unmodifiedKeyboardCoreBaseline": 1357
+  },
+  "results": {
+    "tests": "passedAcrossFullRegressionAndFinalVoiceVerification",
+    "debugSimulatorBuild": "passed",
+    "releaseArm64UnsignedBuild": "passed",
+    "realPayment": "notPerformed",
+    "physicalDevice": "notPerformed",
+    "liveAI": "notPerformed"
+  },
+  "resultBundle": ".build-artifacts/VoiceFinalVerification.xcresult",
+  "screenshots": {
+    "ios-models.png": "c950a804ae4a44c218e0f7a6dd1d6a92cb786544789b01b0a89172588e14fd52",
+    "ios-t9-candidates.png": "fda800cf0aa367167cbb6bc53d53643bf857a214e10d62c280168bb61b1f5a78",
+    "ios-home.png": "f1feda92199f5a211dc87a563ea6f20f5558c485462bc78b173073d26c234223",
+    "ios-reply.png": "a222a25a916a61eac228b4df3b392c06020159473a453117c31d7768a89bdc09",
+    "ios-settings.png": "c64943a674e66898f0cbb72849398df5bcf39208a86125a5b3ca9d6238793f46",
+    "ios-english.png": "81294da001382971e93fc5579279c0352444c496ad1634e2fe3e650be74836a4",
+    "ios-t9-commit.png": "0446724a4886f14ac409b18d742e1251b6d5e093b75a8d36c56497941a53aa32",
+    "ios-appearance.png": "49cc07b42f2213a5b81e4a9af8322b6d52449149feb459d55c5ecb4cb3ba4e2d",
+    "ios-polish-draft.png": "acbb73c05ee77b0b793d3c5f85bcce097145d181e56d6b667146999e63948deb",
+    "ios-subscription.png": "af0231177872edecb568079c371c1684206de0dbca403bde93f9c20ac99d9666"
+  },
+  "previousFirstPortTests": {
+    "LianAiCore": 23,
+    "RimeIntegrationTests": 4,
+    "UITests": 3,
+    "newTotal": 30,
+    "unmodifiedKeyboardCoreBaseline": 1357
+  },
+  "additionalResultBundles": [
+    ".build-artifacts/ParityTheme.xcresult",
+    ".build-artifacts/ParityKeyboardSafeArea.xcresult",
+    ".build-artifacts/CandidateReadabilityAfter.xcresult",
+    ".build-artifacts/AIButtonsVerified.xcresult",
+    ".build-artifacts/VoiceAndAIFullRegression.xcresult",
+    ".build-artifacts/VoiceFinalVerification.xcresult"
+  ],
+  "latestParityReport": "docs/parity-results.json",
+  "candidateReadability": "renderedContrastRegressionPassedAfterFix",
+  "aiButtonWorkflowReport": "docs/ai-button-results.json",
+  "voiceAndAIWorkflowReport": "docs/voice-ai-results.json",
+  "previousResultBundle": ".build-artifacts/ParityVerified.xcresult",
+  "fullRegressionBundle": ".build-artifacts/VoiceAndAIFullRegression.xcresult",
+  "laterFeatureCleanup": {
+    "date": "2026-11-03",
+    "report": "移除额外功能对照.md",
+    "results": "android-only-results.json",
+    "note": "手动回复草稿、草稿粘贴/清空、统一结果按钮、长文本滚动和主 App 单次录音工具已移除。本文档测试是相应历史版本的记录，当前功能及回归结果以清理报告为准。"
+  },
+  "laterPersistentVoiceUpdate": {
+    "date": "2026-11-04",
+    "report": "语音持续会话修复.md",
+    "results": "voice-persistent-results.json",
+    "note": "The previous 5-minute idle shutdown was removed; earlier source snapshots remain historical."
+  },
+  "laterPhysicalTypingFix": {
+    "date": "2026-11-04",
+    "report": "真机底部占位与输入流畅度修复.md",
+    "results": "typing-performance-results.json",
+    "note": "Removed footer cursor slider and reserved space, cached typing key grid, optimized lookup paths and fixed older-iOS deinit. Installed and launched on physical iPhone."
+  }
+}

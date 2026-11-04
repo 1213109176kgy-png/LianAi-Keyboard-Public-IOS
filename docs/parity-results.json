@@ -1,0 +1,412 @@
+{
+  "date": "2026-11-03",
+  "status": "localRegressionPassedWithPlatformAndExternalVerificationGaps",
+  "androidCommit": "212529fba1e2c4f49cb982564f6bd6ee870ab01a",
+  "androidVersion": "1.5.9 (39)",
+  "reachableMainPages": 16,
+  "emulators": {
+    "android": "Android 14 / independent userdata / 402dp width",
+    "ios": "iPhone 18 Pro / iOS 27.0 / zh-Hans"
+  },
+  "tests": {
+    "core": 38,
+    "hostedIntegration": 14,
+    "uiIncludingTheme": 20,
+    "distinctTotal": 72,
+    "status": "passedAcrossFullRegressionAndFinalVoiceVerification",
+    "resultBundles": {
+      "ParityVerified": {
+        "result": "Passed",
+        "totalTestCount": 12,
+        "passedTests": 12,
+        "failedTests": 0,
+        "skippedTests": 0,
+        "startTime": 1793695340.964,
+        "finishTime": 1793695561.106
+      },
+      "ParityTheme": {
+        "result": "Passed",
+        "totalTestCount": 1,
+        "passedTests": 1,
+        "failedTests": 0,
+        "skippedTests": 0,
+        "startTime": 1793695751.125,
+        "finishTime": 1793695781.514
+      },
+      "ParityKeyboardSafeArea": {
+        "result": "Passed",
+        "totalTestCount": 1,
+        "passedTests": 1,
+        "failedTests": 0,
+        "skippedTests": 0,
+        "startTime": 1793696098.068,
+        "finishTime": 1793696152.302
+      },
+      "CandidateReadabilityAfter": {
+        "result": "Passed",
+        "totalTestCount": 1,
+        "passedTests": 1,
+        "failedTests": 0,
+        "startTime": 1793703717.217,
+        "finishTime": 1793703774.942
+      },
+      "AIButtonsVerified": {
+        "result": "Passed",
+        "totalTestCount": 8,
+        "passedTests": 8,
+        "failedTests": 0,
+        "startTime": 1793705658.69,
+        "finishTime": 1793705908.879
+      },
+      "VoiceAndAIFullRegression": {
+        "devicesAndConfigurations": [
+          {
+            "device": {
+              "architecture": "arm64",
+              "deviceId": "E9D7621B-E90E-4631-BA09-C78DC069CEDE",
+              "deviceName": "LianAi AI 回归",
+              "modelName": "iPhone 18 Pro",
+              "osBuildNumber": "24A434",
+              "osVersion": "27.0",
+              "platform": "iOS Simulator"
+            },
+            "expectedFailures": 0,
+            "failedTests": 1,
+            "passedTests": 33,
+            "skippedTests": 0,
+            "testPlanConfiguration": {
+              "configurationId": "1",
+              "configurationName": "Test Scheme Action"
+            }
+          }
+        ],
+        "environmentDescription": "LianAiKeyboard · Built with macOS 27.0.1",
+        "expectedFailures": 0,
+        "failedTests": 1,
+        "finishTime": 1793711548.97,
+        "passedTests": 33,
+        "result": "Failed",
+        "runtimeWarnings": [
+          {
+            "issueType": "Runtime Warning",
+            "message": "    AVAudioSession_iOS.mm:978   This method can lead to UI unresponsiveness if called on the main thread. Consider using the asynchronous activate/deactivate API instead for calls from the main thread."
+          },
+          {
+            "issueType": "Runtime Warning",
+            "message": "    AVAudioSession_iOS.mm:978   This method can lead to UI unresponsiveness if called on the main thread. Consider using the asynchronous activate/deactivate API instead for calls from the main thread."
+          }
+        ],
+        "skippedTests": 0,
+        "startTime": 1793710682.547,
+        "statistics": [],
+        "testFailures": [
+          {
+            "failureText": "XCTAssertTrue failed",
+            "targetName": "LianAiKeyboardUITests",
+            "testIdentifier": 24,
+            "testIdentifierString": "KeyboardAIFlowTests/testLongPressSpaceTranscribesAndNeverOpensMainAppDialog()",
+            "testIdentifierURL": "test://com.apple.xcode/LianAiKeyboard/LianAiKeyboardUITests/KeyboardAIFlowTests/testLongPressSpaceTranscribesAndNeverOpensMainAppDialog",
+            "testName": "testLongPressSpaceTranscribesAndNeverOpensMainAppDialog()"
+          }
+        ],
+        "title": "Test - LianAiKeyboard",
+        "topInsights": [
+          {
+            "category": "Longest Test Runs",
+            "impact": "16% of duration",
+            "text": "1 longest test run with outlier durations exceeding 117.42s (three standard deviations)"
+          },
+          {
+            "category": "Longest Test Runs",
+            "impact": "49% of duration",
+            "text": "1 longest test run with outlier durations exceeding 0.56s (three standard deviations)"
+          }
+        ],
+        "totalTestCount": 34
+      },
+      "VoiceFinalVerification": {
+        "devicesAndConfigurations": [
+          {
+            "device": {
+              "architecture": "arm64",
+              "deviceId": "E9D7621B-E90E-4631-BA09-C78DC069CEDE",
+              "deviceName": "LianAi AI 回归",
+              "modelName": "iPhone 18 Pro",
+              "osBuildNumber": "24A434",
+              "osVersion": "27.0",
+              "platform": "iOS Simulator"
+            },
+            "expectedFailures": 0,
+            "failedTests": 0,
+            "passedTests": 20,
+            "skippedTests": 0,
+            "testPlanConfiguration": {
+              "configurationId": "1",
+              "configurationName": "Test Scheme Action"
+            }
+          }
+        ],
+        "environmentDescription": "LianAiKeyboard · Built with macOS 27.0.1",
+        "expectedFailures": 0,
+        "failedTests": 0,
+        "finishTime": 1793711926.497,
+        "passedTests": 20,
+        "result": "Passed",
+        "runtimeWarnings": [
+          {
+            "issueType": "Runtime Warning",
+            "message": "    AVAudioSession_iOS.mm:978   This method can lead to UI unresponsiveness if called on the main thread. Consider using the asynchronous activate/deactivate API instead for calls from the main thread."
+          },
+          {
+            "issueType": "Runtime Warning",
+            "message": "    AVAudioSession_iOS.mm:978   This method can lead to UI unresponsiveness if called on the main thread. Consider using the asynchronous activate/deactivate API instead for calls from the main thread."
+          }
+        ],
+        "skippedTests": 0,
+        "startTime": 1793711659.719,
+        "statistics": [],
+        "testFailures": [],
+        "title": "Test - LianAiKeyboard",
+        "topInsights": [
+          {
+            "category": "Longest Test Runs",
+            "impact": "51% of duration",
+            "text": "1 longest test run with outlier durations exceeding 0.56s (three standard deviations)"
+          }
+        ],
+        "totalTestCount": 20
+      }
+    }
+  },
+  "builds": {
+    "debugSimulator": "passed",
+    "releaseArm64Unsigned": "passed"
+  },
+  "checks": {
+    "literalIconAssets": "allPresent",
+    "sourceAndroidChanges": "none; pre-existing inventory MD preserved",
+    "payment": "Alipay WAP only"
+  },
+  "externalVerification": {
+    "liveAI": "notPerformed",
+    "realPayment": "notPerformed",
+    "physicalDevice": "notPerformed",
+    "optionalWanxiangDownload": "notPerformed",
+    "iOS18AndiPad": "notPerformed"
+  },
+  "knownPlatformDifferences": [
+    "keyboard voice requires explicit main-app session activation initially/after expiry; in-session controls stay in the keyboard",
+    "no global floating overlay",
+    "no public stable host bundle identification",
+    "no global clipboard copy timestamp",
+    "bounded host text replacement",
+    "system safe areas, native keyboard controls and font rendering"
+  ],
+  "knownImplementationLimits": [
+    "Chinese prediction tokenization uses fallback rather than Android Jieba",
+    "native Rime artifact version and all long-sentence ranking not identical",
+    "voice polishing final response is non-streaming",
+    "large prediction indexes not yet profiled on a physical device"
+  ],
+  "screenshots": {
+    "docs/parity/android/about.png": "cbe6b9c0ac178b6edccdbc21416faa5e9a9fca4bdacb8f7083fa279f61837d2b",
+    "docs/parity/android/auxiliary-scrolled.png": "b438c01265ed8102802b6da21de5f57fef51ad43ac2500b573b5cc81ad42e419",
+    "docs/parity/android/auxiliary.png": "427c80e9883f87199fbb96a1204a0aadf519a0c147be6ee723839aa3db2c7167",
+    "docs/parity/android/clipboard.png": "433c992c36e6b639663d79df4eca2fe8c842d48e08bd78f1acc4526d6e5b709e",
+    "docs/parity/android/data-scrolled.png": "d02a2215f3468a91d89aa9d4b2e3fedf303361f982e7467459fc655e070ae2c2",
+    "docs/parity/android/data.png": "d02a2215f3468a91d89aa9d4b2e3fedf303361f982e7467459fc655e070ae2c2",
+    "docs/parity/android/effects.png": "c892150f213def4e07a92570035a543fb17f2f2e7b4cf922cc90e3f318aa11ee",
+    "docs/parity/android/guide.png": "1687bdf745c6b6da1f0371ef03567bc827c3a865b04c4cc05f6755baa6ffb0e2",
+    "docs/parity/android/home.png": "7b063eff0d32850ed758f2974db951fdd2f18c6dea5a12da9272ac552a619e7f",
+    "docs/parity/android/keyboard-polish.png": "dad05c9810f56a5b127b9b8fe8cb03b0d015e5db7d3a19f86f6b366071b3000a",
+    "docs/parity/android/keyboard-reply.png": "23a80c327ab0705b16f0e041eaeb030f5addcfb6ddf8ec43cbfe26e114a7c37b",
+    "docs/parity/android/keyboard-t9.png": "d95a20a7dce4f87c7fd161fa403e6d4f97905a18048b110d6f8dc97babf783d2",
+    "docs/parity/android/layout.png": "0a224aef9ac4a99e11b8a3139d0c51ac83760224c2fcbd1dfd01e2cafd4ac861",
+    "docs/parity/android/management-scrolled.png": "69e1bfc534aa9cd8ad54caaf1bd199ec1a57ca3fd7618cb7faacff084d4669ef",
+    "docs/parity/android/management.png": "08a14551c3f737a940388a300a5bde424d46172dd8dd8308cbf9e16a29792e9c",
+    "docs/parity/android/models-scrolled.png": "8db9a4bf64acbcf4676ffd057401c8e151a7405b1f285309436840fc67cd85f0",
+    "docs/parity/android/models.png": "30731de52a52a38df5c703de50c12341334f8b2e66f7ed120ef3374edcc55876",
+    "docs/parity/android/optimize-scrolled.png": "e6ce8a8a0d23a3ab807bd24438cff911dcd40c89e8393d20b6b90fbd0a6b9d89",
+    "docs/parity/android/optimize.png": "d063abe7d393694e97aa448bf3f60d8905b1512c1568f89099d9962585415626",
+    "docs/parity/android/permissions.png": "dd628ea5b67696144e411c52dd8ca1d27e697e2d8ff495ec89d407037a270c14",
+    "docs/parity/android/profile.png": "c8b530559eefee0d6a4a6653fee3c4dda1c5275a6c8ed4b3f6278a76f04d7f42",
+    "docs/parity/android/settings.png": "77401fb83c57096d791fefd91c723a5577a44a77d493a015f8cf143dde06ebd9",
+    "docs/parity/android/subscription.png": "a7c5906f0cee2d16b665e008851efffdf1784b49dbcb68e6169a79325c5becdc",
+    "docs/parity/android/test.png": "e2886d828c3d96079531453804284674a6317fcb0a08f04ee85b0eafc1e74ac0",
+    "docs/parity/ios/about.png": "654b99fb7dc4335c6ec7512cbb49020b55618b34da7a442414306883ff820772",
+    "docs/parity/ios/ai-buttons/consent.png": "0ea0b549f316d6a8168e50016cca4c4516c4031dd898b3201cbc88a0ae72f5a0",
+    "docs/parity/ios/ai-buttons/polish-results.png": "959cdd1f85bbe796c902ea4ac9a93506cc23326182df88ef932510aaa8ce64d7",
+    "docs/parity/ios/ai-buttons/reply-results.png": "9005bd25215d3993fc8448961ce27c28722684d1430ac974ec2ad52092e0d4e9",
+    "docs/parity/ios/ai-buttons/screenshot-picker.png": "b76f51072c684aa712bb3ef74b3b614097264c91d8e9da5f172cb3c2b0c34221",
+    "docs/parity/ios/ai-buttons/service-error.png": "98830cb00b18b7bcad46afbef82286f1bfad3edb6a220b3a30440640bea64d2c",
+    "docs/parity/ios/ai-buttons/setup-fallback.png": "ec97b6b3643d7e27941524cb38e4080ad32cd13ad26058f10a5c4ddd778e1632",
+    "docs/parity/ios/ai-buttons/timeout.png": "ea05e7301c98c8b694f7de2470ea1ea65fba32f55d34f726bde0684c726b4c8c",
+    "docs/parity/ios/auxiliary.png": "2238ff0feb620247fe49671be63d792812e565e006cc3afcc7df52fb158f00db",
+    "docs/parity/ios/clipboard.png": "0d1d5edd5a4697928a06353be956adabb9a7e83542aea9c764ef5e44a44d4023",
+    "docs/parity/ios/data.png": "491beb0c25a19b75e6580eb06fd23ec97d8727d649ed8a3631dd38ce78405370",
+    "docs/parity/ios/effects.png": "9cb8366bba020c366b173314972d8f96c5f9ce485178d78690fbe291efcb5f00",
+    "docs/parity/ios/guide.png": "627d0d9a0a337cecd8dfb4f1c2a6435291baa900382b8a47aa6e1148adf9bbd7",
+    "docs/parity/ios/home.png": "f1feda92199f5a211dc87a563ea6f20f5558c485462bc78b173073d26c234223",
+    "docs/parity/ios/keyboard-dark.png": "298e1b254a76e57280323224b917422b05b026b307a75e1f53fdcc9f943cec28",
+    "docs/parity/ios/keyboard-emoji-2.png": "16aee67ee776025cc0f6d07673889d7ca6a0a819891ba34c417b7c7b6dfd66c1",
+    "docs/parity/ios/keyboard-english.png": "81294da001382971e93fc5579279c0352444c496ad1634e2fe3e650be74836a4",
+    "docs/parity/ios/keyboard-landscape.png": "06c5db42dfa58117761b7b5a6651259078fa565acde7d935cdbbe12e67749f1c",
+    "docs/parity/ios/keyboard-numbers.png": "27d0f795774732f268a178af69aa1be04ae56bb2c7a29b1b729cac4d5346d84e",
+    "docs/parity/ios/keyboard-polish-draft.png": "acbb73c05ee77b0b793d3c5f85bcce097145d181e56d6b667146999e63948deb",
+    "docs/parity/ios/keyboard-reply.png": "a222a25a916a61eac228b4df3b392c06020159473a453117c31d7768a89bdc09",
+    "docs/parity/ios/keyboard-symbols-3.png": "41569c83a35c804f43f5de7a6534f0a967995302d9032cc1afa1e2412cc8e80e",
+    "docs/parity/ios/keyboard-t9-candidates-before-blur-fix.png": "695dd47d10905ace5d75b454404b65a5751a05c5fbd5cded6517bc23645ba709",
+    "docs/parity/ios/keyboard-t9-candidates.png": "fda800cf0aa367167cbb6bc53d53643bf857a214e10d62c280168bb61b1f5a78",
+    "docs/parity/ios/keyboard-t9-commit.png": "0446724a4886f14ac409b18d742e1251b6d5e093b75a8d36c56497941a53aa32",
+    "docs/parity/ios/layout-dark.png": "f97d9258c138d502ee2cc523d58f92d244b38123c6e5bf5a7903d6fcaa983b9f",
+    "docs/parity/ios/layout-light.png": "72557516c9292f99f603e14690eccabee604b1824ac47d76f3a633efa60e8fad",
+    "docs/parity/ios/layout.png": "49cc07b42f2213a5b81e4a9af8322b6d52449149feb459d55c5ecb4cb3ba4e2d",
+    "docs/parity/ios/login-validation.png": "c6fc71d3e6d130400eeebaedec345ec3b6ddf06ffa205435f2a091218db8991a",
+    "docs/parity/ios/management.png": "e760eed6a53e7720eca23cb6fe443f0b813700595d579520e51b2c6440a18c7d",
+    "docs/parity/ios/models.png": "c950a804ae4a44c218e0f7a6dd1d6a92cb786544789b01b0a89172588e14fd52",
+    "docs/parity/ios/optimize.png": "7f32ac3296f235917f5b784e091a6fa32db7a6e9f380225ced7ebe6cf4b48c2b",
+    "docs/parity/ios/permissions.png": "4cc58d6f8d060a25389851d42e2048570645e41469eddf8afb7d2458d8f19a36",
+    "docs/parity/ios/profile.png": "b91b45ef228df83624c908103eef0991e799e8a20381a3ec8c15b80f339c20d9",
+    "docs/parity/ios/provider-chooser.png": "404e4742a1805dcb831c45aa114ca9ff4aa04af88dbdcf1c5fdb2d162e625247",
+    "docs/parity/ios/settings.png": "c64943a674e66898f0cbb72849398df5bcf39208a86125a5b3ca9d6238793f46",
+    "docs/parity/ios/startup-chooser.png": "be0aaaec447aa2ef3872eb861d479928a8d5151305b3778b7eac02791ef3a46b",
+    "docs/parity/ios/subscription.png": "af0231177872edecb568079c371c1684206de0dbca403bde93f9c20ac99d9666",
+    "docs/parity/ios/test.png": "38842f253f5f3889e2b001abe7188898721b9c9c52d7ef7017ec4756346fc185"
+  },
+  "implementationSourceSHA256": {
+    "App/AppModel.swift": "765a73a9a8c85a0e6a359408cf3fa86957d627b0434492ab077ccc38fb8b8833",
+    "App/Design.swift": "58cbb74e7ef4646499f2f832209c12c6d779b2b4f6cbd892fc0e954538eece8a",
+    "App/DictionaryManager.swift": "69cb343582319535747944a3fbf22903cee7f4e7f9ae5b50f2bdac51c7a50938",
+    "App/MainScreens.swift": "d9504c062bd7cd823a04c9a035a046ae7ddd826fb596c3bdb01b337daa77c33b",
+    "App/MediaDialog.swift": "aae43d776d1e77bdd1bfa4731224a9b0b86fb0d7ac501a27e26847f01b5e0f81",
+    "App/ModelScreen.swift": "dcf533ff7b5afbf2dbda0a7c9e07295dd74d851bea3d671645e99b65aa92b03c",
+    "App/RootView.swift": "5cc5c1614afccedffabfbc6a977f5dbf82a8ee2f3fc5e9ed7c691af0ae5a82d6",
+    "App/SettingsScreens.swift": "168443dd40235d74d4f4aff2be9d63eaeddbd3be9b66bbc192e60586881c82a2",
+    "App/SubscriptionScreen.swift": "2a2b8c94e4090a8744c84d2aabe166863686dbedd38141dce955c5537981d9e3",
+    "Keyboard/KeyboardViewController.swift": "c7c5e11ebfcd70719e445fb2d267c0afdc012a0807f7c6a1c5fed8fda9adb99c",
+    "Packages/LianAiCore/Sources/LianAiCore/APIClient.swift": "055a0a99b7e36346a7a87a699761abd23eef487ab9fb27d422576d3392e78458",
+    "Packages/LianAiCore/Sources/LianAiCore/KeyboardPalette.swift": "ce0a6a329f78793563ebd561256f89c27ac8a2cc53812817c53e1bebf0794309",
+    "Packages/LianAiCore/Sources/LianAiCore/Models.swift": "f13ff1770591c8eeb555e30373c13c70c894e80f44919dfe2890809f8bdbb0ee",
+    "Packages/LianAiCore/Sources/LianAiCore/OutputRules.swift": "57e0de300da754dad1c816b1254963c396c1903623edc674f1f095204e8ad678",
+    "Packages/LianAiCore/Sources/LianAiCore/PredictionEngine.swift": "4f6840921516020c4ed5c2cd34561302275b534904ae6fe75b51a87a8a392530",
+    "Packages/LianAiCore/Sources/LianAiCore/PurchaseCoordinator.swift": "08a7c648364f1444fbb3520361c6c2adaeea4f151155f31e55080d7aff8f6d78",
+    "Packages/LianAiCore/Sources/LianAiCore/Storage.swift": "0e85e17e4bf150a24b7a4b589b1b6b64c5126fa5ac5910bb3a0a7c8e60ee886a",
+    "Packages/LianAiCore/Sources/LianAiCore/StructuredExpression.swift": "acddddb80b3d8b9a224ebe4d9bcf77a577399f9fd87c655f0a26fc25a3bc179b",
+    "Packages/LianAiCore/Sources/LianAiCore/VoicePrompts.swift": "1fc6de245ef765d9ffabea8bb7f717a4dc88edb6cf1cab2e7f7faa89767a1a55",
+    "Packages/LianAiCore/Sources/LianAiCore/WAVEncoder.swift": "5ee7903af5f337fef72a31e16fdb0e78b21aadedb220904d70fee3a2dff4e129",
+    "SharedUI/InputLexicon.swift": "f9fc3a3dde779dd7d9b3e50e5f38b3261d9daa6fd29e9bc373b69265c53b836a",
+    "SharedUI/RimeRuntime.swift": "745b923a0b9757124d25a8aad2f8128dd305efe9a999eda304285c6fc178b84c",
+    "SharedUI/KeyboardDocumentContext.swift": "fc13345660e5cb07fc0ded7223580412980bcd2ef27561e9cffd8930d76e5ae7",
+    "SharedUI/KeyboardUITestSupport.swift": "dd734409d070985e8e60ecaab02b5bc0a74d69e46c8e159b10244d2fe8783396",
+    "App/Info.plist": "a7cfc49a0f8b0dacf3dd1fb23964625a4da5968ed2da975099dd084c1fe5f3ff",
+    "App/KeyboardVoiceService.swift": "140479212438ddcfb7b5f4f7a66279d49ec1b4f78d07edb4972070bd50eb255f",
+    "App/KeyboardVoiceSetupView.swift": "6a2ef77031dbe5fd849fc20ce289bfc5865d34649d16c9ca736b2d4e2deaa3d0",
+    "App/KeyboardVoiceUITestSupport.swift": "85dc53a7db432f252172c1ae9e2a4ede10cf127a5faf3d5a7f7c6445ffebcabd",
+    "Keyboard/Info.plist": "ad1b74c9751871e1fb4d907cc21d35624db184c906cda28d014bc101b7e600d9",
+    "LianAiKeyboard.xcodeproj/project.pbxproj": "12abf7dc25a5eecf09a315ade8796a48a1715d87049541a8df42313edbd23999",
+    "Packages/LianAiCore/Sources/LianAiCore/KeyboardVoice.swift": "85bafdd2cfe4e73459ab8bcee80d055cf6825eac73a125fc696bbdfda8262e8a",
+    "Packages/LianAiCore/Tests/LianAiCoreTests/ContractTests.swift": "9af00e368a8b37b3f7a2c0c472b51f1737b7b69e24f510a75db80cbe9bd5b0e4",
+    "Packages/LianAiCore/Tests/LianAiCoreTests/KeyboardVoiceTests.swift": "a007982c8f62fd50c3fdac4066debc92756f7a05f285e79f808bf4ee069bdb71",
+    "Packages/LianAiCore/Tests/LianAiCoreTests/ParityTests.swift": "f3c9d07ebbf316a0cda858548c120c3cd0e3c9ca0b818314ce710687dfcf12a4",
+    "Packages/LianAiCore/Tests/LianAiCoreTests/PurchaseRecoveryTests.swift": "e82dad67af0fd38483ae4ea67575067aedc8ee120fb2fdaa6ebf3bc5bd7b7a3e",
+    "Packages/LianAiCore/Tests/LianAiCoreTests/RoutingTests.swift": "680ab127a4ff9527272bb78e06641408773589955a570ed41412b44fd70e7f27",
+    "SharedUI/KeyboardVoiceChannel.swift": "e01859551ad5bf327f0cbfeac762290f2310a5942371b58abae7dbfbaec75223",
+    "Tests/AudioCaptureTests.swift": "f3f5de5c3faf0f9712c6b6e26545dd58df0890bd9e83db3c77b3a60a1e2d2490",
+    "Tests/KeyboardDocumentContextTests.swift": "97def1da35b720ad2eedb9ce44e6750b8e1d45d5ca82044afe6e78a7a97f1169",
+    "Tests/KeyboardVoiceServiceTests.swift": "e76924eca33cf3ba5f8da7e10a40e3b75793c3fef916d2a56afe263c90d90463",
+    "Tests/NavigationTests.swift": "e306a8b38415b4945bc3f736ad66dc2a1f24bad5190b75cb3b549d39d0de99a5",
+    "Tests/RimeIntegrationTests.swift": "4a88ee0feb35b3d82611c650e12733d076f3b34d7cd9c7f6c6c0062eb5997011",
+    "UITests/AppFlowTests.swift": "57284a64973e11159e56e542c1b315f94708914dcd713f0bd6c04a3da0633e3a",
+    "UITests/KeyboardAIFlowTests.swift": "f5b7813518d91e1b9da2e439b26e87183ef2677c3121e3cd0441f25da1723b63",
+    "UITests/KeyboardExtensionTests.swift": "08c663b58f9b1318045d96bfa99f057e05298c8d34231ff47708bf246519408a",
+    "UITests/NativeVoiceSessionTests.swift": "2457754fe9f74624c38636168e6818dbaa4827a61776f22f24c67ec9a3f1e96a",
+    "scripts/generate_project.py": "f1ec138329fc5a7a5807c5c8197400f82e5091e201776be82ab1b39f2efb7246",
+    "scripts/test_ios.sh": "b6574673de219729b831ac3e40b3f7280b2fbe4138708a5224c0210c3f91fc1a"
+  },
+  "logs": ".build-artifacts/parity/logs",
+  "lastBuildIncludesProfessionalSort": "SQLite NOCASE compatible ASCII folding and UTF-8 ordering",
+  "followups": {
+    "candidateReadability": {
+      "cause": "iOS 26+ automatic UIScrollView scroll-edge blur obscured short candidate rows",
+      "fix": "Hide all four edge effects on horizontal keyboard strips",
+      "before": "New rendered-contrast assertion failed with dark-stroke ratio 0.0",
+      "after": "Chinese and English rendered-contrast assertions and full keyboard UI case passed",
+      "release": "passed",
+      "beforeBundle": ".build-artifacts/CandidateReadabilityBefore.xcresult",
+      "afterBundle": ".build-artifacts/CandidateReadabilityAfter.xcresult",
+      "testCountNote": "Existing keyboard test strengthened; distinct case total remains 47"
+    },
+    "aiButtons": {
+      "date": "2026-11-03",
+      "status": "passed",
+      "emulator": "E9D7621B-E90E-4631-BA09-C78DC069CEDE / isolated iPhone 18 Pro / iOS 27.0",
+      "fullAccess": "Granted in real system Settings UI; asserted switch value 1; hasFullAccess not mocked",
+      "tests": {
+        "documentDisconnect": 2,
+        "AIButtonWorkflows": 5,
+        "ordinaryKeyboardRegression": 1,
+        "totalThisRun": 8,
+        "passed": 8,
+        "failed": 0
+      },
+      "resultBundle": ".build-artifacts/AIButtonsVerified.xcresult",
+      "resultSummary": {
+        "result": "Passed",
+        "totalTestCount": 8,
+        "passedTests": 8,
+        "failedTests": 0,
+        "startTime": 1793705658.69,
+        "finishTime": 1793705908.879
+      },
+      "crashesFixed": [
+        "SIGABRT: UIAlertController initialization forbidden in keyboard extension; consent and open-app fallback",
+        "SIGTRAP: nonoptional UUID bridge when host documentIdentifier returns nil"
+      ],
+      "serviceMode": "DEBUG-only deterministic HTTP transport fixtures; no live AI charges or real credentials",
+      "releaseBuild": "passed",
+      "releaseFixtureAudit": "No fixture endpoint, key or transport present in app or extension release executables",
+      "sourceFiles": [
+        "Keyboard/KeyboardViewController.swift",
+        "SharedUI/KeyboardDocumentContext.swift",
+        "SharedUI/KeyboardUITestSupport.swift",
+        "App/RootView.swift",
+        "Tests/KeyboardDocumentContextTests.swift",
+        "UITests/KeyboardAIFlowTests.swift"
+      ],
+      "screenshots": {
+        "docs/parity/ios/ai-buttons/service-error.png": "98830cb00b18b7bcad46afbef82286f1bfad3edb6a220b3a30440640bea64d2c",
+        "docs/parity/ios/ai-buttons/timeout.png": "ea05e7301c98c8b694f7de2470ea1ea65fba32f55d34f726bde0684c726b4c8c",
+        "docs/parity/ios/ai-buttons/polish-results.png": "959cdd1f85bbe796c902ea4ac9a93506cc23326182df88ef932510aaa8ce64d7",
+        "docs/parity/ios/ai-buttons/setup-fallback.png": "ec97b6b3643d7e27941524cb38e4080ad32cd13ad26058f10a5c4ddd778e1632",
+        "docs/parity/ios/ai-buttons/consent.png": "0ea0b549f316d6a8168e50016cca4c4516c4031dd898b3201cbc88a0ae72f5a0",
+        "docs/parity/ios/ai-buttons/screenshot-picker.png": "b76f51072c684aa712bb3ef74b3b614097264c91d8e9da5f172cb3c2b0c34221",
+        "docs/parity/ios/ai-buttons/reply-results.png": "9005bd25215d3993fc8448961ce27c28722684d1430ac974ec2ad52092e0d4e9"
+      },
+      "installedOnOriginalSimulator": "017E6ED3-2980-43B9-B1E0-3033D432C0FE; simctl install and launch succeeded; existing app data retained",
+      "notVerified": [
+        "live model generation quality",
+        "physical-device AI end-to-end",
+        "real subscription or payment"
+      ]
+    },
+    "voiceAndAI": "docs/voice-ai-results.json"
+  },
+  "laterFeatureCleanup": {
+    "date": "2026-11-03",
+    "report": "移除额外功能对照.md",
+    "results": "android-only-results.json",
+    "note": "手动回复草稿、草稿粘贴/清空、统一结果按钮、长文本滚动和主 App 单次录音工具已移除。本文档测试是相应历史版本的记录，当前功能及回归结果以清理报告为准。"
+  },
+  "laterPersistentVoiceUpdate": {
+    "date": "2026-11-04",
+    "report": "语音持续会话修复.md",
+    "results": "voice-persistent-results.json",
+    "note": "The previous 5-minute idle shutdown was removed; earlier source snapshots remain historical."
+  },
+  "laterPhysicalTypingFix": {
+    "date": "2026-11-04",
+    "report": "真机底部占位与输入流畅度修复.md",
+    "results": "typing-performance-results.json",
+    "note": "Removed footer cursor slider and reserved space, cached typing key grid, optimized lookup paths and fixed older-iOS deinit. Installed and launched on physical iPhone."
+  }
+}

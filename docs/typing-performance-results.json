@@ -1,0 +1,87 @@
+{
+  "date": "2026-11-04",
+  "changes": [
+    "Remove cursor-slider footer and its reserved height",
+    "Reuse normal typing key grid; refresh candidate/draft strips separately",
+    "Preload Chinese readings at engine initialization and English search index on mode entry",
+    "Bounded pronunciation/T9 caches and indexed English completion without reducing candidate count",
+    "Reuse haptic generators and prepare audio before first key",
+    "Explicit RimeRuntime deinit to avoid older-iOS isolated-deinit runtime crash"
+  ],
+  "physicalDevice": {
+    "model": "iPhone 16 Pro Max",
+    "iOS": "18.7.8",
+    "configuration": "Release",
+    "finalDistinctPassed": 8,
+    "hostedPassed": 7,
+    "typingUIPassed": 1,
+    "resultBundles": [
+      ".build-artifacts/TypingDeviceAfter.xcresult",
+      ".build-artifacts/TypingDeviceUIWait.xcresult"
+    ],
+    "note": "The first device UI assertion read the host before remote text delivery completed. The test now waits for host text; final four successive 你好 commits and footer/key-frame checks passed."
+  },
+  "simulator": {
+    "configuration": "Debug",
+    "passed": 24,
+    "failed": 0,
+    "skipped": 0,
+    "bundle": ".build-artifacts/TypingFlowVerified.xcresult",
+    "scope": "Rime integration and latency, normal keyboard, AI panel transitions, voice gestures and geometry, repeated typing without footer",
+    "sourceBoundary": "This simulator run preceded the explicit empty-deinit compatibility patch; that patch was verified afterward by the physical iOS 18 engine and UI runs."
+  },
+  "engineTimingMs": {
+    "before": {
+      "key_p50_ms": 0.23841665824875236,
+      "key_p95_ms": 8.241500006988645,
+      "key_max_ms": 88.32566667115316,
+      "window_p50_ms": 0.2278749889228493,
+      "window_p95_ms": 0.5177916609682143,
+      "window_max_ms": 1.7539999971631914,
+      "count": 41.0
+    },
+    "after": {
+      "startup_ms": 136.91687499522232,
+      "key_p50_ms": 0.06658333586528897,
+      "key_p95_ms": 0.1542916870675981,
+      "key_max_ms": 0.17816666513681412,
+      "window_p50_ms": 0.25787498452700675,
+      "window_p95_ms": 0.33816666109487414,
+      "window_max_ms": 0.3702083486132324,
+      "count": 41.0
+    },
+    "boundary": "41 synthetic T9 key calls on the same phone. Engine/model processing only; excludes touch dispatch, UIKit layout, host IPC and perceived end-to-end latency. The new startup_ms separately includes dictionary preloading; startup cost was moved out of the first key, not removed."
+  },
+  "initialFailure": {
+    "bundle": ".build-artifacts/TypingLatencyBeforeDeviceUnlocked.xcresult",
+    "result": "failed during teardown after recording timing samples",
+    "stack": [
+      "swift::TaskLocal::StopLookupScope::~StopLookupScope",
+      "swift_task_deinitOnExecutorImpl",
+      "RimeRuntime.__deallocating_deinit"
+    ],
+    "reference": "https://github.com/swiftlang/swift/issues/88036",
+    "fix": "Explicit deinit {}; engine close remains on main actor",
+    "verified": "All seven physical hosted cases completed after patch"
+  },
+  "deployment": {
+    "installed": true,
+    "launched": true,
+    "source": ".build-artifacts/typing-fix/install/LianAiKeyboard.app",
+    "testBundlesRemoved": true,
+    "deepSignatureVerified": true,
+    "testRunnerRemoved": true,
+    "installEvidence": ".build-artifacts/typing-fix/install.json",
+    "launchEvidence": ".build-artifacts/typing-fix/launch.json"
+  },
+  "sha256": {
+    "Keyboard/KeyboardViewController.swift": "5ce0961dee35c673a85660bfd52aa8d488643928de435ad64a9ee45a8b54f75c",
+    "SharedUI/RimeRuntime.swift": "c2351ab899e9d6659378bc70b59472b820600da42c7d07e06046991dd7686d41",
+    "SharedUI/InputLexicon.swift": "17ae9eea93603ef1e152bc5ad296b8e0975c1c0f5e274b8cc2a4390a17b93452"
+  },
+  "limits": [
+    "Not a measured display frame-rate or touch-to-pixel latency result",
+    "No claim that every host app, device or long input sequence is fully validated",
+    "Physical screenshots and raw device identifiers remain in ignored local build artifacts"
+  ]
+}

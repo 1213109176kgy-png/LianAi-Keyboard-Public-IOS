@@ -1,0 +1,111 @@
+{
+  "date": "2026-11-04",
+  "device": {
+    "model": "iPhone 16 Pro Max",
+    "iOS": "18.7.8"
+  },
+  "profile": {
+    "beforeAudioFix": {
+      "durationSeconds": 15.567634,
+      "thresholdMilliseconds": 250,
+      "hangCount": 13,
+      "hangDurationsMilliseconds": [
+        447.365,
+        441.715,
+        451.191,
+        440.688,
+        442.584,
+        440.262,
+        448.387,
+        447.708,
+        449.185,
+        444.667,
+        443.554,
+        441.454,
+        453.279
+      ]
+    },
+    "afterAudioFix": {
+      "durationSeconds": 15.501569,
+      "thresholdMilliseconds": 250,
+      "hangCount": 0,
+      "hangDurationsMilliseconds": []
+    },
+    "final": {
+      "durationSeconds": 15.522077,
+      "thresholdMilliseconds": 250,
+      "hangCount": 0
+    },
+    "finalWithDeletionFix": {
+      "durationSeconds": 15.531455,
+      "thresholdMilliseconds": 250,
+      "hangCount": 0
+    }
+  },
+  "tests": {
+    "audio-device-summary": {
+      "result": "Passed",
+      "passedTests": 5,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "totalTestCount": 5
+    },
+    "stress-device-summary": {
+      "result": "Passed",
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "totalTestCount": 1
+    },
+    "simulator-regression-summary": {
+      "result": "Passed",
+      "passedTests": 19,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "totalTestCount": 19
+    },
+    "final-device-summary": {
+      "result": "Passed",
+      "passedTests": 5,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "totalTestCount": 5
+    },
+    "final-simulator-summary": {
+      "result": "Failed",
+      "passedTests": 5,
+      "failedTests": 1,
+      "skippedTests": 0,
+      "totalTestCount": 6
+    },
+    "audio-simulator-summary": {
+      "result": "Failed",
+      "passedTests": 8,
+      "failedTests": 1,
+      "skippedTests": 0,
+      "totalTestCount": 9
+    },
+    "delete-fixed-device-summary": {
+      "result": "Passed",
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "totalTestCount": 1
+    },
+    "delete-fixed-simulator-summary": {
+      "result": "Passed",
+      "passedTests": 1,
+      "failedTests": 0,
+      "skippedTests": 0,
+      "totalTestCount": 1
+    }
+  },
+  "sources": {
+    "Keyboard/KeyboardViewController.swift": "5176e5cb362e7832b7f8c3f31f20fea46988eb53bd5cedffc2fdb069d5496d78",
+    "SharedUI/InputKey.swift": "f406f5627f9f04d169a3c86747cbabc95ae4f23a437adc02913596e89699c7f7",
+    "SharedUI/KeyboardChoiceStrip.swift": "fb3a19994f8f403b23584a0b83ce84cafb6d97089951b6399f41fcd6dc4a08ad",
+    "SharedUI/KeyboardClickAudio.swift": "73c97b5a1db4454ea084161e8ccc1b901932fe5c7742ba887194fb9131529702"
+  },
+  "installation": "Final deletion-fix production sources: clean signed Release installed and launched; no XCTest plugins; temporary UI runner removed.",
+  "limits": "15-second automated input windows; not display FPS or end-to-end touch-to-photon latency. One earlier after-fix profiling attempt failed to attach and was not counted."
+}

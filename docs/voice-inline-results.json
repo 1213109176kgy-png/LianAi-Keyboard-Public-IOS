@@ -1,0 +1,331 @@
+{
+  "date": "2026-11-03",
+  "status": "passedAcrossTargetedRuns",
+  "requirements": {
+    "sameKeyboardPage": true,
+    "recognitionAboveKeys": true,
+    "keyViewsRetainedDuringHold": true,
+    "releaseAutomaticallyFinishes": true,
+    "microphoneSymbolAfterSpaceTitle": true,
+    "inactiveAndErrorStatesAlsoInline": true
+  },
+  "tests": {
+    "distinctUITests": 10,
+    "lastStates": {
+      "KeyboardAIFlowTests/testLongPressSpaceTranscribesAndNeverOpensMainAppDialog()": {
+        "status": "Passed",
+        "bundle": "VoiceInlineAreaVerified"
+      },
+      "KeyboardAIFlowTests/testVoiceErrorAndNoSpeechReturnToKeyboard()": {
+        "status": "Passed",
+        "bundle": "VoiceInlineAreaInitial"
+      },
+      "KeyboardAIFlowTests/testVoiceRecognitionAreaPreservesKeyboardCoordinates()": {
+        "status": "Passed",
+        "bundle": "VoiceInlineAreaFinal"
+      },
+      "KeyboardAIFlowTests/testVoiceSpaceSlideUpCancelsWithoutInserting()": {
+        "status": "Passed",
+        "bundle": "VoiceInlineAreaFinal"
+      },
+      "KeyboardAIFlowTests/testVoiceSuperSpeakDraftStaysInsideKeyboard()": {
+        "status": "Passed",
+        "bundle": "VoiceInlineAreaInitial"
+      },
+      "KeyboardExtensionTests/testSystemKeyboardCanBeEnabledAndInsertChinese()": {
+        "status": "Passed",
+        "bundle": "VoiceInlineAreaInitial"
+      },
+      "NativeVoiceSessionTests/testNativeMicrophoneBackgroundRoundTripWithFixtureASR()": {
+        "status": "Passed",
+        "bundle": "VoiceInlineAreaInitial"
+      },
+      "KeyboardAIFlowTests/testScreenshotAndVoiceEntrypointsDoNotKillExtension()": {
+        "status": "Passed",
+        "bundle": "VoiceInlineNoticeVerified"
+      },
+      "KeyboardAIFlowTests/testVoiceCanStartDuringPinyinWithoutLosingHeldSpace()": {
+        "status": "Passed",
+        "bundle": "VoiceInlineAreaVerified"
+      },
+      "KeyboardAIFlowTests/testVoiceIsCancelledWhenHostKeyboardIsDismissed()": {
+        "status": "Passed",
+        "bundle": "VoiceInlineDismissVerified"
+      }
+    },
+    "coverage": [
+      "ordinary Chinese/English/number and landscape input",
+      "two successive long presses and automatic insertion",
+      "pinyin composition can commit without losing the held key",
+      "portrait/landscape/Super Speak key geometry",
+      "slide-up cancellation",
+      "AI draft receives voice without changing host text",
+      "recognition failure/no speech keep keys visible",
+      "inactive session hint and photo picker restoration",
+      "native microphone cross-app WAV capture with fixture ASR",
+      "host dismissal cancels pending speech"
+    ]
+  },
+  "geometry": {
+    "comparisons": 12,
+    "maximumMeasuredDeltaPoints": 0,
+    "assertionTolerancePoints": 1,
+    "frames": [
+      {
+        "mode": "键盘",
+        "orientation": "portrait",
+        "key": "keyboardSpace",
+        "before": [
+          164.33333333333331,
+          702.0,
+          152.33333333333331,
+          52.0
+        ],
+        "duringRecognition": [
+          164.33333333333331,
+          702.0,
+          152.33333333333331,
+          52.0
+        ],
+        "maxDeltaPoints": 0.0
+      },
+      {
+        "mode": "键盘",
+        "orientation": "portrait",
+        "key": "MNO",
+        "before": [
+          243.66666666666663,
+          585.0,
+          73.0,
+          52.0
+        ],
+        "duringRecognition": [
+          243.66666666666663,
+          585.0,
+          73.0,
+          52.0
+        ],
+        "maxDeltaPoints": 0.0
+      },
+      {
+        "mode": "键盘",
+        "orientation": "portrait",
+        "key": "GHI",
+        "before": [
+          85.33333333333333,
+          585.0,
+          72.99999999999999,
+          52.0
+        ],
+        "duringRecognition": [
+          85.33333333333333,
+          585.0,
+          72.99999999999999,
+          52.0
+        ],
+        "maxDeltaPoints": 0.0
+      },
+      {
+        "mode": "键盘",
+        "orientation": "portrait",
+        "key": "keyboardEnter",
+        "before": [
+          322.6666666666667,
+          644.0,
+          73.33333333333331,
+          110.0
+        ],
+        "duringRecognition": [
+          322.6666666666667,
+          644.0,
+          73.33333333333331,
+          110.0
+        ],
+        "maxDeltaPoints": 0.0
+      },
+      {
+        "mode": "键盘",
+        "orientation": "landscapeLeft",
+        "key": "keyboardSpace",
+        "before": [
+          368.3333333333333,
+          307.0,
+          280.99999999999994,
+          28.0
+        ],
+        "duringRecognition": [
+          368.3333333333333,
+          307.0,
+          280.99999999999994,
+          28.0
+        ],
+        "maxDeltaPoints": 0.0
+      },
+      {
+        "mode": "键盘",
+        "orientation": "landscapeLeft",
+        "key": "MNO",
+        "before": [
+          511.6666666666667,
+          241.0,
+          137.66666666666669,
+          28.0
+        ],
+        "duringRecognition": [
+          511.6666666666667,
+          241.0,
+          137.66666666666669,
+          28.0
+        ],
+        "maxDeltaPoints": 0.0
+      },
+      {
+        "mode": "键盘",
+        "orientation": "landscapeLeft",
+        "key": "GHI",
+        "before": [
+          224.66666666666666,
+          241.0,
+          137.66666666666666,
+          28.0
+        ],
+        "duringRecognition": [
+          224.66666666666666,
+          241.0,
+          137.66666666666666,
+          28.0
+        ],
+        "maxDeltaPoints": 0.0
+      },
+      {
+        "mode": "键盘",
+        "orientation": "landscapeLeft",
+        "key": "keyboardEnter",
+        "before": [
+          655.3333333333334,
+          273.0,
+          137.66666666666663,
+          62.0
+        ],
+        "duringRecognition": [
+          655.3333333333334,
+          273.0,
+          137.66666666666663,
+          62.0
+        ],
+        "maxDeltaPoints": 0.0
+      },
+      {
+        "mode": "超会说",
+        "orientation": "portrait",
+        "key": "keyboardSpace",
+        "before": [
+          164.33333333333331,
+          700.0,
+          152.33333333333331,
+          52.0
+        ],
+        "duringRecognition": [
+          164.33333333333331,
+          700.0,
+          152.33333333333331,
+          52.0
+        ],
+        "maxDeltaPoints": 0.0
+      },
+      {
+        "mode": "超会说",
+        "orientation": "portrait",
+        "key": "MNO",
+        "before": [
+          243.66666666666663,
+          583.0,
+          73.0,
+          52.0
+        ],
+        "duringRecognition": [
+          243.66666666666663,
+          583.0,
+          73.0,
+          52.0
+        ],
+        "maxDeltaPoints": 0.0
+      },
+      {
+        "mode": "超会说",
+        "orientation": "portrait",
+        "key": "GHI",
+        "before": [
+          85.33333333333333,
+          583.0,
+          72.99999999999999,
+          52.0
+        ],
+        "duringRecognition": [
+          85.33333333333333,
+          583.0,
+          72.99999999999999,
+          52.0
+        ],
+        "maxDeltaPoints": 0.0
+      },
+      {
+        "mode": "超会说",
+        "orientation": "portrait",
+        "key": "keyboardEnter",
+        "before": [
+          322.6666666666667,
+          642.0,
+          73.33333333333331,
+          110.0
+        ],
+        "duringRecognition": [
+          322.6666666666667,
+          642.0,
+          73.33333333333331,
+          110.0
+        ],
+        "maxDeltaPoints": 0.0
+      }
+    ]
+  },
+  "sourceSHA256": {
+    "Keyboard/KeyboardViewController.swift": "94dd5cf9e099fd0ede2f10cdc75a3f01504810238465645ec0d2098cefd24943",
+    "UITests/KeyboardAIFlowTests.swift": "73badb5f5caeca921f47390dac29cec8a4f973dbe389f6bcdeb8920d6d32ff59",
+    "UITests/KeyboardExtensionTests.swift": "e8ad9a007a195038cd9b382ab8a4d4313a5e87776907bcaa3234a5ce3b9c2297"
+  },
+  "builds": {
+    "debugSimulator": "passed",
+    "unsignedIOSReleaseArm64": "passed",
+    "releaseFixtureAudit": {
+      "LianAiKeyboard": [],
+      "LianAiKeyboardExtension": []
+    }
+  },
+  "installation": {
+    "device": "017E6ED3-2980-43B9-B1E0-3033D432C0FE",
+    "updatedAndLaunched": true,
+    "dataPreserved": true
+  },
+  "artifacts": "docs/parity/ios/voice-inline",
+  "logs": ".build-artifacts/voice-inline/logs",
+  "testBoundary": "Gesture/UI uses deterministic recognition fixtures; native cross-app capture is real microphone/WAV with fixture ASR response. No new live model or physical-device accuracy test.",
+  "laterFeatureCleanup": {
+    "date": "2026-11-03",
+    "report": "移除额外功能对照.md",
+    "results": "android-only-results.json",
+    "note": "手动回复草稿、草稿粘贴/清空、统一结果按钮、长文本滚动和主 App 单次录音工具已移除。本文档测试是相应历史版本的记录，当前功能及回归结果以清理报告为准。"
+  },
+  "laterPersistentVoiceUpdate": {
+    "date": "2026-11-04",
+    "report": "语音持续会话修复.md",
+    "results": "voice-persistent-results.json",
+    "note": "The previous 5-minute idle shutdown was removed; earlier source snapshots remain historical."
+  },
+  "laterPhysicalTypingFix": {
+    "date": "2026-11-04",
+    "report": "真机底部占位与输入流畅度修复.md",
+    "results": "typing-performance-results.json",
+    "note": "Removed footer cursor slider and reserved space, cached typing key grid, optimized lookup paths and fixed older-iOS deinit. Installed and launched on physical iPhone."
+  }
+}

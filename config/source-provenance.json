@@ -1,0 +1,63 @@
+{
+  "date": "2026-11-03",
+  "android": {
+    "path": "../LianAi-Keyboard",
+    "commit": "212529fba1e2c4f49cb982564f6bd6ee870ab01a",
+    "version": "1.5.9 (39)"
+  },
+  "universe": {
+    "repository": "https://github.com/shchnk1103/Universe-Keyboard",
+    "commit": "145d24161146b9d38be829a1ebe0a9acf9a7b1d7",
+    "imports": [
+      "Packages/KeyboardCore",
+      "Packages/RimeBridge",
+      "config/rime-vendor-manifest.env",
+      "scripts/ensure_rime_vendor.sh"
+    ],
+    "modifications": [
+      "RimeBridge/Package.swift: expose RimeNative product; implementation sources unchanged"
+    ]
+  },
+  "vendor": {
+    "tag": "rime-vendor-ios-1.16.1-lua.1-octagram.1",
+    "sha256": "d17aab9a8b08b5901ab583c143b0a8a03994e36fe092309fd14c5bee31399dd9",
+    "frameworkCount": 12,
+    "architectures": [
+      "ios-arm64",
+      "ios-simulator-arm64"
+    ]
+  },
+  "resources": {
+    "Resources/Rime/build/weike_pinyin.table.bin": {
+      "bytes": 60702976,
+      "sha256": "6184e9fb4f007a1155745120106ea7a3e1ffaedbe5f086fce12a432d816375ba"
+    },
+    "Resources/Rime/build/weike_t9.prism.bin": {
+      "bytes": 10760,
+      "sha256": "9fc2551100385c5484cafc73cf4d40b9c84cf85a3257f67ca4ce8925e0bed899"
+    },
+    "Resources/InputData/pinyin.txt": {
+      "bytes": 985318,
+      "sha256": "621f8ca9eff8519f47e2b17b564fd318161e13bca07eea8c8e04993cd5d3b52e"
+    },
+    "Resources/InputData/en.dict.yaml": {
+      "bytes": 369073,
+      "sha256": "d645bba1a6c1e520e4378922cd00a60065cddf6a33cc11baaf1720220e514faa"
+    },
+    "Resources/InputData/prediction-base.bin": {
+      "bytes": 2547746,
+      "sha256": "6c03d3d1c6c0ace25c6ad1ae0a18418de2cecdcfebfcac235c5430519c3e1240"
+    },
+    "Resources/InputData/prediction-enhanced.bin": {
+      "bytes": 3113603,
+      "sha256": "1499ea1fcc1f57ef3af634a13ae8b23538a6fa7ef41e86d7bda22c7eb10e70ae"
+    }
+  },
+  "parity": {
+    "androidRuntime": "Android 14 emulator-5554, isolated userdata; 1206×2622 / 480 dpi",
+    "androidAPKVersion": "1.5.9 (39)",
+    "androidAPKsha256": "2e44a01b016a47a01411872efa97aab014dcbac08d62e876a1fefe1285f233e0",
+    "paletteSource": "Android WeikeKeyboardView.kt",
+    "paletteSourceSHA256": "eb8c1f381971cd895752a5e2c02fb7eb7f68e6a36271992d4ba670b60d6fced4"
+  }
+}

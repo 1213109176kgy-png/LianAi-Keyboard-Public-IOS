@@ -1,0 +1,404 @@
+{
+  "date": "2026-11-03",
+  "scope": "Remove iOS-only product additions while retaining explicitly requested voice UX and required iOS integration",
+  "androidBaseline": {
+    "repository": "../LianAi-Keyboard",
+    "commit": "212529fba1e2c4f49cb982564f6bd6ee870ab01a",
+    "version": "1.5.9 (39)",
+    "modified": false
+  },
+  "sourceAudit": {
+    "mainPages": 16,
+    "reference": "Android功能基线.md",
+    "report": "移除额外功能对照.md",
+    "basis": "Current reachable Android UI, not dormant implementation branches",
+    "literalActionAudit": "Remaining unmatched main-App action labels are voice session setup, system settings/version adaptation and Unicode-escaped Android local dictionary import"
+  },
+  "removed": [
+    "Manual reply input entry, reply draft state and return-to-paste action",
+    "Super-speak draft paste and clear buttons",
+    "Unified result regenerate and return-to-editor buttons",
+    "Result selection border and multiline scrolling layout",
+    "Unified cancel-generation button; Android reply close action retained",
+    "Service-error retry-generation CTA",
+    "Containing-App one-shot dictation, polish and translation tools",
+    "Containing-App duplicate screenshot tool and deep link",
+    "Prepared-result transfer strip",
+    "Duplicate keyboard-trial setup guide button",
+    "AI consent revoke settings row",
+    "About-page third-party licenses disclosure and source link; license files retained"
+  ],
+  "retainedExplicitRequests": [
+    "Alipay, no Apple subscription",
+    "No custom footer globe or microphone row",
+    "Space trailing microphone icon",
+    "Long press space, release to finish, swipe up to cancel",
+    "Recognition above current keyboard, same physical key positions"
+  ],
+  "retainedIOSIntegration": [
+    "Keyboard setup and full-access guidance",
+    "First-use AI content consent",
+    "Containing-App audio-session activation and shutdown",
+    "System photo selection and permissions"
+  ],
+  "tests": {
+    "core": {
+      "passed": 38,
+      "failures": 0,
+      "log": ".build-artifacts/android-only/logs/core.log"
+    },
+    "hosted": {
+      "passed": 14,
+      "failures": 0,
+      "cases": [
+        "AudioCaptureTests testHardwareRateStereoIsConvertedToCanonicalASRMono16k",
+        "KeyboardDocumentContextTests testNilHostIdentifierDoesNotInvokeUnconditionalUUIDBridge",
+        "KeyboardDocumentContextTests testUnknownProxyHasNoIdentity",
+        "KeyboardVoiceServiceTests testFailureEmptySpeechTimeLimitAndIdleExpiry",
+        "KeyboardVoiceServiceTests testLostKeyboardLeaseCancelsAudioAndErasesTranscript",
+        "KeyboardVoiceServiceTests testRealMailboxStartFinishResultAcknowledgeAndIdleCaptureBoundary",
+        "KeyboardVoiceServiceTests testStaleAndWrongSessionCommandsAndLateCallbacksCannotInsert",
+        "NavigationTests testEveryPageUsesAndroidParentInsteadOfVisitHistory",
+        "NavigationTests testModelPageRemembersOnlyItsTwoAndroidEntryPoints",
+        "RimeIntegrationTests testBundledAndroidPredictionIndexesProduceRealChineseAndEnglishSuggestions",
+        "RimeIntegrationTests testBundledNineKeyAndDeletePreserveComposition",
+        "RimeIntegrationTests testBundledReadingDataAndEnglishDictionary",
+        "RimeIntegrationTests testBundledTwentySixKeyProducesRealChineseCandidatesAndCommits",
+        "RimeIntegrationTests testCandidatePaginationDoesNotCommitOrMutateInput"
+      ],
+      "resultBundle": ".build-artifacts/AndroidOnlyVerified.xcresult"
+    },
+    "fullUI": {
+      "status": "passed",
+      "passed": 23,
+      "failures": 0,
+      "skipped": 0,
+      "cases": [
+        "AppFlowTests testAboutUsesAndroidActionsWithoutExtraDisclosure",
+        "AppFlowTests testAllSecondaryPagesRenderAndReturn",
+        "AppFlowTests testConfigurationChoosersSaveAndRestore",
+        "AppFlowTests testNavigationSettingsAndLoginValidation",
+        "AppFlowTests testThemeSwitchRendersAppAndRealKeyboard",
+        "KeyboardAIFlowTests testFullAccessNoModelAndOpenAppFallbackDoNotCrash",
+        "KeyboardAIFlowTests testFullAccessReplyAndSuperSpeakActualButtons",
+        "KeyboardAIFlowTests testFullAccessServerErrorStaysInsideKeyboard",
+        "KeyboardAIFlowTests testFullAccessTimeoutStaysInsideKeyboard",
+        "KeyboardAIFlowTests testLongPressSpaceTranscribesAndNeverOpensMainAppDialog",
+        "KeyboardAIFlowTests testReplyLoadingCloseCancelsAndThreeResultsUseAndroidActions",
+        "KeyboardAIFlowTests testReplyUsesOnlyAndroidPasteScreenshotReanalyzeAndCloseActions",
+        "KeyboardAIFlowTests testScreenshotAndVoiceEntrypointsDoNotKillExtension",
+        "KeyboardAIFlowTests testScreenshotSelectionActuallyGeneratesAndInsertsReply",
+        "KeyboardAIFlowTests testVoiceCanStartDuringPinyinWithoutLosingHeldSpace",
+        "KeyboardAIFlowTests testVoiceErrorAndNoSpeechReturnToKeyboard",
+        "KeyboardAIFlowTests testVoiceIsCancelledWhenHostKeyboardIsDismissed",
+        "KeyboardAIFlowTests testVoiceRecognitionAreaPreservesKeyboardCoordinates",
+        "KeyboardAIFlowTests testVoiceSpaceSlideUpCancelsWithoutInserting",
+        "KeyboardAIFlowTests testVoiceSuperSpeakDraftStaysInsideKeyboard",
+        "KeyboardExtensionTests testSystemKeyboardCanBeEnabledAndInsertChinese",
+        "NativeVoiceSessionTests testNativeMicrophoneBackgroundRoundTripWithFixtureASR",
+        "NativeVoiceSessionTests testNativeMicrophoneSessionArmsAndStopsWithoutFixture"
+      ],
+      "resultBundle": ".build-artifacts/AndroidOnlyVerified.xcresult",
+      "log": ".build-artifacts/android-only/logs/final-full.log"
+    },
+    "totalDistinctPassed": 75,
+    "initialRun": {
+      "resultBundle": ".build-artifacts/AndroidOnlyFeatures.xcresult",
+      "xcodePassed": 35,
+      "xcodeFailed": 1,
+      "failure": "KeyboardAIFlowTests/testVoiceIsCancelledWhenHostKeyboardIsDismissed",
+      "cause": "Reading the disconnected previous host proxy documentIdentifier in viewWillAppear",
+      "fix": "Defer document binding to active input callbacks or user actions; invalidate and cancel before disappearance",
+      "verified": "Same end-to-end test repeats leave-and-reopen three times and passed in final complete run"
+    },
+    "voiceGeometry": {
+      "cases": [
+        {
+          "case": "键盘 1 keyboardSpace",
+          "before": [
+            164.33333333333331,
+            702.0,
+            152.33333333333331,
+            52.0
+          ],
+          "after": [
+            164.33333333333331,
+            702.0,
+            152.33333333333331,
+            52.0
+          ],
+          "maxDeltaPoints": 0.0
+        },
+        {
+          "case": "键盘 1 MNO",
+          "before": [
+            243.66666666666663,
+            585.0,
+            73.0,
+            52.0
+          ],
+          "after": [
+            243.66666666666663,
+            585.0,
+            73.0,
+            52.0
+          ],
+          "maxDeltaPoints": 0.0
+        },
+        {
+          "case": "键盘 1 GHI",
+          "before": [
+            85.33333333333333,
+            585.0,
+            72.99999999999999,
+            52.0
+          ],
+          "after": [
+            85.33333333333333,
+            585.0,
+            72.99999999999999,
+            52.0
+          ],
+          "maxDeltaPoints": 0.0
+        },
+        {
+          "case": "键盘 1 keyboardEnter",
+          "before": [
+            322.6666666666667,
+            644.0,
+            73.33333333333331,
+            110.0
+          ],
+          "after": [
+            322.6666666666667,
+            644.0,
+            73.33333333333331,
+            110.0
+          ],
+          "maxDeltaPoints": 0.0
+        },
+        {
+          "case": "键盘 3 keyboardSpace",
+          "before": [
+            368.3333333333333,
+            307.0,
+            280.99999999999994,
+            28.0
+          ],
+          "after": [
+            368.3333333333333,
+            307.0,
+            280.99999999999994,
+            28.0
+          ],
+          "maxDeltaPoints": 0.0
+        },
+        {
+          "case": "键盘 3 MNO",
+          "before": [
+            511.6666666666667,
+            241.0,
+            137.66666666666669,
+            28.0
+          ],
+          "after": [
+            511.6666666666667,
+            241.0,
+            137.66666666666669,
+            28.0
+          ],
+          "maxDeltaPoints": 0.0
+        },
+        {
+          "case": "键盘 3 GHI",
+          "before": [
+            224.66666666666666,
+            241.0,
+            137.66666666666666,
+            28.0
+          ],
+          "after": [
+            224.66666666666666,
+            241.0,
+            137.66666666666666,
+            28.0
+          ],
+          "maxDeltaPoints": 0.0
+        },
+        {
+          "case": "键盘 3 keyboardEnter",
+          "before": [
+            655.3333333333334,
+            273.0,
+            137.66666666666663,
+            62.0
+          ],
+          "after": [
+            655.3333333333334,
+            273.0,
+            137.66666666666663,
+            62.0
+          ],
+          "maxDeltaPoints": 0.0
+        },
+        {
+          "case": "超会说 1 keyboardSpace",
+          "before": [
+            164.33333333333331,
+            700.0,
+            152.33333333333331,
+            52.0
+          ],
+          "after": [
+            164.33333333333331,
+            700.0,
+            152.33333333333331,
+            52.0
+          ],
+          "maxDeltaPoints": 0.0
+        },
+        {
+          "case": "超会说 1 MNO",
+          "before": [
+            243.66666666666663,
+            583.0,
+            73.0,
+            52.0
+          ],
+          "after": [
+            243.66666666666663,
+            583.0,
+            73.0,
+            52.0
+          ],
+          "maxDeltaPoints": 0.0
+        },
+        {
+          "case": "超会说 1 GHI",
+          "before": [
+            85.33333333333333,
+            583.0,
+            72.99999999999999,
+            52.0
+          ],
+          "after": [
+            85.33333333333333,
+            583.0,
+            72.99999999999999,
+            52.0
+          ],
+          "maxDeltaPoints": 0.0
+        },
+        {
+          "case": "超会说 1 keyboardEnter",
+          "before": [
+            322.6666666666667,
+            642.0,
+            73.33333333333331,
+            110.0
+          ],
+          "after": [
+            322.6666666666667,
+            642.0,
+            73.33333333333331,
+            110.0
+          ],
+          "maxDeltaPoints": 0.0
+        }
+      ],
+      "maxDeltaPoints": 0
+    }
+  },
+  "builds": {
+    "releaseArm64": "passed; unsigned development artifact, not a signed distribution package",
+    "releaseLog": ".build-artifacts/android-only/logs/release-final.log",
+    "releaseAudit": [
+      {
+        "binary": "LianAiKeyboard",
+        "sha256": "61660976d924e0e5e15ee6b7f0fc3dc36d7522ab719d9bd35863f80268100caf",
+        "removedLabelsAbsent": true,
+        "debugFixtureFlagsAbsent": true
+      },
+      {
+        "binary": "PlugIns/LianAiKeyboardExtension.appex/LianAiKeyboardExtension",
+        "sha256": "6378702dd3cdd26c62b081096b3af42023445e9af8701d14df46dcdd138ff4ce",
+        "removedLabelsAbsent": true,
+        "debugFixtureFlagsAbsent": true
+      }
+    ]
+  },
+  "boundaries": [
+    "AI and ASR returns use explicit test fixtures; real backend and recognition quality not established by fixtures",
+    "No real purchase, payment or account creation",
+    "Physical iPhone signing and real-device acceptance not performed; user chose simulator acceptance"
+  ],
+  "sha256": {
+    "Keyboard/KeyboardViewController.swift": "5f2569c6b75554557eed02262ad1d4edb369d65f08984e0220f7f964352bee65",
+    "App/SettingsScreens.swift": "8819af76e323060b7b7e20141d0572f3b977ba2a561fa3d011593a6623e4fd10",
+    "App/MainScreens.swift": "4c61be4aaf0ef81dc4b98a8b3b2434c1217fad1c8d9b9a6376d0ec0324cf3228",
+    "App/AppModel.swift": "d2fe49b2a31d6f874643f8820a60a54f83459fd140277fdc15770ecf5bb53d08",
+    "App/RootView.swift": "722e7291a37ffdc5f43692581d293d50472a0d8dc6c481dc61b36f2b3b2b6df3",
+    "App/KeyboardVoiceSetupView.swift": "e19419024ba72095a715577a2f86f65339ae8cab451619ea463f64d4a93f0a43",
+    "App/SpeechPCM.swift": "ad88f09347c4a3020324f19def06759734bc71c28bac188abdc696da65f3886e",
+    "UITests/KeyboardAIFlowTests.swift": "539c0f2ac5994a76f3cdb8cf8f33e7539d6135670a9dc5303ce4a93c74f8e70a",
+    "UITests/AppFlowTests.swift": "586cf6b7dec3f5d0f4d09fd6a118eba928270fe42792e32959c13922eaa6f77c",
+    "SharedUI/KeyboardDocumentContext.swift": "4d576cadb22c31e6917a7fcbf9e393e2c3c677f5e437cd2b743ab6c6d8eb2cb2"
+  },
+  "installed": {
+    "simulator": "017E6ED3-2980-43B9-B1E0-3033D432C0FE",
+    "installedAndLaunched": true,
+    "dataPreserved": true,
+    "pid": 79312,
+    "codeFiles": [
+      {
+        "file": "__preview.dylib",
+        "sha256": "6105dea2d635f2de4ceb5616a693b6df28adb7fa9dfea2a019560e26a8f77fe1",
+        "installedMatches": true
+      },
+      {
+        "file": "LianAiKeyboard",
+        "sha256": "137c67b397dfca5e3b7e4d4ef6e007fa732b26ca550968bf4a7917ea3892103f",
+        "installedMatches": true
+      },
+      {
+        "file": "LianAiKeyboard.debug.dylib",
+        "sha256": "cd5c3a8b858ef50a21298b90c7562e93496322113d2823a9c1f41c8071b6e531",
+        "installedMatches": true
+      },
+      {
+        "file": "PlugIns/LianAiKeyboardExtension.appex/__preview.dylib",
+        "sha256": "a3d24f4ca2df5d81a4f24113deeffb8925a5fe1f7a2c5cfccaa91d3858505d41",
+        "installedMatches": true
+      },
+      {
+        "file": "PlugIns/LianAiKeyboardExtension.appex/LianAiKeyboardExtension.debug.dylib",
+        "sha256": "2405699b1eafbdb212e0ee522221c3881c6f062982c23a7ce4cc91916e22c2a4",
+        "installedMatches": true
+      },
+      {
+        "file": "PlugIns/LianAiKeyboardExtension.appex/LianAiKeyboardExtension",
+        "sha256": "aa641e45d4537662fc61fb0f803e53ac73b330e41c6739b6d2766491141bc735",
+        "installedMatches": true
+      }
+    ]
+  },
+  "screenshots": [
+    "docs/parity/ios/android-only/about.png",
+    "docs/parity/ios/android-only/reply-input.png",
+    "docs/parity/ios/android-only/reply-results.png",
+    "docs/parity/ios/android-only/super-speak-draft.png",
+    "docs/parity/ios/android-only/super-speak-results.png"
+  ],
+  "laterPersistentVoiceUpdate": {
+    "date": "2026-11-04",
+    "report": "语音持续会话修复.md",
+    "results": "voice-persistent-results.json",
+    "note": "The previous 5-minute idle shutdown was removed; earlier source snapshots remain historical."
+  },
+  "laterPhysicalTypingFix": {
+    "date": "2026-11-04",
+    "report": "真机底部占位与输入流畅度修复.md",
+    "results": "typing-performance-results.json",
+    "note": "Removed footer cursor slider and reserved space, cached typing key grid, optimized lookup paths and fixed older-iOS deinit. Installed and launched on physical iPhone."
+  }
+}

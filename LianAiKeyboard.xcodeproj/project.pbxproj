@@ -1,0 +1,1042 @@
+// !$*UTF8*$!
+{
+	"archiveVersion" = 1;
+	"classes" = {
+	};
+	"objectVersion" = 56;
+	"objects" = {
+		"7A5CCB0147A1F44705D7DBD4" = {
+			"isa" = "PBXFileReference";
+			"path" = "App/Assets.xcassets";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "folder.assetcatalog";
+		};
+		"48E8FAE1E698C89785905927" = {
+			"isa" = "PBXFileReference";
+			"path" = "Resources/Rime";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "folder";
+		};
+		"EBFF297CF9AE3A9850F01434" = {
+			"isa" = "PBXFileReference";
+			"path" = "Resources/InputData";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "folder";
+		};
+		"C18987B5E70B812C1C157170" = {
+			"isa" = "PBXFileReference";
+			"path" = "Resources/keyboard-click.wav";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "audio.wav";
+		};
+		"6327A1005FF0B783151E530B" = {
+			"isa" = "PBXFileReference";
+			"path" = "Resources/PrivacyInfo.xcprivacy";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "text.xml";
+		};
+		"82C2E45E72AC8F2DE13DC653" = {
+			"isa" = "PBXFileReference";
+			"path" = "Licenses";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "folder";
+		};
+		"623B7D7CE7D9989C2BB15051" = {
+			"isa" = "PBXFileReference";
+			"path" = "config/Build.xcconfig";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "text.xcconfig";
+		};
+		"58BD04C3B5581B0990EAF1BB" = {
+			"isa" = "XCLocalSwiftPackageReference";
+			"relativePath" = "Packages/LianAiCore";
+		};
+		"6AC7FF304118A3B550264349" = {
+			"isa" = "XCLocalSwiftPackageReference";
+			"relativePath" = "Packages/KeyboardCore";
+		};
+		"1A6670B2B1AD2B46AF7978CC" = {
+			"isa" = "XCLocalSwiftPackageReference";
+			"relativePath" = "Packages/RimeBridge";
+		};
+		"54628DF94BA9B9CD246EDB2A" = {
+			"isa" = "PBXFileReference";
+			"path" = "App/AppModel.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"7A736BA99B45FED33E349E0E" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 54628DF94BA9B9CD246EDB2A;
+		};
+		"0FAC0823AD9A0D322F26B67F" = {
+			"isa" = "PBXFileReference";
+			"path" = "App/Design.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"F35D2425EBAD2678E1669CA8" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 0FAC0823AD9A0D322F26B67F;
+		};
+		"FC2E9E5306AAA0423B7B89B7" = {
+			"isa" = "PBXFileReference";
+			"path" = "App/DictionaryManager.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"14DA48F049F70B27FD17B2D7" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = FC2E9E5306AAA0423B7B89B7;
+		};
+		"551C7F7FADB12D1A5853F441" = {
+			"isa" = "PBXFileReference";
+			"path" = "App/KeyboardVoiceService.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"4265DCE493489E227BFDFC06" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 551C7F7FADB12D1A5853F441;
+		};
+		"A2C71129472DC1A352FE35C8" = {
+			"isa" = "PBXFileReference";
+			"path" = "App/KeyboardVoiceSetupView.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"92655AF9D8B1B22F52CFA3FB" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = A2C71129472DC1A352FE35C8;
+		};
+		"675AFB5F6584E8DDF8D6F637" = {
+			"isa" = "PBXFileReference";
+			"path" = "App/KeyboardVoiceUITestSupport.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"80F787D5C81EF468F076A653" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 675AFB5F6584E8DDF8D6F637;
+		};
+		"C2379E8D6FA8517BA00C81D9" = {
+			"isa" = "PBXFileReference";
+			"path" = "App/MainScreens.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"17896F7F8AC3FF629535436C" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = C2379E8D6FA8517BA00C81D9;
+		};
+		"684A3BA6900A977ACAA32209" = {
+			"isa" = "PBXFileReference";
+			"path" = "App/ModelScreen.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"57A5AFB29269CBB4C242C56D" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 684A3BA6900A977ACAA32209;
+		};
+		"8D52667B18265B03E9ABD04D" = {
+			"isa" = "PBXFileReference";
+			"path" = "App/RootView.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"30C4993F10CA839DF4C46A99" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 8D52667B18265B03E9ABD04D;
+		};
+		"A970EF3132D1CBC9FD662F69" = {
+			"isa" = "PBXFileReference";
+			"path" = "App/SettingsScreens.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"FE8A5C2ACE16AB6F2FA0E716" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = A970EF3132D1CBC9FD662F69;
+		};
+		"C073AB30717B02AEA65116AA" = {
+			"isa" = "PBXFileReference";
+			"path" = "App/SpeechPCM.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"B45DE07C3DC6E776E25DF3ED" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = C073AB30717B02AEA65116AA;
+		};
+		"631DD418B28BF7792712BD32" = {
+			"isa" = "PBXFileReference";
+			"path" = "App/SubscriptionScreen.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"54649F41ABB97BECE04CD3A6" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 631DD418B28BF7792712BD32;
+		};
+		"474D6631CB78188D182E65E6" = {
+			"isa" = "PBXFileReference";
+			"path" = "SharedUI/InputKey.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"E861653928D08A79B6451EB3" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 474D6631CB78188D182E65E6;
+		};
+		"34016040CBDD5F076954B16C" = {
+			"isa" = "PBXFileReference";
+			"path" = "SharedUI/InputLexicon.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"DFAC9EA0A1B61A6A69FBD8E0" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 34016040CBDD5F076954B16C;
+		};
+		"6F9FB2663CC928812D03BF89" = {
+			"isa" = "PBXFileReference";
+			"path" = "SharedUI/KeyboardChoiceStrip.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"5AF2FF8650F668645518B683" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 6F9FB2663CC928812D03BF89;
+		};
+		"DFAFD94549ADBF9E36302F06" = {
+			"isa" = "PBXFileReference";
+			"path" = "SharedUI/KeyboardClickAudio.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"48EF2F41EFDFE157A242F847" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = DFAFD94549ADBF9E36302F06;
+		};
+		"4AE67F62B99E646C2297B689" = {
+			"isa" = "PBXFileReference";
+			"path" = "SharedUI/KeyboardDocumentContext.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"5016747D1C8A0A190478D14F" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 4AE67F62B99E646C2297B689;
+		};
+		"648FD4B9564C5FCD55FC870C" = {
+			"isa" = "PBXFileReference";
+			"path" = "SharedUI/KeyboardUITestSupport.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"814978674781717B4E9FE04C" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 648FD4B9564C5FCD55FC870C;
+		};
+		"C0419172E3BC939AF78EAEC6" = {
+			"isa" = "PBXFileReference";
+			"path" = "SharedUI/KeyboardVoiceChannel.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"C86D6438B5CF51483933F6FB" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = C0419172E3BC939AF78EAEC6;
+		};
+		"F70D57F0FDB24110FA0C3363" = {
+			"isa" = "PBXFileReference";
+			"path" = "SharedUI/RimeRuntime.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"C5AEB94BB6108689808E8599" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = F70D57F0FDB24110FA0C3363;
+		};
+		"CA1E3D0C698C221178491380" = {
+			"isa" = "XCSwiftPackageProductDependency";
+			"package" = 58BD04C3B5581B0990EAF1BB;
+			"productName" = "LianAiCore";
+		};
+		"9F113835AFF1E214E43F29A1" = {
+			"isa" = "PBXBuildFile";
+			"productRef" = CA1E3D0C698C221178491380;
+		};
+		"ED8BB1D3B05A1FDA06E7B7E1" = {
+			"isa" = "XCSwiftPackageProductDependency";
+			"package" = 6AC7FF304118A3B550264349;
+			"productName" = "KeyboardCore";
+		};
+		"A817C63BEC63A4BBA136E879" = {
+			"isa" = "PBXBuildFile";
+			"productRef" = ED8BB1D3B05A1FDA06E7B7E1;
+		};
+		"08183B60D6129EF2F17B8112" = {
+			"isa" = "XCSwiftPackageProductDependency";
+			"package" = 1A6670B2B1AD2B46AF7978CC;
+			"productName" = "RimeNative";
+		};
+		"FE6A0AD092C9237513884B85" = {
+			"isa" = "PBXBuildFile";
+			"productRef" = 08183B60D6129EF2F17B8112;
+		};
+		"4D5A58256DC16CDFBFA47966" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 7A5CCB0147A1F44705D7DBD4;
+		};
+		"FBEB427AA61598326CB5B729" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 48E8FAE1E698C89785905927;
+		};
+		"EED1AA7B3944FAF3DC6D8D7F" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = EBFF297CF9AE3A9850F01434;
+		};
+		"4E099DE3B28A248A0E1CD196" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = C18987B5E70B812C1C157170;
+		};
+		"C911000F8BB7CA5CE7D6D5C7" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 6327A1005FF0B783151E530B;
+		};
+		"C81C374A3B181135F20B40EE" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 82C2E45E72AC8F2DE13DC653;
+		};
+		"7E59E7A76FDA312EE187DEAD" = {
+			"isa" = "PBXSourcesBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = ( 7A736BA99B45FED33E349E0E, F35D2425EBAD2678E1669CA8, 14DA48F049F70B27FD17B2D7, 4265DCE493489E227BFDFC06, 92655AF9D8B1B22F52CFA3FB, 80F787D5C81EF468F076A653, 17896F7F8AC3FF629535436C, 57A5AFB29269CBB4C242C56D, 30C4993F10CA839DF4C46A99, FE8A5C2ACE16AB6F2FA0E716, B45DE07C3DC6E776E25DF3ED, 54649F41ABB97BECE04CD3A6, E861653928D08A79B6451EB3, DFAC9EA0A1B61A6A69FBD8E0, 5AF2FF8650F668645518B683, 48EF2F41EFDFE157A242F847, 5016747D1C8A0A190478D14F, 814978674781717B4E9FE04C, C86D6438B5CF51483933F6FB, C5AEB94BB6108689808E8599 );
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"602FE0D6C52CED31687DAB4F" = {
+			"isa" = "PBXFrameworksBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = ( 9F113835AFF1E214E43F29A1, A817C63BEC63A4BBA136E879, FE6A0AD092C9237513884B85 );
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"D2F5E8ECAD280E5D46EDA93D" = {
+			"isa" = "PBXResourcesBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = ( 4D5A58256DC16CDFBFA47966, FBEB427AA61598326CB5B729, EED1AA7B3944FAF3DC6D8D7F, 4E099DE3B28A248A0E1CD196, C911000F8BB7CA5CE7D6D5C7, C81C374A3B181135F20B40EE );
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"0D01238BC0FDCBA5F2F36BEC" = {
+			"isa" = "PBXContainerItemProxy";
+			"containerPortal" = 98F54143AB4E86B28C3AFEE0;
+			"proxyType" = 1;
+			"remoteGlobalIDString" = 49C1E716D29707D2A4A6FDB4;
+			"remoteInfo" = "LianAiKeyboardExtension";
+		};
+		"DC6B8FD2F6D59530D2A173C9" = {
+			"isa" = "PBXTargetDependency";
+			"target" = 49C1E716D29707D2A4A6FDB4;
+			"targetProxy" = 0D01238BC0FDCBA5F2F36BEC;
+		};
+		"1512A2A84E266A10D8963E8A" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = A6FE9E47F0E7DBBF464BB9DC;
+			"settings" = {
+				"ATTRIBUTES" = ( "RemoveHeadersOnCopy" );
+			};
+		};
+		"DB4C3A1716DB95CBF0FDA1CB" = {
+			"isa" = "PBXCopyFilesBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = ( 1512A2A84E266A10D8963E8A );
+			"runOnlyForDeploymentPostprocessing" = 0;
+			"dstPath" = "";
+			"dstSubfolderSpec" = 13;
+			"name" = "Embed App Extensions";
+		};
+		"8CEDA7969DF3E20018ADE29A" = {
+			"isa" = "PBXFileReference";
+			"explicitFileType" = "wrapper.application";
+			"path" = "LianAiKeyboard.app";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+			"includeInIndex" = 0;
+		};
+		"877EE788D2FBAC64CD7EFD0D" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Debug";
+			"buildSettings" = {
+				"SDKROOT" = "iphoneos";
+				"ARCHS" = "arm64";
+				"ONLY_ACTIVE_ARCH" = "YES";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "18.0";
+				"SWIFT_VERSION" = "6.0";
+				"SWIFT_STRICT_CONCURRENCY" = "complete";
+				"CLANG_ENABLE_MODULES" = "YES";
+				"CLANG_ENABLE_OBJC_ARC" = "YES";
+				"GCC_C_LANGUAGE_STANDARD" = "gnu17";
+				"CLANG_CXX_LANGUAGE_STANDARD" = "gnu++17";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"TARGETED_DEVICE_FAMILY" = "1,2";
+				"MARKETING_VERSION" = "1.5.9";
+				"CURRENT_PROJECT_VERSION" = "39";
+				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
+				"SWIFT_EMIT_LOC_STRINGS" = "YES";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.lianai.keyboard.ios";
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"INFOPLIST_FILE" = "App/Info.plist";
+				"CODE_SIGN_ENTITLEMENTS" = "App/LianAi.entitlements";
+				"LD_RUNPATH_SEARCH_PATHS" = "$(inherited) @executable_path/Frameworks";
+				"SWIFT_DEFAULT_ACTOR_ISOLATION" = "MainActor";
+				"ASSETCATALOG_COMPILER_APPICON_NAME" = "AppIcon";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "DEBUG";
+				"ENABLE_TESTABILITY" = "YES";
+			};
+			"baseConfigurationReference" = 623B7D7CE7D9989C2BB15051;
+		};
+		"27A46CF717D866B4D1924773" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Release";
+			"buildSettings" = {
+				"SDKROOT" = "iphoneos";
+				"ARCHS" = "arm64";
+				"ONLY_ACTIVE_ARCH" = "YES";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "18.0";
+				"SWIFT_VERSION" = "6.0";
+				"SWIFT_STRICT_CONCURRENCY" = "complete";
+				"CLANG_ENABLE_MODULES" = "YES";
+				"CLANG_ENABLE_OBJC_ARC" = "YES";
+				"GCC_C_LANGUAGE_STANDARD" = "gnu17";
+				"CLANG_CXX_LANGUAGE_STANDARD" = "gnu++17";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"TARGETED_DEVICE_FAMILY" = "1,2";
+				"MARKETING_VERSION" = "1.5.9";
+				"CURRENT_PROJECT_VERSION" = "39";
+				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
+				"SWIFT_EMIT_LOC_STRINGS" = "YES";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.lianai.keyboard.ios";
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"INFOPLIST_FILE" = "App/Info.plist";
+				"CODE_SIGN_ENTITLEMENTS" = "App/LianAi.entitlements";
+				"LD_RUNPATH_SEARCH_PATHS" = "$(inherited) @executable_path/Frameworks";
+				"SWIFT_DEFAULT_ACTOR_ISOLATION" = "MainActor";
+				"ASSETCATALOG_COMPILER_APPICON_NAME" = "AppIcon";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "";
+				"ENABLE_TESTABILITY" = "NO";
+			};
+			"baseConfigurationReference" = 623B7D7CE7D9989C2BB15051;
+		};
+		"87C24010EB2FFB6BE89D6A0F" = {
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = ( 877EE788D2FBAC64CD7EFD0D, 27A46CF717D866B4D1924773 );
+			"defaultConfigurationIsVisible" = 0;
+			"defaultConfigurationName" = "Release";
+		};
+		"D63C2900AF3865B2C2A238D2" = {
+			"isa" = "PBXNativeTarget";
+			"name" = "LianAiKeyboard";
+			"productName" = "LianAiKeyboard";
+			"productReference" = 8CEDA7969DF3E20018ADE29A;
+			"productType" = "com.apple.product-type.application";
+			"buildConfigurationList" = 87C24010EB2FFB6BE89D6A0F;
+			"buildPhases" = ( 7E59E7A76FDA312EE187DEAD, 602FE0D6C52CED31687DAB4F, D2F5E8ECAD280E5D46EDA93D, DB4C3A1716DB95CBF0FDA1CB );
+			"buildRules" = (  );
+			"dependencies" = ( DC6B8FD2F6D59530D2A173C9 );
+			"packageProductDependencies" = ( CA1E3D0C698C221178491380, ED8BB1D3B05A1FDA06E7B7E1, 08183B60D6129EF2F17B8112 );
+		};
+		"D929BB5ED121D051243ACA02" = {
+			"isa" = "PBXFileReference";
+			"path" = "Keyboard/KeyboardViewController.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"353E627EF0EB6675308088CB" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = D929BB5ED121D051243ACA02;
+		};
+		"844C17EB2BF84B859CF4DBFB" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 474D6631CB78188D182E65E6;
+		};
+		"1C438EEF0FA5B6D5639D3FAA" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 34016040CBDD5F076954B16C;
+		};
+		"A74845AB2FE6B02467FF8033" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 6F9FB2663CC928812D03BF89;
+		};
+		"827D496F5B7C19ED6AB4356B" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = DFAFD94549ADBF9E36302F06;
+		};
+		"1F0F54370A2D488B576E1E2B" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 4AE67F62B99E646C2297B689;
+		};
+		"B3AFCDD774C594087A8D901C" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 648FD4B9564C5FCD55FC870C;
+		};
+		"C31A3A1CCDFB6A23B08D4ED8" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = C0419172E3BC939AF78EAEC6;
+		};
+		"A6BE36C3DED1EEF20F79D92F" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = F70D57F0FDB24110FA0C3363;
+		};
+		"28380D36CB8554218273D334" = {
+			"isa" = "XCSwiftPackageProductDependency";
+			"package" = 58BD04C3B5581B0990EAF1BB;
+			"productName" = "LianAiCore";
+		};
+		"B5379351AAD800BB5C4F1C2B" = {
+			"isa" = "PBXBuildFile";
+			"productRef" = 28380D36CB8554218273D334;
+		};
+		"82D6163645630A0250A3280F" = {
+			"isa" = "XCSwiftPackageProductDependency";
+			"package" = 6AC7FF304118A3B550264349;
+			"productName" = "KeyboardCore";
+		};
+		"BA3A7A71F54FB57DCA0FE166" = {
+			"isa" = "PBXBuildFile";
+			"productRef" = 82D6163645630A0250A3280F;
+		};
+		"D4DB23AD3B005B36BAA3D898" = {
+			"isa" = "XCSwiftPackageProductDependency";
+			"package" = 1A6670B2B1AD2B46AF7978CC;
+			"productName" = "RimeNative";
+		};
+		"48BBB6296C774421F4B922DD" = {
+			"isa" = "PBXBuildFile";
+			"productRef" = D4DB23AD3B005B36BAA3D898;
+		};
+		"B09F3E3CD05A3F6C4BB90182" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 7A5CCB0147A1F44705D7DBD4;
+		};
+		"B7F2E57F430CDF6EC72AE78C" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 48E8FAE1E698C89785905927;
+		};
+		"5D04A1B85F4985CCD8032112" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = EBFF297CF9AE3A9850F01434;
+		};
+		"696A89F5F80DAC693C0638B7" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = C18987B5E70B812C1C157170;
+		};
+		"021643A2C12EA5CEFF623FE2" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 6327A1005FF0B783151E530B;
+		};
+		"65DF8C28C4371A7812205321" = {
+			"isa" = "PBXSourcesBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = ( 353E627EF0EB6675308088CB, 844C17EB2BF84B859CF4DBFB, 1C438EEF0FA5B6D5639D3FAA, A74845AB2FE6B02467FF8033, 827D496F5B7C19ED6AB4356B, 1F0F54370A2D488B576E1E2B, B3AFCDD774C594087A8D901C, C31A3A1CCDFB6A23B08D4ED8, A6BE36C3DED1EEF20F79D92F );
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"58ED0D543C087EF260DF7A63" = {
+			"isa" = "PBXFrameworksBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = ( B5379351AAD800BB5C4F1C2B, BA3A7A71F54FB57DCA0FE166, 48BBB6296C774421F4B922DD );
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"9F19CBF24D6E9BABDC02D00D" = {
+			"isa" = "PBXResourcesBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = ( B09F3E3CD05A3F6C4BB90182, B7F2E57F430CDF6EC72AE78C, 5D04A1B85F4985CCD8032112, 696A89F5F80DAC693C0638B7, 021643A2C12EA5CEFF623FE2 );
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"A6FE9E47F0E7DBBF464BB9DC" = {
+			"isa" = "PBXFileReference";
+			"explicitFileType" = "wrapper.app-extension";
+			"path" = "LianAiKeyboardExtension.appex";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+			"includeInIndex" = 0;
+		};
+		"30742ECA811005BEDBD71E42" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Debug";
+			"buildSettings" = {
+				"SDKROOT" = "iphoneos";
+				"ARCHS" = "arm64";
+				"ONLY_ACTIVE_ARCH" = "YES";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "18.0";
+				"SWIFT_VERSION" = "6.0";
+				"SWIFT_STRICT_CONCURRENCY" = "complete";
+				"CLANG_ENABLE_MODULES" = "YES";
+				"CLANG_ENABLE_OBJC_ARC" = "YES";
+				"GCC_C_LANGUAGE_STANDARD" = "gnu17";
+				"CLANG_CXX_LANGUAGE_STANDARD" = "gnu++17";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"TARGETED_DEVICE_FAMILY" = "1,2";
+				"MARKETING_VERSION" = "1.5.9";
+				"CURRENT_PROJECT_VERSION" = "39";
+				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
+				"SWIFT_EMIT_LOC_STRINGS" = "YES";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.lianai.keyboard.ios.Keyboard";
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"INFOPLIST_FILE" = "Keyboard/Info.plist";
+				"CODE_SIGN_ENTITLEMENTS" = "Keyboard/LianAi.entitlements";
+				"LD_RUNPATH_SEARCH_PATHS" = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				"SWIFT_DEFAULT_ACTOR_ISOLATION" = "MainActor";
+				"APPLICATION_EXTENSION_API_ONLY" = "YES";
+				"SKIP_INSTALL" = "YES";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "DEBUG";
+				"ENABLE_TESTABILITY" = "YES";
+			};
+			"baseConfigurationReference" = 623B7D7CE7D9989C2BB15051;
+		};
+		"B3DB4B9B9CB183D70E6CC770" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Release";
+			"buildSettings" = {
+				"SDKROOT" = "iphoneos";
+				"ARCHS" = "arm64";
+				"ONLY_ACTIVE_ARCH" = "YES";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "18.0";
+				"SWIFT_VERSION" = "6.0";
+				"SWIFT_STRICT_CONCURRENCY" = "complete";
+				"CLANG_ENABLE_MODULES" = "YES";
+				"CLANG_ENABLE_OBJC_ARC" = "YES";
+				"GCC_C_LANGUAGE_STANDARD" = "gnu17";
+				"CLANG_CXX_LANGUAGE_STANDARD" = "gnu++17";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"TARGETED_DEVICE_FAMILY" = "1,2";
+				"MARKETING_VERSION" = "1.5.9";
+				"CURRENT_PROJECT_VERSION" = "39";
+				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
+				"SWIFT_EMIT_LOC_STRINGS" = "YES";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.lianai.keyboard.ios.Keyboard";
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"INFOPLIST_FILE" = "Keyboard/Info.plist";
+				"CODE_SIGN_ENTITLEMENTS" = "Keyboard/LianAi.entitlements";
+				"LD_RUNPATH_SEARCH_PATHS" = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				"SWIFT_DEFAULT_ACTOR_ISOLATION" = "MainActor";
+				"APPLICATION_EXTENSION_API_ONLY" = "YES";
+				"SKIP_INSTALL" = "YES";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "";
+				"ENABLE_TESTABILITY" = "NO";
+			};
+			"baseConfigurationReference" = 623B7D7CE7D9989C2BB15051;
+		};
+		"CBA0844D09025EF5BA7066A8" = {
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = ( 30742ECA811005BEDBD71E42, B3DB4B9B9CB183D70E6CC770 );
+			"defaultConfigurationIsVisible" = 0;
+			"defaultConfigurationName" = "Release";
+		};
+		"49C1E716D29707D2A4A6FDB4" = {
+			"isa" = "PBXNativeTarget";
+			"name" = "LianAiKeyboardExtension";
+			"productName" = "LianAiKeyboardExtension";
+			"productReference" = A6FE9E47F0E7DBBF464BB9DC;
+			"productType" = "com.apple.product-type.app-extension";
+			"buildConfigurationList" = CBA0844D09025EF5BA7066A8;
+			"buildPhases" = ( 65DF8C28C4371A7812205321, 58ED0D543C087EF260DF7A63, 9F19CBF24D6E9BABDC02D00D );
+			"buildRules" = (  );
+			"dependencies" = (  );
+			"packageProductDependencies" = ( 28380D36CB8554218273D334, 82D6163645630A0250A3280F, D4DB23AD3B005B36BAA3D898 );
+		};
+		"09C2199424F656ECA3A30594" = {
+			"isa" = "PBXFileReference";
+			"path" = "Tests/AudioCaptureTests.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"8D2609CEB85D2CD2BD6ADE6E" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 09C2199424F656ECA3A30594;
+		};
+		"F2E6903CF359EF76EA4B9CEA" = {
+			"isa" = "PBXFileReference";
+			"path" = "Tests/KeyboardClickAudioTests.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"0C263B65E28142325B1A6E12" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = F2E6903CF359EF76EA4B9CEA;
+		};
+		"331380F5F5D4CBE1C0C3167D" = {
+			"isa" = "PBXFileReference";
+			"path" = "Tests/KeyboardDocumentContextTests.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"C86ECD41CDD6FD3DDFFFF0C1" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 331380F5F5D4CBE1C0C3167D;
+		};
+		"5559E54A2B6782E76B01FE57" = {
+			"isa" = "PBXFileReference";
+			"path" = "Tests/KeyboardTouchTests.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"06AE20568665E1CD8D391C24" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 5559E54A2B6782E76B01FE57;
+		};
+		"E672A11F07B1769650A1BDE7" = {
+			"isa" = "PBXFileReference";
+			"path" = "Tests/KeyboardVoiceServiceTests.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"A1E2F83A6BF1F1DC6B7B4DC8" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = E672A11F07B1769650A1BDE7;
+		};
+		"150BCB841FC042414ECDAF4F" = {
+			"isa" = "PBXFileReference";
+			"path" = "Tests/NavigationTests.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"228F8BF56EFBBD4464B2D6FA" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 150BCB841FC042414ECDAF4F;
+		};
+		"AE965AC3DEB2A88C1DED6764" = {
+			"isa" = "PBXFileReference";
+			"path" = "Tests/RimeIntegrationTests.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"FE57D1F3E85C20E94557EE61" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = AE965AC3DEB2A88C1DED6764;
+		};
+		"F7274FA43EF4B25DC0D9F954" = {
+			"isa" = "PBXFileReference";
+			"explicitFileType" = "wrapper.cfbundle";
+			"path" = "LianAiKeyboardTests.xctest";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+		};
+		"5626E1A5E286589384456A11" = {
+			"isa" = "PBXContainerItemProxy";
+			"containerPortal" = 98F54143AB4E86B28C3AFEE0;
+			"proxyType" = 1;
+			"remoteGlobalIDString" = D63C2900AF3865B2C2A238D2;
+			"remoteInfo" = "LianAiKeyboard";
+		};
+		"2DE810FE7A91BB404894C816" = {
+			"isa" = "PBXTargetDependency";
+			"target" = D63C2900AF3865B2C2A238D2;
+			"targetProxy" = 5626E1A5E286589384456A11;
+		};
+		"D8625A73A41C73E9E2938439" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Debug";
+			"buildSettings" = {
+				"SDKROOT" = "iphoneos";
+				"ARCHS" = "arm64";
+				"ONLY_ACTIVE_ARCH" = "YES";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "18.0";
+				"SWIFT_VERSION" = "6.0";
+				"SWIFT_STRICT_CONCURRENCY" = "complete";
+				"CLANG_ENABLE_MODULES" = "YES";
+				"CLANG_ENABLE_OBJC_ARC" = "YES";
+				"GCC_C_LANGUAGE_STANDARD" = "gnu17";
+				"CLANG_CXX_LANGUAGE_STANDARD" = "gnu++17";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"TARGETED_DEVICE_FAMILY" = "1,2";
+				"MARKETING_VERSION" = "1.5.9";
+				"CURRENT_PROJECT_VERSION" = "39";
+				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
+				"SWIFT_EMIT_LOC_STRINGS" = "YES";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.lianai.keyboard.ios.Tests";
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"TEST_HOST" = "$(BUILT_PRODUCTS_DIR)/LianAiKeyboard.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LianAiKeyboard";
+				"BUNDLE_LOADER" = "$(TEST_HOST)";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "DEBUG";
+				"ENABLE_TESTABILITY" = "YES";
+			};
+			"baseConfigurationReference" = 623B7D7CE7D9989C2BB15051;
+		};
+		"676197BEB54230608A7FAF6F" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Release";
+			"buildSettings" = {
+				"SDKROOT" = "iphoneos";
+				"ARCHS" = "arm64";
+				"ONLY_ACTIVE_ARCH" = "YES";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "18.0";
+				"SWIFT_VERSION" = "6.0";
+				"SWIFT_STRICT_CONCURRENCY" = "complete";
+				"CLANG_ENABLE_MODULES" = "YES";
+				"CLANG_ENABLE_OBJC_ARC" = "YES";
+				"GCC_C_LANGUAGE_STANDARD" = "gnu17";
+				"CLANG_CXX_LANGUAGE_STANDARD" = "gnu++17";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"TARGETED_DEVICE_FAMILY" = "1,2";
+				"MARKETING_VERSION" = "1.5.9";
+				"CURRENT_PROJECT_VERSION" = "39";
+				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
+				"SWIFT_EMIT_LOC_STRINGS" = "YES";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.lianai.keyboard.ios.Tests";
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"TEST_HOST" = "$(BUILT_PRODUCTS_DIR)/LianAiKeyboard.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LianAiKeyboard";
+				"BUNDLE_LOADER" = "$(TEST_HOST)";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "";
+				"ENABLE_TESTABILITY" = "NO";
+			};
+			"baseConfigurationReference" = 623B7D7CE7D9989C2BB15051;
+		};
+		"631FC4E7530A5CD8E7F0C43B" = {
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = ( D8625A73A41C73E9E2938439, 676197BEB54230608A7FAF6F );
+			"defaultConfigurationIsVisible" = 0;
+			"defaultConfigurationName" = "Release";
+		};
+		"E09A3F2A13ED301C8F0A5E9C" = {
+			"isa" = "PBXSourcesBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = ( 8D2609CEB85D2CD2BD6ADE6E, 0C263B65E28142325B1A6E12, C86ECD41CDD6FD3DDFFFF0C1, 06AE20568665E1CD8D391C24, A1E2F83A6BF1F1DC6B7B4DC8, 228F8BF56EFBBD4464B2D6FA, FE57D1F3E85C20E94557EE61 );
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"FBC494AECBCA85E5C7B6E54D" = {
+			"isa" = "PBXFrameworksBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = (  );
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"0AB08BF5383E9A6D8DECE722" = {
+			"isa" = "PBXNativeTarget";
+			"name" = "LianAiKeyboardTests";
+			"productName" = "LianAiKeyboardTests";
+			"productReference" = F7274FA43EF4B25DC0D9F954;
+			"productType" = "com.apple.product-type.bundle.unit-test";
+			"buildConfigurationList" = 631FC4E7530A5CD8E7F0C43B;
+			"buildPhases" = ( E09A3F2A13ED301C8F0A5E9C, FBC494AECBCA85E5C7B6E54D );
+			"buildRules" = (  );
+			"dependencies" = ( 2DE810FE7A91BB404894C816 );
+		};
+		"6D830B0E4DD85D887B3B6438" = {
+			"isa" = "PBXFileReference";
+			"path" = "UITests/AppFlowTests.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"DA7E5BE1845F20F2FA8CF058" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 6D830B0E4DD85D887B3B6438;
+		};
+		"B849F97097D217BA8C69EC1A" = {
+			"isa" = "PBXFileReference";
+			"path" = "UITests/KeyboardAIFlowTests.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"6A1DE01C6AAF266EF2A2490A" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = B849F97097D217BA8C69EC1A;
+		};
+		"328BBEE7C0818D85E3DC6BE4" = {
+			"isa" = "PBXFileReference";
+			"path" = "UITests/KeyboardExtensionTests.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"5A410449D5698A2696A1473A" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 328BBEE7C0818D85E3DC6BE4;
+		};
+		"06672C49BE99D8DC4EA5F24B" = {
+			"isa" = "PBXFileReference";
+			"path" = "UITests/KeyboardTypingUITests.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"492905191492A04EB400CEDF" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 06672C49BE99D8DC4EA5F24B;
+		};
+		"367439A8C3D6CFD63CA804CB" = {
+			"isa" = "PBXFileReference";
+			"path" = "UITests/NativeVoiceSessionTests.swift";
+			"sourceTree" = "<group>";
+			"lastKnownFileType" = "sourcecode.swift";
+		};
+		"6D17D7E29B8CC91ADADCB037" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = 367439A8C3D6CFD63CA804CB;
+		};
+		"0E11D99F4FCA0A0DF914A07B" = {
+			"isa" = "PBXFileReference";
+			"explicitFileType" = "wrapper.cfbundle";
+			"path" = "LianAiKeyboardUITests.xctest";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+		};
+		"9E2A157642251FF34AFEE743" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Debug";
+			"buildSettings" = {
+				"SDKROOT" = "iphoneos";
+				"ARCHS" = "arm64";
+				"ONLY_ACTIVE_ARCH" = "YES";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "18.0";
+				"SWIFT_VERSION" = "6.0";
+				"SWIFT_STRICT_CONCURRENCY" = "complete";
+				"CLANG_ENABLE_MODULES" = "YES";
+				"CLANG_ENABLE_OBJC_ARC" = "YES";
+				"GCC_C_LANGUAGE_STANDARD" = "gnu17";
+				"CLANG_CXX_LANGUAGE_STANDARD" = "gnu++17";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"TARGETED_DEVICE_FAMILY" = "1,2";
+				"MARKETING_VERSION" = "1.5.9";
+				"CURRENT_PROJECT_VERSION" = "39";
+				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
+				"SWIFT_EMIT_LOC_STRINGS" = "YES";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.lianai.keyboard.ios.UITests";
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"TEST_TARGET_NAME" = "LianAiKeyboard";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "DEBUG";
+				"ENABLE_TESTABILITY" = "YES";
+			};
+			"baseConfigurationReference" = 623B7D7CE7D9989C2BB15051;
+		};
+		"068112F8AA1B2094C2897351" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Release";
+			"buildSettings" = {
+				"SDKROOT" = "iphoneos";
+				"ARCHS" = "arm64";
+				"ONLY_ACTIVE_ARCH" = "YES";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "18.0";
+				"SWIFT_VERSION" = "6.0";
+				"SWIFT_STRICT_CONCURRENCY" = "complete";
+				"CLANG_ENABLE_MODULES" = "YES";
+				"CLANG_ENABLE_OBJC_ARC" = "YES";
+				"GCC_C_LANGUAGE_STANDARD" = "gnu17";
+				"CLANG_CXX_LANGUAGE_STANDARD" = "gnu++17";
+				"CODE_SIGN_STYLE" = "Automatic";
+				"TARGETED_DEVICE_FAMILY" = "1,2";
+				"MARKETING_VERSION" = "1.5.9";
+				"CURRENT_PROJECT_VERSION" = "39";
+				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
+				"SWIFT_EMIT_LOC_STRINGS" = "YES";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "com.lianai.keyboard.ios.UITests";
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"TEST_TARGET_NAME" = "LianAiKeyboard";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "";
+				"ENABLE_TESTABILITY" = "NO";
+			};
+			"baseConfigurationReference" = 623B7D7CE7D9989C2BB15051;
+		};
+		"C7B16C380F0183CC1E5727BC" = {
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = ( 9E2A157642251FF34AFEE743, 068112F8AA1B2094C2897351 );
+			"defaultConfigurationIsVisible" = 0;
+			"defaultConfigurationName" = "Release";
+		};
+		"CA7539B13234FAC28083F340" = {
+			"isa" = "PBXSourcesBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = ( DA7E5BE1845F20F2FA8CF058, 6A1DE01C6AAF266EF2A2490A, 5A410449D5698A2696A1473A, 492905191492A04EB400CEDF, 6D17D7E29B8CC91ADADCB037 );
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"B130735F0DB20D9C33B1620F" = {
+			"isa" = "PBXFrameworksBuildPhase";
+			"buildActionMask" = 2147483647;
+			"files" = (  );
+			"runOnlyForDeploymentPostprocessing" = 0;
+		};
+		"746EF54389602C3540C7487C" = {
+			"isa" = "PBXNativeTarget";
+			"name" = "LianAiKeyboardUITests";
+			"productName" = "LianAiKeyboardUITests";
+			"productReference" = 0E11D99F4FCA0A0DF914A07B;
+			"productType" = "com.apple.product-type.bundle.ui-testing";
+			"buildConfigurationList" = C7B16C380F0183CC1E5727BC;
+			"buildPhases" = ( CA7539B13234FAC28083F340, B130735F0DB20D9C33B1620F );
+			"buildRules" = (  );
+			"dependencies" = ( 2DE810FE7A91BB404894C816 );
+		};
+		"FBDC4F23F93125BBEEAE800C" = {
+			"isa" = "PBXGroup";
+			"name" = "Products";
+			"children" = ( 8CEDA7969DF3E20018ADE29A, A6FE9E47F0E7DBBF464BB9DC, F7274FA43EF4B25DC0D9F954, 0E11D99F4FCA0A0DF914A07B );
+			"sourceTree" = "<group>";
+		};
+		"DC76E9F0C0006E8F919E0C51" = {
+			"isa" = "PBXGroup";
+			"children" = ( 54628DF94BA9B9CD246EDB2A, 0FAC0823AD9A0D322F26B67F, FC2E9E5306AAA0423B7B89B7, 551C7F7FADB12D1A5853F441, A2C71129472DC1A352FE35C8, 675AFB5F6584E8DDF8D6F637, C2379E8D6FA8517BA00C81D9, 684A3BA6900A977ACAA32209, 8D52667B18265B03E9ABD04D, A970EF3132D1CBC9FD662F69, C073AB30717B02AEA65116AA, 631DD418B28BF7792712BD32, 474D6631CB78188D182E65E6, 34016040CBDD5F076954B16C, 6F9FB2663CC928812D03BF89, DFAFD94549ADBF9E36302F06, 4AE67F62B99E646C2297B689, 648FD4B9564C5FCD55FC870C, C0419172E3BC939AF78EAEC6, F70D57F0FDB24110FA0C3363, D929BB5ED121D051243ACA02, 09C2199424F656ECA3A30594, F2E6903CF359EF76EA4B9CEA, 331380F5F5D4CBE1C0C3167D, 5559E54A2B6782E76B01FE57, E672A11F07B1769650A1BDE7, 150BCB841FC042414ECDAF4F, AE965AC3DEB2A88C1DED6764, 6D830B0E4DD85D887B3B6438, B849F97097D217BA8C69EC1A, 328BBEE7C0818D85E3DC6BE4, 06672C49BE99D8DC4EA5F24B, 367439A8C3D6CFD63CA804CB, 7A5CCB0147A1F44705D7DBD4, 48E8FAE1E698C89785905927, EBFF297CF9AE3A9850F01434, C18987B5E70B812C1C157170, 6327A1005FF0B783151E530B, 82C2E45E72AC8F2DE13DC653, 623B7D7CE7D9989C2BB15051, FBDC4F23F93125BBEEAE800C );
+			"sourceTree" = "<group>";
+		};
+		"AB52CB08E0FDF02BF6C67C33" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Debug";
+			"buildSettings" = {
+				"CLANG_ENABLE_MODULES" = "YES";
+				"SWIFT_VERSION" = "6.0";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "18.0";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "DEBUG";
+				"ENABLE_TESTABILITY" = "YES";
+			};
+			"baseConfigurationReference" = 623B7D7CE7D9989C2BB15051;
+		};
+		"5283471FF90C511CFE244FFF" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Release";
+			"buildSettings" = {
+				"CLANG_ENABLE_MODULES" = "YES";
+				"SWIFT_VERSION" = "6.0";
+				"IPHONEOS_DEPLOYMENT_TARGET" = "18.0";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "";
+				"ENABLE_TESTABILITY" = "NO";
+			};
+			"baseConfigurationReference" = 623B7D7CE7D9989C2BB15051;
+		};
+		"4BA304E783CFBB9FA6E56552" = {
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = ( AB52CB08E0FDF02BF6C67C33, 5283471FF90C511CFE244FFF );
+			"defaultConfigurationIsVisible" = 0;
+			"defaultConfigurationName" = "Release";
+		};
+		"98F54143AB4E86B28C3AFEE0" = {
+			"isa" = "PBXProject";
+			"attributes" = {
+				"BuildIndependentTargetsInParallel" = "YES";
+				"LastUpgradeCheck" = "2700";
+				"TargetAttributes" = {
+					"0AB08BF5383E9A6D8DECE722" = {
+						"TestTargetID" = D63C2900AF3865B2C2A238D2;
+					};
+				};
+			};
+			"buildConfigurationList" = 4BA304E783CFBB9FA6E56552;
+			"compatibilityVersion" = "Xcode 14.0";
+			"developmentRegion" = "zh-Hans";
+			"hasScannedForEncodings" = 0;
+			"knownRegions" = ( "en", "Base", "zh-Hans" );
+			"mainGroup" = DC76E9F0C0006E8F919E0C51;
+			"productRefGroup" = FBDC4F23F93125BBEEAE800C;
+			"projectDirPath" = "";
+			"projectRoot" = "";
+			"targets" = ( D63C2900AF3865B2C2A238D2, 49C1E716D29707D2A4A6FDB4, 0AB08BF5383E9A6D8DECE722, 746EF54389602C3540C7487C );
+			"packageReferences" = ( 58BD04C3B5581B0990EAF1BB, 6AC7FF304118A3B550264349, 1A6670B2B1AD2B46AF7978CC );
+		};
+	};
+	"rootObject" = 98F54143AB4E86B28C3AFEE0;
+}

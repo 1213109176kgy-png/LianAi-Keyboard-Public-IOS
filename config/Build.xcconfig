@@ -1,0 +1,2 @@
+// Local signing values are deliberately excluded from version control.
+#include? "Signing.xcconfig"

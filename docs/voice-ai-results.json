@@ -1,0 +1,421 @@
+{
+  "date": "2026-11-03",
+  "status": "passedAcrossFullRegressionAndFinalVoiceVerification",
+  "scope": "Keyboard voice and AI panel improvements; simulator acceptance selected by user",
+  "environment": {
+    "xcode": "27.0",
+    "iosSimulator": "27.0 / iPhone 18 Pro / zh-Hans",
+    "testDevice": "E9D7621B-E90E-4631-BA09-C78DC069CEDE",
+    "physicalDevice": "notPerformed; no signing identity; user selected simulator acceptance"
+  },
+  "coverage": {
+    "core": 38,
+    "hostedIntegration": 14,
+    "ui": 20,
+    "distinctTotal": 72,
+    "lastRecordedStatus": "allPassed",
+    "deduplication": "Full regression plus final voice verification; repeated cases counted once"
+  },
+  "fullRegression": {
+    "devicesAndConfigurations": [
+      {
+        "device": {
+          "architecture": "arm64",
+          "deviceId": "E9D7621B-E90E-4631-BA09-C78DC069CEDE",
+          "deviceName": "LianAi AI 回归",
+          "modelName": "iPhone 18 Pro",
+          "osBuildNumber": "24A434",
+          "osVersion": "27.0",
+          "platform": "iOS Simulator"
+        },
+        "expectedFailures": 0,
+        "failedTests": 1,
+        "passedTests": 33,
+        "skippedTests": 0,
+        "testPlanConfiguration": {
+          "configurationId": "1",
+          "configurationName": "Test Scheme Action"
+        }
+      }
+    ],
+    "environmentDescription": "LianAiKeyboard · Built with macOS 27.0.1",
+    "expectedFailures": 0,
+    "failedTests": 1,
+    "finishTime": 1793711548.97,
+    "passedTests": 33,
+    "result": "Failed",
+    "runtimeWarnings": [
+      {
+        "issueType": "Runtime Warning",
+        "message": "    AVAudioSession_iOS.mm:978   This method can lead to UI unresponsiveness if called on the main thread. Consider using the asynchronous activate/deactivate API instead for calls from the main thread."
+      },
+      {
+        "issueType": "Runtime Warning",
+        "message": "    AVAudioSession_iOS.mm:978   This method can lead to UI unresponsiveness if called on the main thread. Consider using the asynchronous activate/deactivate API instead for calls from the main thread."
+      }
+    ],
+    "skippedTests": 0,
+    "startTime": 1793710682.547,
+    "statistics": [],
+    "testFailures": [
+      {
+        "failureText": "XCTAssertTrue failed",
+        "targetName": "LianAiKeyboardUITests",
+        "testIdentifier": 24,
+        "testIdentifierString": "KeyboardAIFlowTests/testLongPressSpaceTranscribesAndNeverOpensMainAppDialog()",
+        "testIdentifierURL": "test://com.apple.xcode/LianAiKeyboard/LianAiKeyboardUITests/KeyboardAIFlowTests/testLongPressSpaceTranscribesAndNeverOpensMainAppDialog",
+        "testName": "testLongPressSpaceTranscribesAndNeverOpensMainAppDialog()"
+      }
+    ],
+    "title": "Test - LianAiKeyboard",
+    "topInsights": [
+      {
+        "category": "Longest Test Runs",
+        "impact": "16% of duration",
+        "text": "1 longest test run with outlier durations exceeding 117.42s (three standard deviations)"
+      },
+      {
+        "category": "Longest Test Runs",
+        "impact": "49% of duration",
+        "text": "1 longest test run with outlier durations exceeding 0.56s (three standard deviations)"
+      }
+    ],
+    "totalTestCount": 34
+  },
+  "finalVerification": {
+    "devicesAndConfigurations": [
+      {
+        "device": {
+          "architecture": "arm64",
+          "deviceId": "E9D7621B-E90E-4631-BA09-C78DC069CEDE",
+          "deviceName": "LianAi AI 回归",
+          "modelName": "iPhone 18 Pro",
+          "osBuildNumber": "24A434",
+          "osVersion": "27.0",
+          "platform": "iOS Simulator"
+        },
+        "expectedFailures": 0,
+        "failedTests": 0,
+        "passedTests": 20,
+        "skippedTests": 0,
+        "testPlanConfiguration": {
+          "configurationId": "1",
+          "configurationName": "Test Scheme Action"
+        }
+      }
+    ],
+    "environmentDescription": "LianAiKeyboard · Built with macOS 27.0.1",
+    "expectedFailures": 0,
+    "failedTests": 0,
+    "finishTime": 1793711926.497,
+    "passedTests": 20,
+    "result": "Passed",
+    "runtimeWarnings": [
+      {
+        "issueType": "Runtime Warning",
+        "message": "    AVAudioSession_iOS.mm:978   This method can lead to UI unresponsiveness if called on the main thread. Consider using the asynchronous activate/deactivate API instead for calls from the main thread."
+      },
+      {
+        "issueType": "Runtime Warning",
+        "message": "    AVAudioSession_iOS.mm:978   This method can lead to UI unresponsiveness if called on the main thread. Consider using the asynchronous activate/deactivate API instead for calls from the main thread."
+      }
+    ],
+    "skippedTests": 0,
+    "startTime": 1793711659.719,
+    "statistics": [],
+    "testFailures": [],
+    "title": "Test - LianAiKeyboard",
+    "topInsights": [
+      {
+        "category": "Longest Test Runs",
+        "impact": "51% of duration",
+        "text": "1 longest test run with outlier durations exceeding 0.56s (three standard deviations)"
+      }
+    ],
+    "totalTestCount": 20
+  },
+  "testCases": {
+    "AudioCaptureTests/testHardwareRateStereoIsConvertedToCanonicalASRMono16k()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceFinalVerification.xcresult"
+    },
+    "KeyboardDocumentContextTests/testNilHostIdentifierDoesNotInvokeUnconditionalUUIDBridge()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceFinalVerification.xcresult"
+    },
+    "KeyboardDocumentContextTests/testUnknownProxyHasNoIdentity()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceFinalVerification.xcresult"
+    },
+    "KeyboardVoiceServiceTests/testFailureEmptySpeechTimeLimitAndIdleExpiry()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceFinalVerification.xcresult"
+    },
+    "KeyboardVoiceServiceTests/testLostKeyboardLeaseCancelsAudioAndErasesTranscript()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceFinalVerification.xcresult"
+    },
+    "KeyboardVoiceServiceTests/testRealMailboxStartFinishResultAcknowledgeAndIdleCaptureBoundary()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceFinalVerification.xcresult"
+    },
+    "KeyboardVoiceServiceTests/testStaleAndWrongSessionCommandsAndLateCallbacksCannotInsert()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceFinalVerification.xcresult"
+    },
+    "NavigationTests/testEveryPageUsesAndroidParentInsteadOfVisitHistory()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceFinalVerification.xcresult"
+    },
+    "NavigationTests/testModelPageRemembersOnlyItsTwoAndroidEntryPoints()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceFinalVerification.xcresult"
+    },
+    "RimeIntegrationTests/testBundledAndroidPredictionIndexesProduceRealChineseAndEnglishSuggestions()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceFinalVerification.xcresult"
+    },
+    "RimeIntegrationTests/testBundledNineKeyAndDeletePreserveComposition()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceFinalVerification.xcresult"
+    },
+    "RimeIntegrationTests/testBundledReadingDataAndEnglishDictionary()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceFinalVerification.xcresult"
+    },
+    "RimeIntegrationTests/testBundledTwentySixKeyProducesRealChineseCandidatesAndCommits()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceFinalVerification.xcresult"
+    },
+    "RimeIntegrationTests/testCandidatePaginationDoesNotCommitOrMutateInput()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceFinalVerification.xcresult"
+    },
+    "AppFlowTests/testAllSecondaryPagesRenderAndReturn()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceAndAIFullRegression.xcresult"
+    },
+    "AppFlowTests/testConfigurationChoosersSaveAndRestore()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceAndAIFullRegression.xcresult"
+    },
+    "AppFlowTests/testNavigationSettingsAndLoginValidation()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceAndAIFullRegression.xcresult"
+    },
+    "AppFlowTests/testThemeSwitchRendersAppAndRealKeyboard()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceAndAIFullRegression.xcresult"
+    },
+    "KeyboardAIFlowTests/testAIGenerationCanBeCancelledAndLongResultsCanBeReadAndSelected()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceAndAIFullRegression.xcresult"
+    },
+    "KeyboardAIFlowTests/testFullAccessNoModelAndOpenAppFallbackDoNotCrash()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceAndAIFullRegression.xcresult"
+    },
+    "KeyboardAIFlowTests/testFullAccessReplyAndSuperSpeakActualButtons()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceAndAIFullRegression.xcresult"
+    },
+    "KeyboardAIFlowTests/testFullAccessServerErrorStaysInsideKeyboard()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceAndAIFullRegression.xcresult"
+    },
+    "KeyboardAIFlowTests/testFullAccessTimeoutStaysInsideKeyboard()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceAndAIFullRegression.xcresult"
+    },
+    "KeyboardAIFlowTests/testLongPressSpaceTranscribesAndNeverOpensMainAppDialog()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceFinalVerification.xcresult"
+    },
+    "KeyboardAIFlowTests/testReplyManualInputDraftActionsAndResultRegeneration()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceAndAIFullRegression.xcresult"
+    },
+    "KeyboardAIFlowTests/testScreenshotAndVoiceEntrypointsDoNotKillExtension()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceAndAIFullRegression.xcresult"
+    },
+    "KeyboardAIFlowTests/testScreenshotSelectionActuallyGeneratesAndInsertsReply()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceAndAIFullRegression.xcresult"
+    },
+    "KeyboardAIFlowTests/testVoiceErrorAndNoSpeechReturnToKeyboard()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceAndAIFullRegression.xcresult"
+    },
+    "KeyboardAIFlowTests/testVoiceIsCancelledWhenHostKeyboardIsDismissed()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceFinalVerification.xcresult"
+    },
+    "KeyboardAIFlowTests/testVoiceSpaceSlideUpCancelsWithoutInserting()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceFinalVerification.xcresult"
+    },
+    "KeyboardAIFlowTests/testVoiceTapCancelAndSuperSpeakDraftStayInsideKeyboard()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceFinalVerification.xcresult"
+    },
+    "KeyboardExtensionTests/testSystemKeyboardCanBeEnabledAndInsertChinese()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceAndAIFullRegression.xcresult"
+    },
+    "NativeVoiceSessionTests/testNativeMicrophoneBackgroundRoundTripWithFixtureASR()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceFinalVerification.xcresult"
+    },
+    "NativeVoiceSessionTests/testNativeMicrophoneSessionArmsAndStopsWithoutFixture()": {
+      "status": "Passed",
+      "bundle": ".build-artifacts/VoiceFinalVerification.xcresult"
+    }
+  },
+  "coreTestCases": [
+    "ContractTests/testASRWAVIsCanonicalMono16kAndRejectsInvalidPCM()",
+    "ContractTests/testCandidateReplacementOnlyDeletesTrackedSuffixAtSameContext()",
+    "ContractTests/testEndpointCatalogNormalizesChatCompletionsSuffix()",
+    "ContractTests/testHistoryDefaultDoesNotRecordAndRetentionClears()",
+    "ContractTests/testMiMoASRUsesAndroidRequestContractAndCleansTags()",
+    "ContractTests/testOrderRequestUsesAlipayAndStableIdempotencyID()",
+    "ContractTests/testOutputRulesKeepEnglishNullAndRemoveASRMarkup()",
+    "ContractTests/testPaymentRejectsLookalikesCredentialsAndOtherSchemes()",
+    "ContractTests/testServerErrorKeepsHTTPCodeForAccountAndPendingRecovery()",
+    "ContractTests/testSuggestionsRequireThreeDistinctNonemptyValues()",
+    "ContractTests/testThinkingControlsFollowAndroidModelAndDomainRules()",
+    "ContractTests/testUntrustedReturnCannotCreateAnOrderOrGrantEntitlement()",
+    "KeyboardVoiceTests/testDeliveryAnchorRejectsNewFieldCaretSelectionAccountOrDraft()",
+    "KeyboardVoiceTests/testHeartbeatExpiryAndClockSkewDoNotReportDeadSessionAsLive()",
+    "KeyboardVoiceTests/testQuickReleaseDoesNotOverwriteStartAndCancellationRemainsOrdered()",
+    "KeyboardVoiceTests/testVoiceAccountRefreshSeesOtherProcessLoginAndLogoutWithoutReplacingActiveSettings()",
+    "ParityTests/testCorruptPredictionPackIsRejected()",
+    "ParityTests/testDictationAndRawStyleNeedNoTextModel()",
+    "ParityTests/testKeyboardPaletteRetainsEveryAndroidEntryAndTokenBoundary()",
+    "ParityTests/testPredictionFrequencyBeatsRecencyAndNeverLearnsSensitiveText()",
+    "ParityTests/testPunctuationCleanupMatchesAndroidAndPreservesParagraphs()",
+    "ParityTests/testStructuredVoiceListsMatchAndroidFallback()",
+    "ParityTests/testThreeSuggestionsPreserveAndroidPromptTemperatureAndRawOutput()",
+    "ParityTests/testVoiceTranslationUsesSameTextContractWithoutSendingAudio()",
+    "PurchaseRecoveryTests/testChangingAccountClearsPreparedResultAndPendingOrder()",
+    "PurchaseRecoveryTests/testFreeOrderIsConfirmedWithoutOpeningPayment()",
+    "PurchaseRecoveryTests/testLateNotFoundCannotEraseNewPendingPurchase()",
+    "PurchaseRecoveryTests/testLatePaidResponseCannotSettleAnotherLoginSession()",
+    "PurchaseRecoveryTests/testReadOnlySnapshotPrunesExpiredHistoryWithoutSharedWrite()",
+    "RoutingTests/testCustomEndpointWorksWithoutAccount()",
+    "RoutingTests/testEnabledOfficialFeatureDoesNotRequireOptionalModelID()",
+    "RoutingTests/testExpiredLoginCannotSilentlySwitchToAnotherCredential()",
+    "RoutingTests/testExpiredVIPUsesCustomRouteEvenIfCachedActiveFlagIsTrue()",
+    "RoutingTests/testNonVIPCanUseCustomEndpointAfterConfigRefresh()",
+    "RoutingTests/testUnknownRuntimeConfigVersionIsRejected()",
+    "RoutingTests/testVIPDisabledFeatureShowsBindingGuideWithoutPurchasingAgain()",
+    "RoutingTests/testVIPUsesOfficialProxyAndSessionInsteadOfCustomKey()",
+    "RoutingTests/testVisionProxyReceivesOnlyExplicitImageAndReturnsThreeChoices()"
+  ],
+  "builds": {
+    "debugSimulator": "passed",
+    "unsignedReleaseIOSArm64": "passed",
+    "releaseFixtureAudit": {
+      "LianAiKeyboard": [],
+      "LianAiKeyboardExtension": []
+    }
+  },
+  "realVersusFixture": {
+    "nativeMicrophoneAndWAV": "Real AVAudioEngine capture and conversion, controlled from keyboard in Settings while main app is backgrounded; ASR HTTP response fixture",
+    "nativeApplePermissionAndEngine": "Real system permission prompts and audio engine arm/stop; transcript accuracy not verified",
+    "gestureAndFailureTests": "Microphone/Speech boundary fixture; production service, file IPC, extension gesture and insertion run",
+    "AI": "Debug-only HTTP fixture, actual text/image request validation and image loading",
+    "liveASR": "notPerformed",
+    "liveAI": "notPerformed",
+    "realPayment": "notPerformed"
+  },
+  "limitations": [
+    "Explicit main-app voice session activation is required initially and after expiry, process termination or reboot",
+    "Idle session closes after 5 minutes; each utterance is limited to 60 seconds",
+    "Apple Chinese recognition initialization was unavailable in this simulator; use configured ASR for real transcription and verify Apple recognition on device",
+    "Physical-device recognition quality, long background sessions, interruptions, Bluetooth and power usage remain unverified"
+  ],
+  "installation": {
+    "device": "017E6ED3-2980-43B9-B1E0-3033D432C0FE",
+    "status": "updatedAndLaunched",
+    "bundle": "com.lianai.keyboard.ios",
+    "existingConfiguration": "preserved; no uninstall"
+  },
+  "sourceSHA256": {
+    "App/AppModel.swift": "765a73a9a8c85a0e6a359408cf3fa86957d627b0434492ab077ccc38fb8b8833",
+    "App/Design.swift": "58cbb74e7ef4646499f2f832209c12c6d779b2b4f6cbd892fc0e954538eece8a",
+    "App/DictionaryManager.swift": "69cb343582319535747944a3fbf22903cee7f4e7f9ae5b50f2bdac51c7a50938",
+    "App/Info.plist": "a7cfc49a0f8b0dacf3dd1fb23964625a4da5968ed2da975099dd084c1fe5f3ff",
+    "App/KeyboardVoiceService.swift": "140479212438ddcfb7b5f4f7a66279d49ec1b4f78d07edb4972070bd50eb255f",
+    "App/KeyboardVoiceSetupView.swift": "6a2ef77031dbe5fd849fc20ce289bfc5865d34649d16c9ca736b2d4e2deaa3d0",
+    "App/KeyboardVoiceUITestSupport.swift": "85dc53a7db432f252172c1ae9e2a4ede10cf127a5faf3d5a7f7c6445ffebcabd",
+    "App/MainScreens.swift": "d9504c062bd7cd823a04c9a035a046ae7ddd826fb596c3bdb01b337daa77c33b",
+    "App/MediaDialog.swift": "aae43d776d1e77bdd1bfa4731224a9b0b86fb0d7ac501a27e26847f01b5e0f81",
+    "App/ModelScreen.swift": "dcf533ff7b5afbf2dbda0a7c9e07295dd74d851bea3d671645e99b65aa92b03c",
+    "App/RootView.swift": "5cc5c1614afccedffabfbc6a977f5dbf82a8ee2f3fc5e9ed7c691af0ae5a82d6",
+    "App/SettingsScreens.swift": "168443dd40235d74d4f4aff2be9d63eaeddbd3be9b66bbc192e60586881c82a2",
+    "App/SubscriptionScreen.swift": "2a2b8c94e4090a8744c84d2aabe166863686dbedd38141dce955c5537981d9e3",
+    "Keyboard/Info.plist": "ad1b74c9751871e1fb4d907cc21d35624db184c906cda28d014bc101b7e600d9",
+    "Keyboard/KeyboardViewController.swift": "c7c5e11ebfcd70719e445fb2d267c0afdc012a0807f7c6a1c5fed8fda9adb99c",
+    "LianAiKeyboard.xcodeproj/project.pbxproj": "12abf7dc25a5eecf09a315ade8796a48a1715d87049541a8df42313edbd23999",
+    "Packages/LianAiCore/Sources/LianAiCore/APIClient.swift": "055a0a99b7e36346a7a87a699761abd23eef487ab9fb27d422576d3392e78458",
+    "Packages/LianAiCore/Sources/LianAiCore/KeyboardPalette.swift": "ce0a6a329f78793563ebd561256f89c27ac8a2cc53812817c53e1bebf0794309",
+    "Packages/LianAiCore/Sources/LianAiCore/KeyboardVoice.swift": "85bafdd2cfe4e73459ab8bcee80d055cf6825eac73a125fc696bbdfda8262e8a",
+    "Packages/LianAiCore/Sources/LianAiCore/Models.swift": "f13ff1770591c8eeb555e30373c13c70c894e80f44919dfe2890809f8bdbb0ee",
+    "Packages/LianAiCore/Sources/LianAiCore/OutputRules.swift": "57e0de300da754dad1c816b1254963c396c1903623edc674f1f095204e8ad678",
+    "Packages/LianAiCore/Sources/LianAiCore/PredictionEngine.swift": "4f6840921516020c4ed5c2cd34561302275b534904ae6fe75b51a87a8a392530",
+    "Packages/LianAiCore/Sources/LianAiCore/PurchaseCoordinator.swift": "08a7c648364f1444fbb3520361c6c2adaeea4f151155f31e55080d7aff8f6d78",
+    "Packages/LianAiCore/Sources/LianAiCore/Storage.swift": "0e85e17e4bf150a24b7a4b589b1b6b64c5126fa5ac5910bb3a0a7c8e60ee886a",
+    "Packages/LianAiCore/Sources/LianAiCore/StructuredExpression.swift": "acddddb80b3d8b9a224ebe4d9bcf77a577399f9fd87c655f0a26fc25a3bc179b",
+    "Packages/LianAiCore/Sources/LianAiCore/VoicePrompts.swift": "1fc6de245ef765d9ffabea8bb7f717a4dc88edb6cf1cab2e7f7faa89767a1a55",
+    "Packages/LianAiCore/Sources/LianAiCore/WAVEncoder.swift": "5ee7903af5f337fef72a31e16fdb0e78b21aadedb220904d70fee3a2dff4e129",
+    "Packages/LianAiCore/Tests/LianAiCoreTests/ContractTests.swift": "9af00e368a8b37b3f7a2c0c472b51f1737b7b69e24f510a75db80cbe9bd5b0e4",
+    "Packages/LianAiCore/Tests/LianAiCoreTests/KeyboardVoiceTests.swift": "a007982c8f62fd50c3fdac4066debc92756f7a05f285e79f808bf4ee069bdb71",
+    "Packages/LianAiCore/Tests/LianAiCoreTests/ParityTests.swift": "f3c9d07ebbf316a0cda858548c120c3cd0e3c9ca0b818314ce710687dfcf12a4",
+    "Packages/LianAiCore/Tests/LianAiCoreTests/PurchaseRecoveryTests.swift": "e82dad67af0fd38483ae4ea67575067aedc8ee120fb2fdaa6ebf3bc5bd7b7a3e",
+    "Packages/LianAiCore/Tests/LianAiCoreTests/RoutingTests.swift": "680ab127a4ff9527272bb78e06641408773589955a570ed41412b44fd70e7f27",
+    "SharedUI/InputLexicon.swift": "f9fc3a3dde779dd7d9b3e50e5f38b3261d9daa6fd29e9bc373b69265c53b836a",
+    "SharedUI/KeyboardDocumentContext.swift": "fc13345660e5cb07fc0ded7223580412980bcd2ef27561e9cffd8930d76e5ae7",
+    "SharedUI/KeyboardUITestSupport.swift": "dd734409d070985e8e60ecaab02b5bc0a74d69e46c8e159b10244d2fe8783396",
+    "SharedUI/KeyboardVoiceChannel.swift": "e01859551ad5bf327f0cbfeac762290f2310a5942371b58abae7dbfbaec75223",
+    "SharedUI/RimeRuntime.swift": "745b923a0b9757124d25a8aad2f8128dd305efe9a999eda304285c6fc178b84c",
+    "Tests/AudioCaptureTests.swift": "f3f5de5c3faf0f9712c6b6e26545dd58df0890bd9e83db3c77b3a60a1e2d2490",
+    "Tests/KeyboardDocumentContextTests.swift": "97def1da35b720ad2eedb9ce44e6750b8e1d45d5ca82044afe6e78a7a97f1169",
+    "Tests/KeyboardVoiceServiceTests.swift": "e76924eca33cf3ba5f8da7e10a40e3b75793c3fef916d2a56afe263c90d90463",
+    "Tests/NavigationTests.swift": "e306a8b38415b4945bc3f736ad66dc2a1f24bad5190b75cb3b549d39d0de99a5",
+    "Tests/RimeIntegrationTests.swift": "4a88ee0feb35b3d82611c650e12733d076f3b34d7cd9c7f6c6c0062eb5997011",
+    "UITests/AppFlowTests.swift": "57284a64973e11159e56e542c1b315f94708914dcd713f0bd6c04a3da0633e3a",
+    "UITests/KeyboardAIFlowTests.swift": "f5b7813518d91e1b9da2e439b26e87183ef2677c3121e3cd0441f25da1723b63",
+    "UITests/KeyboardExtensionTests.swift": "08c663b58f9b1318045d96bfa99f057e05298c8d34231ff47708bf246519408a",
+    "UITests/NativeVoiceSessionTests.swift": "2457754fe9f74624c38636168e6818dbaa4827a61776f22f24c67ec9a3f1e96a",
+    "scripts/generate_project.py": "f1ec138329fc5a7a5807c5c8197400f82e5091e201776be82ab1b39f2efb7246",
+    "scripts/test_ios.sh": "b6574673de219729b831ac3e40b3f7280b2fbe4138708a5224c0210c3f91fc1a"
+  },
+  "screenshots": {
+    "docs/parity/ios/voice-ai/voice-panel.png": "c45a609a58c455efb9797e2ecfe5deb1629859193f5425fca980b071e3dccd8b",
+    "docs/parity/ios/voice-ai/space-result.png": "24f8316e4978124032f6500f97d5fba5e66a6ac53585cb750c3096d34b79fd16",
+    "docs/parity/ios/voice-ai/polish-results.png": "62e1fe9f8fed7652ab0177077af4b3c458a3dc80dbd1e2c473cf73b70d9e1a51",
+    "docs/parity/ios/voice-ai/screenshot-reply.png": "2b2c55e244d0b1a7ae23eed24099fb6797a22cf28edeee50e1947681bd446078",
+    "docs/parity/ios/voice-ai/long-replies.png": "bd579d835b0e36fe46195106b3c63094e193b78c315e6c9448368c848c239c5e",
+    "docs/parity/ios/voice-ai/native-session-ready.png": "2434a63c8c17ad5a5ccca18f17cca2e647eef4b35f40c10377d96161a6ab2760",
+    "docs/parity/ios/voice-ai/native-background-recording.png": "637047978af41b336f0ef207233dd56141feb0c4cb013d4bab933a7c4155f006",
+    "docs/parity/ios/voice-ai/reply-results.png": "5129c41ef3b80befaa4d99198cd9d27878f00f61aae6f8e1fd7c1a79d18494a6",
+    "docs/parity/ios/voice-ai/voice-polish-draft.png": "5f5460230bf773615e7f39f4ff1e87e74916caa9fa0f18e2c1aa6ef14cbf83cf"
+  },
+  "logs": ".build-artifacts/voice-ai/logs",
+  "research": "docs/research/iOS键盘语音实现.md",
+  "subsequentUIChangeReport": "docs/footer-icons-results.json",
+  "latestVoiceInteractionReport": "docs/voice-inline-results.json",
+  "laterFeatureCleanup": {
+    "date": "2026-11-03",
+    "report": "移除额外功能对照.md",
+    "results": "android-only-results.json",
+    "note": "手动回复草稿、草稿粘贴/清空、统一结果按钮、长文本滚动和主 App 单次录音工具已移除。本文档测试是相应历史版本的记录，当前功能及回归结果以清理报告为准。"
+  },
+  "laterPersistentVoiceUpdate": {
+    "date": "2026-11-04",
+    "report": "语音持续会话修复.md",
+    "results": "voice-persistent-results.json",
+    "note": "The previous 5-minute idle shutdown was removed; earlier source snapshots remain historical."
+  }
+}

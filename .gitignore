@@ -1,0 +1,25 @@
+.DS_Store
+__pycache__/
+*.pyc
+.build/
+DerivedData/
+.build-artifacts/
+Packages/RimeBridge/Vendor/
+*.xcuserstate
+xcuserdata/
+config/Signing.xcconfig
+*.ipa
+*.xcarchive
+
+# Local signing material and development metadata.
+*.mobileprovision
+*.p12
+*.p8
+*.cer
+*.pem
+*.dSYM/
+.swiftpm/
+config/FriendNamespace.json
+.env
+.env.local
+.env.*.local

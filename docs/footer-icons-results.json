@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-03",
+  "status": "passed",
+  "change": "Removed custom globe/microphone footer row from Chinese, English and number layouts; reduced height by 51pt portrait / 28pt compact; long-press space retained",
+  "verification": {
+    "ordinaryKeyboardIncludingChineseEnglishNumbersAndLandscape": "passed",
+    "repeatedLongPressVoice": "passed",
+    "nativeMicrophoneBackgroundLongPressRoundTripWithFixtureASR": "passed"
+  },
+  "resultBundles": [
+    ".build-artifacts/RemoveKeyboardFooterIcons.xcresult (native voice case passed; initial navigation/timing failures superseded)",
+    ".build-artifacts/RemoveFooterLayoutVerified.xcresult (2/2 passed)"
+  ],
+  "installedSimulator": "017E6ED3-2980-43B9-B1E0-3033D432C0FE",
+  "screenshot": "docs/parity/ios/voice-ai/footer-icons-removed.png",
+  "sourceSHA256": {
+    "Keyboard/KeyboardViewController.swift": "fbe3fc0d4e6da8ab155a4d207657075565eb27f00ef801603cd96e4afe6d8fa6",
+    "App/SettingsScreens.swift": "7ad942f9ebc42684b124d7010fdadd7b621ce0abbb43bdaa272922f125365323",
+    "UITests/KeyboardAIFlowTests.swift": "be86b80267607ec0bbb4ea804eea31bc741e6aa12547e2d77cfabb0e18f182e4",
+    "UITests/KeyboardExtensionTests.swift": "0d80c6eefd741850ba9b98324d5e8f2be8ac5e1276b36d6815cca8ae7fd8c8f7",
+    "UITests/NativeVoiceSessionTests.swift": "8d9e440d4a3e4a1892a50fa5991a90431966506364a34db12965fec5e398bdfe"
+  },
+  "latestVoiceInteractionReport": "docs/voice-inline-results.json",
+  "laterFeatureCleanup": {
+    "date": "2026-11-03",
+    "report": "移除额外功能对照.md",
+    "results": "android-only-results.json",
+    "note": "手动回复草稿、草稿粘贴/清空、统一结果按钮、长文本滚动和主 App 单次录音工具已移除。本文档测试是相应历史版本的记录，当前功能及回归结果以清理报告为准。"
+  }
+}

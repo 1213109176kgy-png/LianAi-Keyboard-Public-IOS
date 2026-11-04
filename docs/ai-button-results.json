@@ -1,0 +1,54 @@
+{
+  "date": "2026-11-03",
+  "status": "passed",
+  "emulator": "E9D7621B-E90E-4631-BA09-C78DC069CEDE / isolated iPhone 18 Pro / iOS 27.0",
+  "fullAccess": "Granted in real system Settings UI; asserted switch value 1; hasFullAccess not mocked",
+  "tests": {
+    "documentDisconnect": 2,
+    "AIButtonWorkflows": 5,
+    "ordinaryKeyboardRegression": 1,
+    "totalThisRun": 8,
+    "passed": 8,
+    "failed": 0
+  },
+  "resultBundle": ".build-artifacts/AIButtonsVerified.xcresult",
+  "resultSummary": {
+    "result": "Passed",
+    "totalTestCount": 8,
+    "passedTests": 8,
+    "failedTests": 0,
+    "startTime": 1793705658.69,
+    "finishTime": 1793705908.879
+  },
+  "crashesFixed": [
+    "SIGABRT: UIAlertController initialization forbidden in keyboard extension; consent and open-app fallback",
+    "SIGTRAP: nonoptional UUID bridge when host documentIdentifier returns nil"
+  ],
+  "serviceMode": "DEBUG-only deterministic HTTP transport fixtures; no live AI charges or real credentials",
+  "releaseBuild": "passed",
+  "releaseFixtureAudit": "No fixture endpoint, key or transport present in app or extension release executables",
+  "sourceFiles": [
+    "Keyboard/KeyboardViewController.swift",
+    "SharedUI/KeyboardDocumentContext.swift",
+    "SharedUI/KeyboardUITestSupport.swift",
+    "App/RootView.swift",
+    "Tests/KeyboardDocumentContextTests.swift",
+    "UITests/KeyboardAIFlowTests.swift"
+  ],
+  "screenshots": {
+    "docs/parity/ios/ai-buttons/service-error.png": "98830cb00b18b7bcad46afbef82286f1bfad3edb6a220b3a30440640bea64d2c",
+    "docs/parity/ios/ai-buttons/timeout.png": "ea05e7301c98c8b694f7de2470ea1ea65fba32f55d34f726bde0684c726b4c8c",
+    "docs/parity/ios/ai-buttons/polish-results.png": "959cdd1f85bbe796c902ea4ac9a93506cc23326182df88ef932510aaa8ce64d7",
+    "docs/parity/ios/ai-buttons/setup-fallback.png": "ec97b6b3643d7e27941524cb38e4080ad32cd13ad26058f10a5c4ddd778e1632",
+    "docs/parity/ios/ai-buttons/consent.png": "0ea0b549f316d6a8168e50016cca4c4516c4031dd898b3201cbc88a0ae72f5a0",
+    "docs/parity/ios/ai-buttons/screenshot-picker.png": "b76f51072c684aa712bb3ef74b3b614097264c91d8e9da5f172cb3c2b0c34221",
+    "docs/parity/ios/ai-buttons/reply-results.png": "9005bd25215d3993fc8448961ce27c28722684d1430ac974ec2ad52092e0d4e9"
+  },
+  "installedOnOriginalSimulator": "017E6ED3-2980-43B9-B1E0-3033D432C0FE; simctl install and launch succeeded; existing app data retained",
+  "notVerified": [
+    "live model generation quality",
+    "physical-device AI end-to-end",
+    "real subscription or payment"
+  ],
+  "latestFeatureIteration": "docs/voice-ai-results.json"
+}

@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-04",
+  "change": "Remove app-imposed 300-second idle shutdown; no new UI settings",
+  "report": "语音持续会话修复.md",
+  "passed": 8,
+  "failed": 0,
+  "skipped": 0,
+  "resultBundle": ".build-artifacts/VoicePersistentSession.xcresult",
+  "cases": [
+    "LianAiKeyboardTests.KeyboardVoiceServiceTests testFailureEmptySpeechAndRecordingTimeLimit",
+    "LianAiKeyboardTests.KeyboardVoiceServiceTests testLongIdleKeepsSessionLiveAndAllowsAnotherUtterance",
+    "LianAiKeyboardTests.KeyboardVoiceServiceTests testLostKeyboardLeaseCancelsAudioAndErasesTranscript",
+    "LianAiKeyboardTests.KeyboardVoiceServiceTests testRealMailboxStartFinishResultAcknowledgeAndIdleCaptureBoundary",
+    "LianAiKeyboardTests.KeyboardVoiceServiceTests testStaleAndWrongSessionCommandsAndLateCallbacksCannotInsert",
+    "LianAiKeyboardUITests.KeyboardAIFlowTests testLongPressSpaceTranscribesAndNeverOpensMainAppDialog",
+    "LianAiKeyboardUITests.NativeVoiceSessionTests testNativeMicrophoneBackgroundRoundTripWithFixtureASR",
+    "LianAiKeyboardUITests.NativeVoiceSessionTests testNativeMicrophoneSessionArmsAndStopsWithoutFixture"
+  ],
+  "simulatedIdleSeconds": [
+    301,
+    3600,
+    86400
+  ],
+  "simulationBoundary": "Virtual clock tests, not a 24-hour physical-device endurance test",
+  "nativeAudioBoundary": "Real AVAudioEngine and background containing App; transcript HTTP boundary uses an explicit ASR fixture",
+  "releaseArm64Unsigned": "passed",
+  "requiresReactivationAfter": [
+    "manual session shutdown",
+    "account or ASR configuration change",
+    "audio interruption or route change",
+    "containing App termination or device restart"
+  ],
+  "sha256": {
+    "App/KeyboardVoiceService.swift": "6b225fe3f6323d5ba9dd63217d2cd50c89c9d17d420b8b7c4403dc2c0151c0d4",
+    "App/KeyboardVoiceSetupView.swift": "c4c86f7b103c33390d30dde1d7e7f0d0c65f327bdb810accf31507c40501a575",
+    "App/SettingsScreens.swift": "a2196155c7d35920fdeba18a82002e58343d36e9ecac68031830109a0015db8b",
+    "Tests/KeyboardVoiceServiceTests.swift": "a81b6b2f0caaaa41fd758adc84fb042eb5a769a4534c26c4516b1cd71ea9473a"
+  },
+  "laterPhysicalTypingFix": {
+    "date": "2026-11-04",
+    "report": "真机底部占位与输入流畅度修复.md",
+    "results": "typing-performance-results.json",
+    "note": "Removed footer cursor slider and reserved space, cached typing key grid, optimized lookup paths and fixed older-iOS deinit. Installed and launched on physical iPhone."
+  }
+}
