@@ -12,19 +12,23 @@ struct RootView: View {
     ZStack {
       LA.background.ignoresSafeArea()
       VStack(spacing: 0) {
-        ScrollView {
-          VStack(spacing: 0) {
-            if model.page != .home { header }
-            pageContent
-          }.padding(.horizontal, 20).padding(.top, 8).padding(.bottom, 28).frame(
-            maxWidth: 560
-          ).frame(maxWidth: .infinity)
-        }.scrollPosition(Binding(
-          get: { scrollPositions[displayedPage] ?? ScrollPosition(y: 0) },
-          set: { scrollPositions[displayedPage] = $0 }
-        )).id(model.page).scrollDismissesKeyboard(.interactively)
-        bottomBar
-      }.ignoresSafeArea(.keyboard, edges: .bottom)
+        if model.page == .knowledge {
+          KnowledgeScreen().frame(maxWidth: 560, maxHeight: .infinity).frame(maxWidth: .infinity, maxHeight: .infinity)
+        } else {
+          ScrollView {
+            VStack(spacing: 0) {
+              if model.page != .home { header }
+              pageContent
+            }.padding(.horizontal, 20).padding(.top, 8).padding(.bottom, 28).frame(
+              maxWidth: 560
+            ).frame(maxWidth: .infinity)
+          }.scrollPosition(Binding(
+            get: { scrollPositions[displayedPage] ?? ScrollPosition(y: 0) },
+            set: { scrollPositions[displayedPage] = $0 }
+          )).id(model.page).scrollDismissesKeyboard(.interactively)
+        }
+        if !model.knowledgeDetail { bottomBar }
+      }.ignoresSafeArea(.keyboard, edges: model.page == .knowledge ? [] : .bottom)
       if model.dialog != nil {
         Color.black.opacity(0.34).ignoresSafeArea().onTapGesture { model.dialog = nil }
         dialogContent.padding(.horizontal, 26).frame(maxWidth: 460)
@@ -99,6 +103,7 @@ struct RootView: View {
     HStack(spacing: 8) {
       tab("house", "首页", .home)
       tab("keyboard", "键盘", .test)
+      tab("book_open", "知识库", .knowledge)
       tab("user_round", "我的", .profile)
     }.padding(.horizontal, 10).padding(.vertical, 7).background(LA.panel).overlay(alignment: .top) {
       Rectangle().fill(LA.key).frame(height: 1)
@@ -106,7 +111,7 @@ struct RootView: View {
   }
   private func tab(_ icon: String, _ label: String, _ page: Page) -> some View {
     let selected =
-      model.page == page || (page == .profile && model.page != .home && model.page != .test)
+      model.page == page || (page == .profile && ![.home, .test, .knowledge].contains(model.page))
     return Button {
       model.tab(page)
     } label: {
@@ -133,6 +138,7 @@ struct RootView: View {
     case .permissions: PermissionScreen()
     case .guide: GuideScreen()
     case .about: AboutScreen()
+    case .knowledge: KnowledgeScreen()
     }
   }
   @ViewBuilder private var dialogContent: some View {
@@ -163,7 +169,7 @@ struct RootView: View {
       DialogCard(title: "隐私政策", subtitle: "恋爱键盘如何处理你的数据") {
         ScrollView {
           Hint(
-            "基础拼音、候选与学习在本机运行。只有你主动使用 AI 时，相关文本、截图或音频才发送给你选择的服务商或官方代理。官方通道使用账号验证，自配模型密钥保存在 Keychain。输入历史和剪贴板历史默认关闭，可在设置中清除。开启完全访问允许键盘联网，并不表示日常按键会上传。键盘语音会话需主动开启，期间系统显示麦克风指示灯；待机音频立即丢弃，仅语音输入期间进行识别，优先本机识别，不支持时使用 Apple 语音服务。请勿发送无关私人信息。"
+            "基础拼音、候选与学习在本机运行。只有你主动使用 AI 时，相关文本、截图或音频才发送给你选择的服务商或官方代理。知识库保存在本机，主动使用 AI 时，所选且启用的知识库会提供相关片段作为参考。官方通道使用账号验证，自配模型密钥保存在 Keychain。输入历史和剪贴板历史默认关闭，可在设置中清除。开启完全访问允许键盘联网，并不表示日常按键会上传。键盘语音会话需主动开启，期间系统显示麦克风指示灯；待机音频立即丢弃，仅语音输入期间进行识别，优先本机识别，不支持时使用 Apple 语音服务。请勿发送无关私人信息。"
           )
         }.frame(maxHeight: 280)
       }

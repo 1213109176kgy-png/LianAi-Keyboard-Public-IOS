@@ -87,7 +87,8 @@ private actor KeyboardUIFixtureTransport: HTTPTransport {
     } else {
       status = 200
       let system = messages[0]["content"] as? String ?? ""
-      let title = system.contains("请针对对方消息") ? "回复" : "话术"
+      let source = messages.last?["content"] as? String ?? ""
+      let title = source.contains("视觉模型对聊天截图") ? "截图回复" : system.contains("请针对对方消息") ? "回复" : "话术"
       let values = ["第一条" + title, "第二条" + title, "第三条" + title].map {
         scenario == "long" ? $0 + "：" + String(repeating: "谢谢你认真告诉我你的想法，我会好好考虑，也想听听你的建议。", count: 4) : $0
       }

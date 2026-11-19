@@ -332,7 +332,14 @@ extension KeyboardAIFlowTests {
     XCTAssertTrue(app.buttons["cancelKeyboardScreenshot"].waitForExistence(timeout: 8), app.debugDescription)
     let photo = app.images.matching(NSPredicate(format: "label CONTAINS %@ OR label CONTAINS %@", "截屏", "Screenshot")).firstMatch
     XCTAssertTrue(photo.waitForExistence(timeout: 8), app.debugDescription)
-    photo.tap()
+    let cancelFrame = app.buttons["cancelKeyboardScreenshot"].frame
+    if photo.isHittable && photo.frame.minY >= cancelFrame.maxY { photo.tap() }
+    else {
+      // iOS 27 reports the remote Photos grid in local coordinates. The first
+      // thumbnail is visibly below the selector's header; anchor to our actual
+      // cancel control when Photos cannot supply a screen activation point.
+      app.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: app.frame.width/6, dy: cancelFrame.maxY+74)).tap()
+    }
     XCTAssertTrue(app.buttons["keyboardPromptPrimary"].waitForExistence(timeout: 8), app.debugDescription)
     app.buttons["keyboardPromptPrimary"].tap()
     XCTAssertTrue(waitVisible(app.buttons["aiResult.0"]), app.debugDescription)
@@ -393,6 +400,51 @@ extension KeyboardAIFlowTests {
 }
 
 extension KeyboardAIFlowTests {
+  func testMainAppKnowledgeChangesAreSharedWithKeyboard() {
+    let app = launch("success")
+    func openKnowledge() {
+      app.buttons["返回"].tap()
+      XCTAssertTrue(app.staticTexts["让聊天更有爱 💕"].waitForExistence(timeout: 3))
+      XCTAssertTrue(waitVisible(app.buttons["知识库"]))
+      app.buttons["知识库"].tap()
+      if !app.buttons["knowledgeAdd"].waitForExistence(timeout: 2) { app.buttons["知识库"].tap() }
+      XCTAssertTrue(app.buttons["knowledgeAdd"].waitForExistence(timeout: 4), app.debugDescription)
+    }
+    openKnowledge()
+    app.buttons["knowledgeAdd"].tap(); app.buttons["新建文档"].tap()
+    let title = "键盘联动 " + String(UUID().uuidString.prefix(6))
+    app.textFields["knowledgeTitle"].tap(); app.textFields["knowledgeTitle"].typeText(title)
+    app.textViews["knowledgeBody"].tap(); app.textViews["knowledgeBody"].typeText("# 邀约\n给对方准备时间，用自然低压力的语气表达。")
+    app.buttons["knowledgeSave"].tap()
+    let document = app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@ AND label CONTAINS %@", "knowledgeDocument.", title)).firstMatch
+    XCTAssertTrue(document.waitForExistence(timeout: 4), app.debugDescription)
+    let moreID = document.identifier.replacingOccurrences(of: "knowledgeDocument.", with: "knowledgeMore.")
+    app.buttons[moreID].tap(); app.buttons["设为默认"].tap()
+    func openKeyboard() {
+      app.buttons["键盘"].tap(); app.buttons["试用键盘"].tap()
+      if !waitVisible(app.buttons["keyboardMode.帮你回"], timeout: 2) { app.textViews["trialInput"].tap() }
+      XCTAssertTrue(waitVisible(app.buttons["keyboardMode.帮你回"]))
+      app.buttons["keyboardMode.帮你回"].tap()
+    }
+    openKeyboard(); requestReply(app)
+    XCTAssertTrue(waitVisible(app.buttons["aiResult.0"]))
+    XCTAssertTrue(app.buttons["aiKnowledge"].label.contains(title))
+    app.buttons["aiKnowledge"].tap()
+    XCTAssertTrue(app.buttons[title].waitForExistence(timeout: 3))
+    app.buttons[title].tap()
+    openKnowledge()
+    app.buttons[moreID].tap(); app.buttons["停用"].tap()
+    openKeyboard(); app.buttons["replyPaste"].tap()
+    XCTAssertTrue(waitVisible(app.buttons["aiResult.0"]))
+    XCTAssertTrue(app.buttons["aiKnowledge"].label.contains("未选择知识库"))
+    app.buttons["aiKnowledge"].tap()
+    XCTAssertFalse(app.buttons[title].exists)
+    app.buttons["狗头军师知识库"].tap()
+    capture("知识库-停用文档不再进入键盘选择", app)
+    openKnowledge()
+    app.buttons[moreID].tap(); app.buttons["删除文档"].tap(); app.alerts.buttons["删除"].tap()
+    app.buttons["knowledgeMore.builtin-goutoujunshi-v1"].tap(); app.buttons["设为默认"].tap()
+  }
   func testSuperSpeakWriteNewContentClearsOnlyLocalDraft() {
     let app = launch("success")
     app.buttons["keyboardMode.超会说"].tap()

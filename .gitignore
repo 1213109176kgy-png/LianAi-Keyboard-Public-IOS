@@ -12,6 +12,7 @@ config/Signing.xcconfig
 *.xcarchive
 
 # Local signing material and development metadata.
+/signing-local/
 *.mobileprovision
 *.p12
 *.p8

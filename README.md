@@ -38,6 +38,8 @@ xcodebuild -project LianAiKeyboard.xcodeproj -scheme LianAiKeyboard \
 
 当前公司团队使用 `group.com.bahuang.lianai.keyboard`，两份开发描述文件及本地验证说明见[公司团队签名配置](docs/公司团队签名配置.md)。
 
+分发 IPA 前须按[IPA 签名校验](docs/IPA签名校验.md)逐个验证键盘扩展和内部资源包；只验证主 App 不足以确认安装包可安装。
+
 复制 `config/Signing.xcconfig.example` 为 `config/Signing.xcconfig`，填入自己的 Apple Developer Team。该文件已忽略，不能提交真实签名资料。
 
 两个 target 必须使用同一 Team，并在开发者后台开通对应标识及共享能力：

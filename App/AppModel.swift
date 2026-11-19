@@ -3,7 +3,7 @@ import SwiftUI
 
 enum Page: String, CaseIterable {
   case home, test, profile, subscription, settings, layout, effects, auxiliary, management, models,
-    optimize, clipboard, data, permissions, guide, about
+    optimize, clipboard, data, permissions, guide, about, knowledge
   var title: String {
     switch self {
     case .home: "首页"
@@ -22,6 +22,7 @@ enum Page: String, CaseIterable {
     case .permissions: "权限管理"
     case .guide: "使用指引"
     case .about: "关于我们"
+    case .knowledge: "恋爱知识库"
     }
   }
 }
@@ -36,12 +37,15 @@ final class AppModel: ObservableObject {
   @Published var toast = ""
   @Published var subscription: Subscription?
   @Published var subscriptionFailed = false
+  @Published var knowledgeDetail = false
+  var knowledgeLeave: ((@escaping () -> Void) -> Void)?
   private var cloudReturnPage: Page = .settings
   func navigate(_ next: Page) {
     if next == .models { cloudReturnPage = page == .home ? .home : .settings }
-    withAnimation(.easeOut(duration: 0.2)) { page = next }
+    tab(next)
   }
   func back() {
+    if page == .knowledge, let knowledgeLeave { knowledgeLeave({}); return }
     let parent: Page
     switch page {
     case .home, .profile, .test: parent = .home
@@ -52,7 +56,9 @@ final class AppModel: ObservableObject {
     withAnimation(.easeOut(duration: 0.2)) { page = parent }
   }
   func tab(_ next: Page) {
-    page = next
+    let move: () -> Void = { [weak self] in withAnimation(.easeOut(duration: 0.2)) { self?.page = next } }
+    if page == .knowledge && next != .knowledge, let knowledgeLeave { knowledgeLeave(move) }
+    else { move() }
   }
   func notice(_ text: String) { toast = text }
   func openSettings() {

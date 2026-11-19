@@ -15,6 +15,24 @@ public enum AIKnowledge: String, CaseIterable, Sendable {
     let file = self == .goutoujunshi ? "goutoujunshi" : "tong-jincheng"
     guard let url = Bundle.module.url(forResource: file, withExtension: "md", subdirectory: "Knowledge"),
       let body = try? String(contentsOf: url, encoding: .utf8) else { return "" }
+    return Self.reference(title: title, body: body, query: query)
+  }
+  public var documentID: String? {
+    switch self {
+    case .none: nil
+    case .goutoujunshi: "builtin-goutoujunshi-v1"
+    case .tongJincheng: "builtin-tong-jincheng-v1"
+    }
+  }
+  public func bundledBody() throws -> String {
+    guard self != .none else { return "" }
+    let file = self == .goutoujunshi ? "goutoujunshi" : "tong-jincheng"
+    guard let url = Bundle.module.url(forResource: file, withExtension: "md", subdirectory: "Knowledge") else {
+      throw ClientError.message("内置知识库读取失败")
+    }
+    return try String(contentsOf: url, encoding: .utf8)
+  }
+  public static func reference(title: String, body: String, query: String) -> String {
     // Keep heading context and rank small passages rather than sending the book.
     let lower = String(query.lowercased().prefix(500))
     let characters = Array(lower)
@@ -62,9 +80,10 @@ public enum AIKnowledge: String, CaseIterable, Sendable {
     var scored: [(index: Int, score: Int, passage: (String, String))] = []
     for (index, passage) in passages.enumerated() {
       var score = 0
+      let heading = passage.0.lowercased(), text = passage.1.lowercased()
       for term in terms {
-        if passage.0.contains(term) { score += 2 }
-        if passage.1.contains(term) { score += 1 }
+        if heading.contains(term) { score += 2 }
+        if text.contains(term) { score += 1 }
       }
       scored.append((index, score, passage))
     }
