@@ -58,7 +58,12 @@ public final class SharedStore: ObservableObject {
     user = session.user
     persist(session.user, key: "user.v1")
   }
-  public func token() -> String? { vault.read(key: "token") }
+  public func token() -> String? {
+    // Keychain credentials may outlive an installation. A surviving token alone
+    // must not authenticate an app whose account snapshot says it is logged out.
+    guard user != nil, let token = vault.read(key: "token"), !token.isEmpty else { return nil }
+    return token
+  }
   public func logout() throws {
     try vault.write("", key: "token")
     user = nil
