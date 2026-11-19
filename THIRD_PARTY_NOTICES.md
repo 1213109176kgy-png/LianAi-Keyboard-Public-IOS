@@ -25,6 +25,8 @@
 
 ## 数据来源
 
+AI 结果页使用与 Android 1.6.12 相同的两份内置知识库，正文与许可随 `LianAiCore` 的 `Resources/Knowledge` 资源一起打包。狗头军师知识库保留 powerycy（2026）的 MIT 许可，见 `goutoujunshi.LICENSE.txt`；童锦程知识库保留 hotcoffeeshake（2026）的 MIT 许可，见 `tong-jincheng.LICENSE.txt`。
+
 中文资源来自 Android `app/src/main/assets/dictionaries/rime-ice-enhanced-2026.07.20.zip`，仅规范化归档中的反斜杠路径。没有将 Android `.so` 或 JNI 桥接加入 iOS。
 
 字音和英文文件分别来自 Android `assets/pinyin/pinyin.txt`、`assets/english/en.dict.yaml`。英文文件保留 rime-ice、google-10000-english 与 rime-melt 的来源注释。品牌图片、开发者二维码与打赏二维码沿用 Android 资源。联想基础和增强索引分别原样复制 Android `assets/prediction/base.bin`、`enhanced.bin`，来源哈希见 `config/source-provenance.json`；表情、符号、颜文字及语音处理规则也按该 Android 提交移植。

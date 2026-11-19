@@ -20,6 +20,7 @@ final class KeyboardViewController: UIInputViewController, PHPickerViewControlle
   private var candidateStrip: KeyboardChoiceStrip?
   private var spellingStrip: KeyboardChoiceStrip?
   private weak var draftEditor: UILabel?
+  private weak var spellingOrPasteKey: InputKey?
   private var letterKeys: [(InputKey, String)] = []
   private let keyboardBody = UIView()
   private var keyboardBodyTop: NSLayoutConstraint?
@@ -378,6 +379,11 @@ final class KeyboardViewController: UIInputViewController, PHPickerViewControlle
     }
     defer {
       if height?.constant != renderingHeight { height?.constant = renderingHeight }
+      let title = editingLocalText && rime.preedit.isEmpty ? "粘贴" : "选拼音"
+      if spellingOrPasteKey?.title(for: .normal) != title {
+        spellingOrPasteKey?.setTitle(title, for: .normal)
+        spellingOrPasteKey?.accessibilityLabel = title
+      }
     }
     view.backgroundColor = bg
     if ["键盘", "超会说"].contains(mode), inlinePrompt == nil, !aiGuide,
@@ -968,17 +974,20 @@ final class KeyboardViewController: UIInputViewController, PHPickerViewControlle
       }, t9Key("PQRS", digit: "7"),
       t9Key("TUV", digit: "8"), t9Key("WXYZ", digit: "9"),
     ]
+    let spellingOrPaste = key(editingLocalText && rime.preedit.isEmpty ? "粘贴" : "选拼音") { [weak self] in
+      guard let self else { return }
+      if editingLocalText && rime.preedit.isEmpty { pasteText() }
+      else { expanded = true; rime.more(); render() }
+    }
+    spellingOrPaste.accessibilityIdentifier = "keyboardPasteOrSpelling"
+    spellingOrPasteKey = spellingOrPaste
     let fourth: [UIView] = [
       key("☺", special: true) { [weak self] in
         self?.flush()
         self?.emoji = true
         self?.render()
       },
-      key("选拼音") { [weak self] in
-        self?.expanded = true
-        self?.rime.more()
-        self?.render()
-      }, spaceKey(),
+      spellingOrPaste, spaceKey(),
     ]
     var cells: [(UIView, Int, Int, Int, Int)] = []
     for (i, value) in third.enumerated() { cells.append((value, i, 0, 1, 1)) }
@@ -1352,57 +1361,53 @@ final class KeyboardViewController: UIInputViewController, PHPickerViewControlle
     addPanel([heading, label(error, size: 12, color: muted), label(hint, size: 12, color: muted), buttons])
   }
   private func resultPanel(polish: Bool) {
-    let close = key("×", special: true) { [weak self] in
-      self?.cancelWork(); self?.options = []; self?.render()
-    }
-    close.accessibilityIdentifier = "aiResultClose"
-    close.widthAnchor.constraint(equalToConstant: 34).isActive = true
-    if loading {
-      let spinner = UIActivityIndicatorView(style: .large)
-      spinner.color = accent
-      spinner.startAnimating()
-      var items: [UIView] = []
-      if !polish {
-        let top = UIStackView(arrangedSubviews: [UIView(), close])
-        top.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        items.append(top)
+    // Match Android's result surface height; the panel fills the space below
+    // the mode tabs instead of stretching a fixed-height stack of gray keys.
+    renderingHeight = compact ? 290 : polish ? 492 : 476
+    let panel = AIResultPanel(polish: polish, compact: compact, dark: dark,
+      loading: loading, emotion: emotion, options: options,
+      close: choiceAction { [weak self] in
+        self?.cancelWork(); self?.options = []; self?.render()
+      },
+      choose: { [weak self] value in
+        guard let self else { return }
+        updateDocument(); feedback(); safeInsert(value)
+      },
+      retry: choiceAction { [weak self] in self?.generate() },
+      newContent: choiceAction { [weak self] in self?.startNewPolishDraft() },
+      knowledgeTitle: selectedKnowledge.title)
+    configureKnowledgeSelector(panel.knowledgeButton)
+    stack.addArrangedSubview(panel)
+  }
+  private var selectedKnowledge: AIKnowledge {
+    AIKnowledge(rawValue: UserDefaults(suiteName: Product.group)?.string(forKey: "ai.knowledge") ?? "") ?? .goutoujunshi
+  }
+  private func configureKnowledgeSelector(_ button: UIButton) {
+    button.menu = UIMenu(title: "选择知识库", children: AIKnowledge.allCases.map { knowledge in
+      UIAction(title: knowledge.title, state: selectedKnowledge == knowledge ? .on : .off) { [weak self] _ in
+        guard let self else { return }
+        cancelWork()
+        UserDefaults(suiteName: Product.group)?.set(knowledge.rawValue, forKey: "ai.knowledge")
+        options = []
+        render()
       }
-      items.append(spinner)
-      items.append(label(polish ? "AI正在优化..." : "正在分析并生成3条回复...", size: 16, color: accent, bold: true))
-      if polish { items.append(label("正在连接大模型，请稍候", size: 13, color: muted)) }
-      addPanel(items)
-      return
-    }
-    let title = label(polish ? "AI优化话术（点击选择）" : "😊 " + emotion, size: compact ? 12 : 14, color: accent, bold: true)
-    let heading = UIStackView(arrangedSubviews: [title, close])
-    heading.spacing = 8
-    heading.heightAnchor.constraint(equalToConstant: compact ? 24 : 30).isActive = true
-    var items: [UIView] = [heading]
-    if !polish {
-      let caption = label("AI推荐回复（点击使用）", size: 12, color: accent)
-      caption.heightAnchor.constraint(equalToConstant: 14).isActive = true
-      items.append(caption)
-    }
-    for (index, value) in options.prefix(3).enumerated() {
-      let button = key(value, special: true) { [weak self] in self?.safeInsert(value) }
-      button.accessibilityIdentifier = "aiResult.\(index)"
-      button.accessibilityLabel = value
-      button.accessibilityHint = "点击填入输入框；选择另一条可替换，不会发送"
-      button.titleLabel?.numberOfLines = 1
-      button.titleLabel?.lineBreakMode = .byTruncatingTail
-      button.titleLabel?.font = .systemFont(ofSize: compact ? 13 : 14)
-      button.contentHorizontalAlignment = .left
-      button.textPadding = UIEdgeInsets(top: 8, left: 12, bottom: 8, right: 12)
-      button.heightAnchor.constraint(equalToConstant: compact ? 32 : polish ? 64 : 52).isActive = true
-      items.append(button)
-    }
-    if !polish {
-      let retry = key("🔄 重新分析", special: true) { [weak self] in self?.generate() }
-      retry.accessibilityIdentifier = "aiReplyReanalyze"
-      retry.heightAnchor.constraint(equalToConstant: compact ? 24 : 30).isActive = true
-      items.append(retry)
-    }
-    addPanel(items, spacing: compact ? 4 : 8, inset: compact ? 8 : 12)
+    })
+    button.showsMenuAsPrimaryAction = true
+  }
+  private func startNewPolishDraft() {
+    guard editingLocalText else { return }
+    cancelVoice()
+    cancelWork()
+    rime.clear()
+    englishBuffer = ""
+    selectedSpelling = ""
+    spellingPrefix = ""
+    draft = ""
+    draftCursor = 0
+    options = []
+    error = ""
+    aiGuide = false
+    render()
   }
   private func pasteForReply() {
     guard hasFullAccess else {
@@ -1476,6 +1481,7 @@ final class KeyboardViewController: UIInputViewController, PHPickerViewControlle
     let settings = self.settings
     let image = lastImage
     let relation = relation
+    let knowledge = selectedKnowledge
     loading = true
     options = []
     error = ""
@@ -1486,13 +1492,15 @@ final class KeyboardViewController: UIInputViewController, PHPickerViewControlle
         let values: [String]
         if let image, mode == "帮你回" {
           let result = try await api.vision(
-            image: image, settings: settings, key: KeyboardUITestSupport.modelKey(), token: token)
+            image: image, settings: settings, key: KeyboardUITestSupport.modelKey(),
+            token: KeyboardUITestSupport.requestToken(token))
           values = result.replies
           if generation == ticket { emotion = result.scenario + " · " + result.analysis }
         } else {
           values = try await api.suggestions(
             text: source, relation: mode == "超会说" ? relation : nil, settings: settings,
-            key: KeyboardUITestSupport.modelKey(), token: token)
+            key: KeyboardUITestSupport.modelKey(), token: KeyboardUITestSupport.requestToken(token),
+            reference: knowledge.reference(for: source))
         }
         try Task.checkCancellation()
         guard generation == ticket, self.mode == mode,

@@ -62,6 +62,19 @@ final class RoutingTests: XCTestCase {
     XCTAssertEqual(requests.count, 1)
     XCTAssertEqual(requests.first?.url?.host, "example.com")
   }
+  func testSelectedKnowledgeTravelsAsReferenceDataWithOriginalSource() async throws {
+    let transport = QueueTransport([(chat, 200)])
+    let reference = AIKnowledge.goutoujunshi.reference(for: "明天一起吃饭")
+    _ = try await APIClient(transport: transport).suggestions(
+      text: "明天一起吃饭", relation: "朋友", settings: custom, key: "fixture-key", token: nil,
+      reference: reference)
+    let request = await transport.captured().last!
+    let body = try JSONSerialization.jsonObject(with: request.httpBody!) as! [String: Any]
+    let messages = body["messages"] as! [[String: String]]
+    XCTAssertTrue(messages[0]["content"]!.contains("不改变要求的JSON输出格式"))
+    XCTAssertTrue(messages[1]["content"]!.hasPrefix("用户原话：\n明天一起吃饭\n"))
+    XCTAssertTrue(messages[1]["content"]!.contains(reference))
+  }
   func testExpiredLoginCannotSilentlySwitchToAnotherCredential() async {
     let transport = QueueTransport([(#"{"message":"登录已过期"}"#, 401)])
     do {

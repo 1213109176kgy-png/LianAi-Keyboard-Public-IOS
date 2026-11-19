@@ -14,6 +14,11 @@ enum KeyboardUITestSupport {
     return defaults?.string(forKey: scenarioKey)
   }
   static func bootstrap() {
+    // Live result-page reviews can seed benign source text from the host app
+    // without switching the network transport or importing a runner clipboard.
+    if let source = ProcessInfo.processInfo.environment["LIANAI_REVIEW_SOURCE"], !source.isEmpty {
+      UIPasteboard.general.string = source
+    }
     guard let scenario = ProcessInfo.processInfo.environment["LIANAI_AI_UI_TEST"],
       ["success", "failure", "timeout", "no_model", "slow", "long"].contains(scenario) else {
         UserDefaults(suiteName: Product.group)?.removeObject(forKey: scenarioKey)
@@ -44,10 +49,12 @@ enum KeyboardUITestSupport {
   static func modelKey() -> String? {
     scenario != nil ? "ui-fixture-key" : SecretStore.read(key: "modelKey")
   }
+  static func requestToken(_ token: String?) -> String? { scenario == nil ? token : nil }
   #else
   static func bootstrap() {}
   static func client() -> APIClient { .shared }
   static func modelKey() -> String? { SecretStore.read(key: "modelKey") }
+  static func requestToken(_ token: String?) -> String? { token }
   #endif
 }
 #if DEBUG

@@ -77,6 +77,9 @@ final class KeyboardAIFlowTests: XCTestCase {
       let choice = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "恋爱键盘")).firstMatch
       if choice.exists { choice.tap() }
     }
+    if !waitVisible(app.buttons["keyboardMode.帮你回"], timeout: 2), app.textViews["trialInput"].exists {
+      app.textViews["trialInput"].tap()
+    }
     XCTAssertTrue(waitVisible(app.buttons["keyboardMode.帮你回"], timeout: 10), app.debugDescription)
     return app
   }
@@ -386,5 +389,48 @@ extension KeyboardAIFlowTests {
     capture("语音-拼音组合中长按仍保持空格", app)
     app.buttons["keyboardVoiceCancel"].tap()
     assertHost(app, "你")
+  }
+}
+
+extension KeyboardAIFlowTests {
+  func testSuperSpeakWriteNewContentClearsOnlyLocalDraft() {
+    let app = launch("success")
+    app.buttons["keyboardMode.超会说"].tap()
+    app.buttons["t9Key.6"].tap(); app.buttons["t9Key.4"].tap(); app.buttons["你"].tap()
+    app.buttons["aiDraftGenerate"].tap()
+    if app.buttons["keyboardPromptPrimary"].waitForExistence(timeout: 2) { app.buttons["keyboardPromptPrimary"].tap() }
+    XCTAssertTrue(waitVisible(app.buttons["aiResult.0"]))
+    XCTAssertTrue(app.buttons["aiNewContent"].isHittable)
+    app.buttons["aiResult.0"].tap()
+    assertHost(app, "第一条话术")
+    app.buttons["aiNewContent"].tap()
+    XCTAssertTrue(waitVisible(app.buttons["aiDraftGenerate"]))
+    XCTAssertFalse(app.buttons["aiResult.0"].exists)
+    XCTAssertEqual(app.staticTexts["keyboardAIDraft"].label, "输入你想说的话，AI帮你优化")
+    assertHost(app, "第一条话术")
+    app.buttons["t9Key.6"].tap(); app.buttons["t9Key.4"].tap(); app.buttons["你"].tap()
+    XCTAssertTrue(app.staticTexts["keyboardAIDraft"].label.contains("你"))
+    assertHost(app, "第一条话术")
+    capture("安卓对齐-超会说-写新内容", app)
+  }
+  func testKnowledgeSelectionInvalidatesResultsAndKeepsHostText() {
+    let app = launch("success")
+    requestReply(app)
+    XCTAssertTrue(waitVisible(app.buttons["aiResult.0"]))
+    app.buttons["aiResult.0"].tap()
+    assertHost(app, "第一条回复")
+    app.buttons["aiKnowledge"].tap()
+    let none = app.buttons["未选择知识库"]
+    XCTAssertTrue(none.waitForExistence(timeout: 3), app.debugDescription)
+    none.tap()
+    XCTAssertTrue(waitVisible(app.buttons["replyPaste"]))
+    XCTAssertFalse(app.buttons["aiResult.0"].exists)
+    assertHost(app, "第一条回复")
+    app.buttons["replyPaste"].tap()
+    XCTAssertTrue(waitVisible(app.buttons["aiResult.0"]))
+    XCTAssertTrue(app.buttons["aiKnowledge"].label.contains("未选择知识库"))
+    app.buttons["aiKnowledge"].tap()
+    app.buttons["狗头军师知识库"].tap()
+    XCTAssertTrue(waitVisible(app.buttons["replyPaste"]))
   }
 }

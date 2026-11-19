@@ -187,7 +187,7 @@ public actor APIClient {
     return (try endpoint.validatedURL(), key, endpoint.model, endpoint.thinking, false)
   }
   public func suggestions(
-    text: String, relation: String?, settings: Settings, key: String?, token: String?
+    text: String, relation: String?, settings: Settings, key: String?, token: String?, reference: String = ""
   ) async throws -> [String] {
     let feature = relation == nil ? "reply" : "polish"
     let (url, credential, model, thinking, official) = try await route(
@@ -200,8 +200,10 @@ public actor APIClient {
       system =
         settings.replyPrompt + "\n请针对对方消息生成3条语气和表达方式不同、均可直接发送的回复。只输出JSON字符串数组，必须正好3项，不要分析和解释。"
     }
+    if !reference.isEmpty { system += AIKnowledge.safetyRule }
     let content = try await chat(
-      url: url, key: credential, model: model, system: system, user: text, thinking: thinking,
+      url: url, key: credential, model: model, system: system,
+      user: reference.isEmpty ? text : "用户原话：\n\(text)\n\(reference)", thinking: thinking,
       mimo: !official && url.host?.contains("xiaomimimo.com") == true,
       temperature: relation == nil ? 0.8 : 0.75)
     return try Suggestions.parse(content)
