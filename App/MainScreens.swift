@@ -115,7 +115,9 @@ struct ProfileScreen: View {
         Divider()
         ActionRow(title: "关于我们", detail: "开发者、微信与随缘打赏", icon: "house") { model.navigate(.about) }
         Divider()
-        ActionRow(title: "检查更新", detail: "当前版本 1.5.9", icon: "history") { model.dialog = .version }
+        ActionRow(title: "App 升级", detail: model.openingAppStore ? "正在打开 App Store…" : "当前版本 \(model.versionLabel)", icon: "history") {
+          model.openAppStore()
+        }.disabled(model.openingAppStore)
       }
     }.task { await model.refreshSubscription() }
   }

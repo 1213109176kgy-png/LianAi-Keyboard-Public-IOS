@@ -40,6 +40,8 @@ xcodebuild -project LianAiKeyboard.xcodeproj -scheme LianAiKeyboard \
 
 分发 IPA 前须按[IPA 签名校验](docs/IPA签名校验.md)逐个验证键盘扩展和内部资源包；只验证主 App 不足以确认安装包可安装。
 
+iOS「App 升级」直接打开 App Store 的应用详情页，更新由 App Store 完成。在 `config/Build.xcconfig` 的 `LIANAI_APP_STORE_ID` 填写 App Store Connect 中的数字 Apple ID，可直接定位商店页面。未填写时会向 Apple 查询与当前 Bundle ID 完全一致的已上架应用；没有匹配页面时提示暂未找到，不跳转其他应用或下载渠道。版本信息读取实际安装包的版本号与构建号。
+
 复制 `config/Signing.xcconfig.example` 为 `config/Signing.xcconfig`，填入自己的 Apple Developer Team。该文件已忽略，不能提交真实签名资料。
 
 两个 target 必须使用同一 Team，并在开发者后台开通对应标识及共享能力：

@@ -20,7 +20,6 @@ final class KeyboardViewController: UIInputViewController, PHPickerViewControlle
   private var candidateStrip: KeyboardChoiceStrip?
   private var spellingStrip: KeyboardChoiceStrip?
   private weak var draftEditor: UILabel?
-  private weak var spellingOrPasteKey: InputKey?
   private var letterKeys: [(InputKey, String)] = []
   private let keyboardBody = UIView()
   private var keyboardBodyTop: NSLayoutConstraint?
@@ -193,6 +192,7 @@ final class KeyboardViewController: UIInputViewController, PHPickerViewControlle
   }
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
+    try? KeyboardSetupChannel.mailbox()?.confirmFromKeyboard(hasFullAccess: hasFullAccess)
     // During viewWillAppear UIKit may still expose the previous host's proxy.
     // Bind its document only from an input callback or a user action after the
     // view is attached, never while UIKit is reconnecting the remote host.
@@ -383,11 +383,6 @@ final class KeyboardViewController: UIInputViewController, PHPickerViewControlle
     }
     defer {
       if height?.constant != renderingHeight { height?.constant = renderingHeight }
-      let title = editingLocalText && rime.preedit.isEmpty ? "粘贴" : "选拼音"
-      if spellingOrPasteKey?.title(for: .normal) != title {
-        spellingOrPasteKey?.setTitle(title, for: .normal)
-        spellingOrPasteKey?.accessibilityLabel = title
-      }
     }
     view.backgroundColor = bg
     if ["键盘", "超会说"].contains(mode), inlinePrompt == nil, !aiGuide,
@@ -521,12 +516,6 @@ final class KeyboardViewController: UIInputViewController, PHPickerViewControlle
     tabsRow.backgroundColor = tabColor
     tabsRow.layer.cornerRadius = 20
     var controls: [UIView] = [tabsRow]
-    if settings.recentPaste && mode == "键盘" && hasFullAccess && UIPasteboard.general.hasStrings {
-      let paste = key("粘贴") { [weak self] in self?.pasteText() }
-      paste.titleLabel?.font = .systemFont(ofSize: 12)
-      paste.widthAnchor.constraint(equalToConstant: 42).isActive = true
-      controls.append(paste)
-    }
     let close = key("⌄") { [weak self] in self?.dismissKeyboard() }
     close.backgroundColor = tabColor
     close.tintColor = muted
@@ -978,20 +967,15 @@ final class KeyboardViewController: UIInputViewController, PHPickerViewControlle
       }, t9Key("PQRS", digit: "7"),
       t9Key("TUV", digit: "8"), t9Key("WXYZ", digit: "9"),
     ]
-    let spellingOrPaste = key(editingLocalText && rime.preedit.isEmpty ? "粘贴" : "选拼音") { [weak self] in
-      guard let self else { return }
-      if editingLocalText && rime.preedit.isEmpty { pasteText() }
-      else { expanded = true; rime.more(); render() }
-    }
-    spellingOrPaste.accessibilityIdentifier = "keyboardPasteOrSpelling"
-    spellingOrPasteKey = spellingOrPaste
+    let paste = key("粘贴") { [weak self] in self?.pasteText() }
+    paste.accessibilityIdentifier = "keyboardPasteOrSpelling"
     let fourth: [UIView] = [
       key("☺", special: true) { [weak self] in
         self?.flush()
         self?.emoji = true
         self?.render()
       },
-      spellingOrPaste, spaceKey(),
+      paste, spaceKey(),
     ]
     var cells: [(UIView, Int, Int, Int, Int)] = []
     for (i, value) in third.enumerated() { cells.append((value, i, 0, 1, 1)) }

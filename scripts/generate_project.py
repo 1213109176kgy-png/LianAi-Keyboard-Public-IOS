@@ -22,7 +22,7 @@ privacy=file('Resources/PrivacyInfo.xcprivacy','text.xml')
 licenses=file('Licenses','folder')
 base=file('config/Build.xcconfig','text.xcconfig')
 packageIDs={name:obj('pkg:'+name,'XCLocalSwiftPackageReference',relativePath='Packages/'+name) for name in ['LianAiCore','KeyboardCore','RimeBridge']}
-common={'SDKROOT':'iphoneos','ARCHS':'arm64','ONLY_ACTIVE_ARCH':'YES','IPHONEOS_DEPLOYMENT_TARGET':'18.0','SWIFT_VERSION':'6.0','SWIFT_STRICT_CONCURRENCY':'complete','CLANG_ENABLE_MODULES':'YES','CLANG_ENABLE_OBJC_ARC':'YES','GCC_C_LANGUAGE_STANDARD':'gnu17','CLANG_CXX_LANGUAGE_STANDARD':'gnu++17','CODE_SIGN_STYLE':'Automatic','TARGETED_DEVICE_FAMILY':'1,2','MARKETING_VERSION':'1.5.9','CURRENT_PROJECT_VERSION':'40','ENABLE_USER_SCRIPT_SANDBOXING':'YES','SWIFT_EMIT_LOC_STRINGS':'YES'}
+common={'SDKROOT':'iphoneos','ARCHS':'arm64','ONLY_ACTIVE_ARCH':'YES','IPHONEOS_DEPLOYMENT_TARGET':'18.0','SWIFT_VERSION':'6.0','SWIFT_STRICT_CONCURRENCY':'complete','CLANG_ENABLE_MODULES':'YES','CLANG_ENABLE_OBJC_ARC':'YES','GCC_C_LANGUAGE_STANDARD':'gnu17','CLANG_CXX_LANGUAGE_STANDARD':'gnu++17','CODE_SIGN_STYLE':'Automatic','TARGETED_DEVICE_FAMILY':'1,2','MARKETING_VERSION':'1.5.9','CURRENT_PROJECT_VERSION':'41','ENABLE_USER_SCRIPT_SANDBOXING':'YES','SWIFT_EMIT_LOC_STRINGS':'YES'}
 sourceFiles={}
 def source(path):
     if path not in sourceFiles:sourceFiles[path]=file(path,'sourcecode.swift')

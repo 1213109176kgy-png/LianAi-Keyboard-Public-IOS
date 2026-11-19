@@ -29,7 +29,7 @@ struct RootView: View {
         }
         if !model.knowledgeDetail { bottomBar }
       }.ignoresSafeArea(.keyboard, edges: model.page == .knowledge ? [] : .bottom)
-      if model.dialog != nil {
+      if model.dialog != nil && model.dialog != .setup {
         Color.black.opacity(0.34).ignoresSafeArea().onTapGesture { model.dialog = nil }
         dialogContent.padding(.horizontal, 26).frame(maxWidth: 460)
       }
@@ -55,6 +55,10 @@ struct RootView: View {
         }
       }
     }.foregroundStyle(LA.ink)
+      .sheet(isPresented: Binding(
+        get: { model.dialog == .setup },
+        set: { if !$0 && model.dialog == .setup { model.dialog = nil } }
+      )) { KeyboardSetupScreen(setup: model.keyboardSetup) }
       .task {
         KeyboardUITestSupport.bootstrap()
         await KeyboardVoiceUITestSupport.bootstrap()
@@ -65,6 +69,7 @@ struct RootView: View {
           splash = false
         }
         model.resumeKeyboardRequest()
+        model.presentInitialKeyboardSetup()
         await model.refreshSubscription()
       }
       .onChange(of: store.user?.id) { _, _ in
@@ -74,6 +79,7 @@ struct RootView: View {
         if phase == .active {
           store.reload(persistPruned: true)
           model.resumeKeyboardRequest()
+          model.keyboardSetup.checkCompletion()
           Task { await model.refreshSubscription() }
         }
       }
@@ -174,22 +180,14 @@ struct RootView: View {
         }.frame(maxHeight: 280)
       }
     case .version:
-      DialogCard(title: "版本管理", subtitle: "当前版本 1.5.9 · iOS") {
-        Hint("当前为本地开发版本。iOS 安装包由签名分发渠道提供，安卓 APK 不能安装到 iPhone。")
-        LAButton(title: "查看项目版本", filled: false) {
-          UIApplication.shared.open(
-            URL(string: "https://github.com/1213109176kgy-png/LianAi-Keyboard-Public-IOS/releases")!
-          )
-        }
+      DialogCard(title: "版本信息", subtitle: "当前版本 \(model.versionLabel) · iOS") {
+        Hint("前往 App Store 查看新版本，并在应用详情页完成更新。")
+        LAButton(title: model.openingAppStore ? "正在打开 App Store…" : "前往 App Store 升级") {
+          model.openAppStore()
+        }.disabled(model.openingAppStore)
       }
     case .setup:
-      DialogCard(title: "先启用恋爱键盘", subtitle: "体验 AI 键盘前，需要先在系统中启用") {
-        Hint(
-          "第 1 步：打开系统「设置 → 通用 → 键盘 → 键盘 → 添加新键盘」\n第 2 步：选择「恋爱键盘」\n第 3 步：在线 AI 需开启「允许完全访问」\n第 4 步：返回输入框，长按地球键选择恋爱键盘"
-        )
-        LAButton(title: "去设置") { model.openSettings() }
-        LAButton(title: "稍后再说", filled: false) { model.dialog = nil }
-      }
+      EmptyView() // Presented as a scrollable sheet so the verification keyboard fits.
     case .microphone:
       DialogCard(title: "开启麦克风权限", subtitle: "语音输入必需") {
         Hint("首次开启语音会话后，返回聊天长按空格即可直接语音输入；会话结束后需重新开启。")

@@ -400,6 +400,27 @@ extension KeyboardAIFlowTests {
 }
 
 extension KeyboardAIFlowTests {
+  func testNineKeyPasteMatchesAndroidAndKeepsToolbarClear() {
+    let app = launch("success")
+    let paste = app.buttons["keyboardPasteOrSpelling"]
+    XCTAssertTrue(waitVisible(paste))
+    XCTAssertEqual(paste.label, "粘贴")
+    XCTAssertEqual(app.buttons.matching(NSPredicate(format: "label == %@", "粘贴")).count, 1)
+    XCTAssertFalse(app.buttons["选拼音"].exists)
+    capture("粘贴位置-普通键盘-顶部无重复入口", app)
+    paste.tap(); assertHost(app, "明天一起吃饭吗？")
+    app.buttons["MNO"].tap(); app.buttons["GHI"].tap()
+    XCTAssertTrue(app.buttons["你"].waitForExistence(timeout: 3))
+    XCTAssertEqual(paste.label, "粘贴")
+    paste.tap(); assertHost(app, "明天一起吃饭吗？你明天一起吃饭吗？")
+    if !app.buttons["keyboardMode.超会说"].isHittable && app.buttons["×"].exists { app.buttons["×"].tap() }
+    app.buttons["keyboardMode.超会说"].tap()
+    XCTAssertEqual(paste.label, "粘贴")
+    paste.tap()
+    XCTAssertTrue(app.staticTexts["keyboardAIDraft"].label.contains("明天一起吃饭吗？"))
+    assertHost(app, "明天一起吃饭吗？你明天一起吃饭吗？")
+    capture("粘贴位置-超会说-只进入内部草稿", app)
+  }
   func testMainAppKnowledgeChangesAreSharedWithKeyboard() {
     let app = launch("success")
     func openKnowledge() {

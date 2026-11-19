@@ -375,7 +375,7 @@ struct AboutScreen: View {
   var body: some View {
     VStack(alignment: .leading, spacing: 12) {
       Card {
-        ActionRow(title: "版本信息", detail: "当前版本 1.5.9（39）· iOS") { model.dialog = .version }
+        ActionRow(title: "版本信息", detail: "当前版本 \(model.versionLabel) · iOS") { model.dialog = .version }
         Divider()
         ActionRow(title: "隐私政策", detail: "数据如何采集与保存") { model.dialog = .privacy }
       }

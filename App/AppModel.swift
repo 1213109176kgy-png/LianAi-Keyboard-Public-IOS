@@ -38,6 +38,22 @@ final class AppModel: ObservableObject {
   @Published var subscription: Subscription?
   @Published var subscriptionFailed = false
   @Published var knowledgeDetail = false
+  @Published var openingAppStore = false
+  let keyboardSetup = KeyboardSetupCoordinator()
+  func presentInitialKeyboardSetup() {
+    #if DEBUG
+    // Existing focused UI previews retain their own entry point. Normal launches
+    // (including the onboarding UI test) always exercise the real first-run path.
+    if ProcessInfo.processInfo.environment["LIANAI_PREVIEW_PAGE"] != nil { return }
+    #endif
+    keyboardSetup.prepare()
+    if !keyboardSetup.isComplete, dialog == nil { dialog = .setup }
+  }
+  var versionLabel: String {
+    let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "—"
+    let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "—"
+    return "\(version)（\(build)）"
+  }
   var knowledgeLeave: ((@escaping () -> Void) -> Void)?
   private var cloudReturnPage: Page = .settings
   func navigate(_ next: Page) {
@@ -64,6 +80,25 @@ final class AppModel: ObservableObject {
   func openSettings() {
     guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
     UIApplication.shared.open(url)
+  }
+  func openAppStore() {
+    guard !openingAppStore else { return }
+    openingAppStore = true
+    Task {
+      defer { openingAppStore = false }
+      do {
+        let url = try await AppStoreUpdate.pageURL(
+          bundleID: Bundle.main.bundleIdentifier ?? "com.lianai.keyboard.ios",
+          configuredID: Bundle.main.object(forInfoDictionaryKey: "AppStoreID") as? String,
+          country: Locale.current.region?.identifier ?? "CN")
+        guard await UIApplication.shared.open(url) else {
+          notice("无法打开 App Store，请稍后重试")
+          return
+        }
+        if dialog == .version { dialog = nil }
+      } catch let error as ClientError { notice(error.localizedDescription) }
+      catch { notice("暂时无法连接 App Store，请检查网络后重试") }
+    }
   }
   func refreshSubscription() async {
     let store = SharedStore.shared
