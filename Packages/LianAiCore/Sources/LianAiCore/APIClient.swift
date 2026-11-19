@@ -52,7 +52,7 @@ public actor APIClient {
     guard phone.range(of: "^1[0-9]{10}$", options: .regularExpression) != nil else {
       throw ClientError.message("请输入正确的 11 位手机号")
     }
-    guard (8...64).contains(password.count) else { throw ClientError.message("密码需为 8～64 位") }
+    guard (8...64).contains(password.utf16.count) else { throw ClientError.message("密码需为 8～64 位") }
     return try await send(
       Session.self, url: base.appendingPathComponent(register ? "auth/register" : "auth/login"),
       body: ["phone": phone, "password": password])
@@ -60,6 +60,21 @@ public actor APIClient {
   public func logout(token: String) async throws {
     _ = try await send(
       OK.self, url: base.appendingPathComponent("auth/logout"), token: token, body: [:])
+  }
+  public func changePassword(token: String, oldPassword: String, newPassword: String) async throws {
+    guard !token.isEmpty else { throw ClientError.message("请先登录") }
+    guard !oldPassword.isEmpty, oldPassword.utf16.count <= 64 else {
+      throw ClientError.message("请输入有效的旧密码")
+    }
+    guard (8...64).contains(newPassword.utf16.count) else {
+      throw ClientError.message("新密码需为 8～64 位")
+    }
+    guard oldPassword != newPassword else { throw ClientError.message("新密码不能与旧密码相同") }
+    struct Response: Decodable, Sendable { var ok: Bool }
+    let response = try await send(
+      Response.self, url: base.appendingPathComponent("auth/password"), token: token,
+      body: ["oldPassword": oldPassword, "newPassword": newPassword])
+    guard response.ok else { throw ClientError.message("无法确认密码是否已修改") }
   }
   public func config(token: String) async throws -> RuntimeConfig {
     let config = try await send(

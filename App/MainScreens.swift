@@ -82,6 +82,14 @@ struct ProfileScreen: View {
         }.foregroundStyle(.white).padding(20).background(
           LA.gradient, in: RoundedRectangle(cornerRadius: 24))
       }.buttonStyle(.plain)
+      if store.user != nil {
+        SectionLabel("账号设置")
+        Card(spacing: 0) {
+          ActionRow(title: "修改密码", detail: "验证旧密码后设置新密码", icon: "shield_check") {
+            model.dialog = .changePassword
+          }.accessibilityIdentifier("changePasswordEntry")
+        }
+      }
       SectionLabel("订阅")
       Card(spacing: 0) {
         ActionRow(title: "订阅套餐", detail: store.user == nil ? "购买套餐需先登录" : "查看套餐与订阅状态", icon: "zap")
@@ -233,5 +241,56 @@ struct LoginDialog: View {
       model.notice("已登录 \(session.user.displayPhone)")
       await model.refreshSubscription()
     } catch { self.error = error.localizedDescription }
+  }
+}
+
+struct ChangePasswordDialog: View {
+  @EnvironmentObject private var model: AppModel
+  @EnvironmentObject private var store: SharedStore
+  @State private var oldPassword = ""
+  @State private var newPassword = ""
+  @State private var confirmation = ""
+  @State private var busy = false
+  @State private var error = ""
+  var body: some View {
+    DialogCard(title: "修改密码", subtitle: "修改后，其他登录会话需要重新登录") {
+      Field(title: "旧密码", text: $oldPassword, secure: true)
+        .textContentType(.password).accessibilityIdentifier("oldPassword")
+      Field(title: "新密码（8～64 位）", text: $newPassword, secure: true)
+        .textContentType(.newPassword).accessibilityIdentifier("newPassword")
+      Field(title: "再次输入新密码", text: $confirmation, secure: true)
+        .textContentType(.newPassword).accessibilityIdentifier("confirmPassword")
+      if !error.isEmpty {
+        Text(error).font(.system(size: 12)).foregroundStyle(.red)
+          .accessibilityIdentifier("changePasswordError")
+      }
+      LAButton(title: busy ? "正在修改…" : "确认修改", busy: busy) {
+        Task { await submit() }
+      }.accessibilityIdentifier("changePasswordSubmit")
+    }
+  }
+  private func submit() async {
+    guard !busy else { return }
+    guard newPassword == confirmation else {
+      error = "两次输入的新密码不一致"
+      return
+    }
+    guard let token = store.token() else {
+      error = "请先登录"
+      return
+    }
+    error = ""
+    busy = true
+    defer { busy = false }
+    do {
+      try await APIClient.shared.changePassword(
+        token: token, oldPassword: oldPassword, newPassword: newPassword)
+      guard store.token() == token else { return }
+      if model.dialog == .changePassword { model.dialog = nil }
+      model.notice("密码已修改")
+    } catch {
+      guard store.token() == token else { return }
+      self.error = error.localizedDescription
+    }
   }
 }

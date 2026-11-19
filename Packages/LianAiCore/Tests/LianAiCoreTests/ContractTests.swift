@@ -20,6 +20,58 @@ actor FixtureTransport: HTTPTransport {
   func last() -> URLRequest? { requests.last }
 }
 @MainActor final class ContractTests: XCTestCase {
+  func testPasswordChangeUsesAuthenticatedBackendContractWithoutTrimmingPasswords() async throws {
+    let transport = FixtureTransport(#"{"ok":true}"#)
+    let api = APIClient(transport: transport)
+    try await api.changePassword(token: "test-session", oldPassword: " old-pass ", newPassword: " new-pass ")
+    let sentRequest = await transport.last()
+    let request = try XCTUnwrap(sentRequest)
+    XCTAssertEqual(request.url?.path, "/api/app/auth/password")
+    XCTAssertEqual(request.httpMethod, "POST")
+    XCTAssertEqual(request.value(forHTTPHeaderField: "Authorization"), "Bearer test-session")
+    let body = try XCTUnwrap(JSONSerialization.jsonObject(with: request.httpBody!) as? [String: String])
+    XCTAssertEqual(body, ["oldPassword": " old-pass ", "newPassword": " new-pass "])
+  }
+  func testPasswordChangeRejectsInvalidInputBeforeSendingAndMatchesUTF16Limits() async throws {
+    let transport = FixtureTransport(#"{"ok":true}"#)
+    let api = APIClient(transport: transport)
+    for (token, old, new) in [
+      ("", "old-pass", "new-pass"),
+      ("test", "", "new-pass"),
+      ("test", "old-pass", "short"),
+      ("test", "old-pass", String(repeating: "😀", count: 33)),
+      ("test", "old-pass", "old-pass"),
+    ] {
+      do {
+        try await api.changePassword(token: token, oldPassword: old, newPassword: new)
+        XCTFail("Invalid input accepted")
+      } catch {}
+    }
+    let rejectedRequest = await transport.last()
+    XCTAssertNil(rejectedRequest)
+    try await api.changePassword(token: "test", oldPassword: "old-pass", newPassword: "😀😀😀😀")
+  }
+  func testPasswordChangeShowsBackendErrorsAndRequiresExplicitSuccess() async throws {
+    for (status, body, message) in [
+      (400, #"{"message":"旧密码不正确"}"#, "旧密码不正确"),
+      (401, #"{"message":"请先登录"}"#, "请先登录"),
+      (200, #"{"ok":false}"#, "无法确认密码是否已修改"),
+    ] {
+      let api = APIClient(transport: FixtureTransport(body, status: status))
+      do {
+        try await api.changePassword(token: "test", oldPassword: "old-pass", newPassword: "new-pass")
+        XCTFail("Unsuccessful response accepted")
+      } catch { XCTAssertEqual(error.localizedDescription, message) }
+    }
+  }
+  func testLoginAcceptsTheSameUnicodePasswordLengthAsPasswordChange() async throws {
+    let transport = FixtureTransport(#"{"token":"test-session","user":{"id":"test-user"}}"#)
+    let api = APIClient(transport: transport)
+    let session = try await api.login(phone: "13900000001", password: "😀😀😀😀", register: false)
+    XCTAssertEqual(session.token, "test-session")
+    let request = await transport.last()
+    XCTAssertEqual(request?.url?.path, "/api/app/auth/login")
+  }
   func testOutputRulesKeepEnglishNullAndRemoveASRMarkup() {
     XCTAssertEqual(OutputRules.transcript("<chinese>你好</chinese>null"), "你好")
     XCTAssertEqual(

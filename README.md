@@ -36,6 +36,8 @@ xcodebuild -project LianAiKeyboard.xcodeproj -scheme LianAiKeyboard \
 
 ## 真机签名
 
+当前公司团队使用 `group.com.bahuang.lianai.keyboard`，两份开发描述文件及本地验证说明见[公司团队签名配置](docs/公司团队签名配置.md)。
+
 复制 `config/Signing.xcconfig.example` 为 `config/Signing.xcconfig`，填入自己的 Apple Developer Team。该文件已忽略，不能提交真实签名资料。
 
 两个 target 必须使用同一 Team，并在开发者后台开通对应标识及共享能力：
@@ -44,7 +46,7 @@ xcodebuild -project LianAiKeyboard.xcodeproj -scheme LianAiKeyboard \
 | --- | --- |
 | 主 App | `com.lianai.keyboard.ios` |
 | 键盘扩展 | `com.lianai.keyboard.ios.Keyboard` |
-| App Group | `group.com.lianai.keyboard` |
+| App Group | `group.com.bahuang.lianai.keyboard` |
 | Keychain Access Group | `$(AppIdentifierPrefix)com.lianai.keyboard.shared` |
 | URL scheme | `lianai` |
 

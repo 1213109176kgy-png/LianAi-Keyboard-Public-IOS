@@ -1,7 +1,7 @@
 import Foundation
 
 public enum Product {
-  public static let group = "group.com.lianai.keyboard"
+  public static let group = "group.com.bahuang.lianai.keyboard"
   public static let baseURL = URL(string: "https://lianai.bahuang.tech/api/app")!
   public static func dateLabel(milliseconds: Double) -> String {
     let formatter = DateFormatter()

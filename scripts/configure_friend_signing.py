@@ -11,7 +11,7 @@ def main():
         parser.error('Choose your own unique reverse-domain namespace, e.g. com.xiaoming.lianaikeyboard2026')
     root=Path(__file__).resolve().parent.parent
     record=root/'config/FriendNamespace.json'
-    old=json.loads(record.read_text()) if record.exists() else {'namespace':'com.lianai.keyboard.ios','group':'group.com.lianai.keyboard','shared':'com.lianai.keyboard.shared'}
+    old=json.loads(record.read_text()) if record.exists() else {'namespace':'com.lianai.keyboard.ios','group':'group.com.bahuang.lianai.keyboard','shared':'com.lianai.keyboard.shared'}
     new={'namespace':ns,'group':'group.'+ns,'shared':ns+'.shared'}
     files={'scripts/generate_project.py':[(old['namespace'],ns)],
       'Packages/LianAiCore/Sources/LianAiCore/Models.swift':[(old['group'],new['group'])]}

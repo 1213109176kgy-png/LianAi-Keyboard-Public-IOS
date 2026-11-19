@@ -138,6 +138,7 @@ struct RootView: View {
   @ViewBuilder private var dialogContent: some View {
     switch model.dialog {
     case .login: LoginDialog()
+    case .changePassword: ChangePasswordDialog()
     case .logout:
       DialogCard(title: "退出登录？", subtitle: "本机登录状态将被清除") {
         Hint("订阅权益不受影响，下次购买前重新登录即可。")

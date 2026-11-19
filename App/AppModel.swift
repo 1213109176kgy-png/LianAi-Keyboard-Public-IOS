@@ -26,7 +26,7 @@ enum Page: String, CaseIterable {
   }
 }
 enum Dialog: String, Identifiable {
-  case login, logout, feedback, privacy, version, setup, microphone, voice
+  case login, logout, changePassword, feedback, privacy, version, setup, microphone, voice
   var id: String { rawValue }
 }
 @MainActor
